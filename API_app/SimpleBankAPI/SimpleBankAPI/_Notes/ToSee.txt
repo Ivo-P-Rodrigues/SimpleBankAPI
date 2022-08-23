@@ -1,0 +1,52 @@
+﻿
+General stuff
+IValidatableObject - https://docs.microsoft.com/en-us/ef/ef6/saving/validation
+DTO - https://go.microsoft.com/fwlink/?linkid=2123754
+! (null-forgiving) operator  - https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-forgiving
+
+Attributes
+code-first/data-annotations - https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/data-annotations
+Entity Properties - https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt
+
+Email Validation   (CreateUserRequest class' prop)
+	MS - How to verify that strings are in valid email format - https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
+	MS - RegularExpressionAttribute Class - https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=net-6.0
+	StackOverflow - Best Regular Expression for Email Validation in C# - https://stackoverflow.com/questions/16167983/best-regular-expression-for-email-validation-in-c-sharp
+
+
+
+Dependency Injection
+	https://exceptionnotfound.net/dependency-injection-in-dotnet-6-adding-and-injecting-dependencies/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+Get an app injected service
+	provider.GetService<SimpleBankAPIContext>(); 
+
+	HttpContext.RequestServices.GetService<SimpleBankAPIContext>
+
+
+Inject Services
+	builder.Services.AddTransient<IMailService, LocalMailService>();
+	builder.Services.AddScoped<>();
+	builder.Services.AddSingleton<>();
+
+Alternate service injection depending on environment
+	#if DEBUG
+	builder.Services.AddTransient<IMailService, LocalMailService>();
+	#else
+	builder.Services.AddTransient<IMailService, CloudMailService>();
+	#endif
