@@ -1,0 +1,30 @@
+﻿namespace SimpleBankAPI
+{
+    public enum Currency
+    {
+        USD, //USA Dollar
+        EUR, //Euro
+        GBP, //Great Britain Pound
+        CHF, //Switzerland Franc
+        JPY, //Japan Yen
+        BRL  //Brazil Real
+    }
+    public class CurrencyManage 
+    {
+        public readonly Dictionary<Currency, float> ConversionRateToDollar = new Dictionary<Currency, float>()
+            {
+                { Currency.USD, 1 },
+                { Currency.EUR, 1.01f },
+                { Currency.GBP, 1.17f },
+                { Currency.CHF, 1.03f },
+                { Currency.JPY, 0.007f },
+                { Currency.BRL, 0.19f },
+            };
+    }
+
+
+
+
+    //list - https://www.easymarkets.com/eu/learn-centre/discover-trading/currency-acronyms-and-abbreviations/
+    //rate - https://www.xe.com/currencyconverter/
+}
