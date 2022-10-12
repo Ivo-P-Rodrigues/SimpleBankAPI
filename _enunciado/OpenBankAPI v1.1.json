@@ -1,0 +1,449 @@
+swagger: "2.0"
+host: localhost:8080
+basePath: /v1
+info:
+  title: Simple Bank API
+  version: 1.0.0
+  description: API to serve basic bank operations.
+securityDefinitions:
+  bearerAuth:
+    name: Authorization
+    in: header
+    type: apiKey
+    description: JWT Authorization header
+security:
+  - bearerAuth: []
+schemes:
+ - https
+definitions:
+  createUserRequest:
+    properties:
+      email:
+        type: string
+        format: email
+      full_name:
+        type: string
+        minLength: 16
+      password:
+        minLength: 8
+        type: string
+      username:
+        minLength: 8
+        type: string
+    required:
+    - email
+    - full_name
+    - password
+    - username
+    type: object
+  loginUserRequest:
+    properties:
+      password:
+        minLength: 8
+        type: string
+      username:
+        minLength: 8
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  loginUserResponse:
+    properties:
+      access_token:
+        type: string
+      access_token_expires_at:
+        type: string
+        format: datetime
+      refresh_token:
+        type: string
+      refresh_token_expires_at:
+        type: string
+        format: datetime
+      session_id:
+        type: string
+      user:
+        $ref: '#/definitions/createUserResponse'
+    required:
+    - access_token
+    - access_token_expires_at
+    - refresh_token
+    - refresh_token_expires_at
+    - session_id
+    type: object
+  logoutUserRequest:
+    properties:
+      session_id:
+        type: string
+    required:
+    - session_id
+    type: object
+  logoutUserResponse:
+    properties:
+      session_id:
+        type: string
+    required:
+    - session_id
+    type: object
+  transferRequest:
+    properties:
+      amount:
+        minimum: 1
+        type: number
+      from_account_id:
+        minimum: 1
+        type: integer
+      to_account_id:
+        minimum: 1
+        type: integer
+    required:
+    - amount
+    - currency
+    - from_account_id
+    - to_account_id
+    type: object
+  createUserResponse:
+    properties:
+      user_id:
+        type: integer
+        minimum: 1
+      created_at:
+        type: string
+        format: datetime
+      email:
+        type: string
+        format: email
+      full_name:
+        type: string
+      password_changed_at:
+        type: string
+        format: datetime
+      username:
+        type: string
+    required:
+      - id
+      - created_at
+      - email
+      - full_name
+      - password_changed_at
+      - username
+    type: object
+  createAccountRequest:
+    properties:
+      amount:
+        type: integer
+      currency:
+        minLength: 3
+        type: string
+        default: EUR
+    type: object
+  account:
+    properties:
+      balance:
+        type: number
+      created_at:
+        type: string
+        format: datetime
+      currency:
+        minLength: 3
+        type: string
+        default: EUR
+      account_id:
+        type: integer
+        minimum: 1
+    type: object
+  movim:
+    properties:
+      amount:
+        type: number
+      created_at:
+        type: string
+        format: datetime
+    type: object    
+  accountMovims:
+    type: object
+    properties:
+      account:
+        $ref: '#/definitions/account'
+      movims:
+        type: array
+        items:
+          $ref: '#/definitions/movim'
+  renewRequest:
+    properties:
+      refresh_token:
+        type: string
+    required:
+    - refresh_token
+    type: object          
+paths:
+  /accounts:
+    get:
+      consumes:
+      - application/json
+      description: Get all accounts of user
+      parameters:
+      - name: Authorization
+        description: JWT access token
+        in: header
+        required: true
+        type: string          
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Account
+          schema:
+            items:
+              $ref: '#/definitions/account'
+            type: array
+        "401":
+          description: Unauthorized
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Get All accounts
+      security:
+      - bearerAuth: []
+      tags:
+      - Accounts
+    post:
+      consumes:
+      - application/json
+      description: Create account
+      parameters:
+      - name: Authorization
+        description: JWT access token
+        in: header
+        required: true
+        type: string          
+      - name: AccountRequest
+        description: AccountRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/createAccountRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: AccountResponse
+          schema:
+            $ref: '#/definitions/account'
+        "400":
+          description: Bad Request
+          schema: {}
+        "401":
+          description: Unauthorized
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Create account
+      security:
+      - bearerAuth: []
+      tags:
+      - Accounts
+  /accounts/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get account id of user
+      parameters:
+      - name: Authorization
+        description: JWT access token
+        in: header
+        required: true
+        type: string          
+      - name: id
+        in: path
+        description: Account ID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Account
+          schema:
+            $ref: '#/definitions/accountMovims'
+        "401":
+          description: Unauthorized
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Get account
+      security:
+      - bearerAuth: []
+      tags:
+      - Accounts
+  /transfers:
+    post:
+      consumes:
+      - application/json
+      description: Execute tranfer request between 2 accounts
+      parameters:
+      - name: TransferRequest
+        description: TransferRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/transferRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: TransferResponse
+          schema: {}
+        "400":
+          description: Bad Request
+          schema: {}
+        "401":
+          description: Unauthorized
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Tranfer request
+      security:
+      - bearerAuth: []
+      tags:
+      - Transfer
+  /users:
+    post:
+      consumes:
+      - application/json
+      description: Create new user
+      parameters:
+      - name: CreateUserRequest
+        description: CreateUserRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/createUserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: CreateUserResponse
+          schema:
+            $ref: '#/definitions/createUserResponse'
+        "400":
+          description: Bad Request
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Create user
+      security: []
+      tags:
+      - User
+  /users/login:
+    post:
+      consumes:
+      - application/json
+      description: Execute login user
+      parameters:
+      - name: LoginUserRequest
+        description: LoginUserRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/loginUserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: LoginUserResponse
+          schema:
+            $ref: '#/definitions/loginUserResponse'
+        "400":
+          description: Bad Request
+          schema: {}
+        "401":
+          description: Unauthorized
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Login user
+      security: []
+      tags:
+      - User
+  /users/logout:
+    post:
+      consumes:
+      - application/json
+      description: Execute logout user
+      parameters:
+      - name: LogoutUserRequest
+        description: LogoutUserRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/logoutUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: LoginUserResponse
+          schema:
+            $ref: '#/definitions/loginUserResponse'
+        "400":
+          description: Bad Request
+          schema: {}
+        "401":
+          description: Unauthorized
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Logout user
+      security:
+      - bearerAuth: []
+      tags:
+      - User
+  /users/renew:
+    post:
+      consumes:
+      - application/json
+      description: Refresh token
+      parameters:
+      - name: RenewRequest
+        description: RenewRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/renewRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: RenewResponse
+          schema:
+            $ref: '#/definitions/loginUserResponse'
+        "400":
+          description: Bad Request
+          schema: {}
+        "401":
+          description: Unauthorized
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Logout user
+      security:
+      - bearerAuth: []
+      tags:
+      - User
