@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(options => options.ReturnHttpNotAcceptable = true);
 builder.Services.AddEndpointsApiExplorer();
 
-//Log
+//Serilog
 builder.Logging.ClearProviders();
 builder.Host.RegisterSerilog();
 builder.Services.AddSingleton(Log.Logger);
