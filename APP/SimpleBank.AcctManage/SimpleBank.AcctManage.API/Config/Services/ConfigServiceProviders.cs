@@ -11,7 +11,7 @@ namespace SimpleBank.AcctManage.API.Config.Services
             services.AddTransient<IAuthenthicationProvider, AuthenthicationProvider>();
             services.AddTransient<IEntityMapper, EntityMapper>();
 
-            services.AddTransient<INotificationProducer, NotificationProducer>();
+            services.AddTransient<ITransferNotificationProducer, TransferNotificationProducer>();
             return services;
         }
 

@@ -6,18 +6,19 @@ using SimpleBank.AcctManage.Core.Domain;
 using Microsoft.Extensions.Configuration;
 using System.Transactions;
 using Serilog;
+using System.Security.Cryptography.Xml;
 
 namespace SimpleBank.AcctManage.Core.Application.Business
 {
     public class TransferBusiness : ITransferBusiness
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly INotificationProducer _notificationProducer;
+        private readonly ITransferNotificationProducer _notificationProducer;
         private readonly ILogger _logger;
 
         public TransferBusiness(
             IUnitOfWork unitOfWork,
-            INotificationProducer notificationProducer,
+            ITransferNotificationProducer notificationProducer,
             ILogger logger
         )
         {
@@ -47,18 +48,7 @@ namespace SimpleBank.AcctManage.Core.Application.Business
                 return (true, true, null);
             }
 
-            //kafka
-            var userFrom = _unitOfWork.Users.Get(userId);
-            var userTo = _unitOfWork.Users.Get(accountTo!.UserId);
-
-            TransferMailNotice transferNotification = new TransferMailNotice(
-                userFrom!.Username,
-                userTo!.Username,
-                transfer.ToAccountId.ToString(),
-                userTo.Email,
-                transfer.Amount.ToString());
-
-            await _notificationProducer.RegisterNotificationAsync(transferNotification);
+            await SendMailNotification(transfer, userId, accountTo!.UserId);
 
             return (false, false, transferProcessed);
         }
@@ -91,7 +81,6 @@ namespace SimpleBank.AcctManage.Core.Application.Business
             }
             return transfer;
         }
-
         private void CreateTransferMovements(Transfer transfer, out Movement movementFrom, out Movement movementTo)
         {
             movementFrom = new Movement()
@@ -108,6 +97,20 @@ namespace SimpleBank.AcctManage.Core.Application.Business
             };
         }
 
+        private async Task SendMailNotification(Transfer transfer, Guid fromUserId, Guid toUserId)
+        {
+            var userFrom = _unitOfWork.Users.Get(fromUserId);
+            var userTo = _unitOfWork.Users.Get(toUserId);
+
+            TransferMailNotification transferNotification = new TransferMailNotification(
+                userFrom!.Username,
+                userTo!.Username,
+                transfer.ToAccountId.ToString(),
+                userTo.Email,
+                transfer.Amount.ToString());
+
+            await _notificationProducer.RegisterTransferAsync(transferNotification);
+        }
 
     }
 }
