@@ -1,8 +1,8 @@
 ﻿namespace SimpleBank.AcctManage.Core.Application.NotificationModels
 {
-    public class TransferMailNotice
+    public class TransferMailNotification
     {
-        public TransferMailNotice(string fromUser, string toUser, string toAccountId, string toEmail, string amount)
+        public TransferMailNotification(string fromUser, string toUser, string toAccountId, string toEmail, string amount)
         {
             FromUser = fromUser;
             ToUser = toUser;

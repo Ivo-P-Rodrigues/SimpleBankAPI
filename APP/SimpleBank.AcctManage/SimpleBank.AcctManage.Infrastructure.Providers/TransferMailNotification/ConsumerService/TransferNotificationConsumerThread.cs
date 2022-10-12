@@ -5,21 +5,21 @@ using SimpleBank.AcctManage.Core.Application.Contracts.Providers.Notification;
 
 namespace SimpleBank.AcctManage.Infrastructure.Providers.Notification.ConsumerService
 {
-    public class NotificationConsumerThread<T> : BackgroundService where T : class 
+    public class TransferNotificationConsumerThread<T> : BackgroundService where T : class 
     {
         private readonly IConsumer<Ignore, string> _consumer;
-        private readonly INotificationProvider<T> _notificationProvider;
+        private readonly ITransferNotificationProvider _notificationProvider;
         private readonly ILogger _logger;
 
 
-        public NotificationConsumerThread(
+        public TransferNotificationConsumerThread(
             IConsumer<Ignore, string> consumer,
-            INotificationProvider<T> notificationProvider,
+            ITransferNotificationProvider notificationProvider,
             ILogger logger)
         {
             _consumer = consumer ?? throw new ArgumentNullException(nameof(consumer));
             _notificationProvider = notificationProvider ?? throw new ArgumentNullException(nameof(notificationProvider));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _logger = logger;
         }
 
         protected override async Task ExecuteAsync(CancellationToken cancellationToken)
