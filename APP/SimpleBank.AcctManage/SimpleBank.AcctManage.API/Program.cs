@@ -23,9 +23,11 @@ builder.Services.ConfigureSwaggerService();
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
 
 //Infrastructure - Host Providers (consumer)
-builder.Services.ConfigureTransferNotificationService(builder.Configuration);
+builder.Services.ConfigureTransferNotificationService(builder.Configuration, Log.Logger);
 
 var app = builder.Build();
+
+
 
 
 if (app.Environment.IsDevelopment())

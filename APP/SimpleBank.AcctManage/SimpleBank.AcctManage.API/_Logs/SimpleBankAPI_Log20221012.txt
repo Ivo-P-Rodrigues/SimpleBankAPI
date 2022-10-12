@@ -502,3 +502,580 @@ VALUES (@p18, @p19, @p20, @p21, @p22);
 2022-10-12 17:13:48.939 +01:00 [DBG] 'SimpleBankDbContext' disposed.
 2022-10-12 17:13:48.940 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7074/api/transfers application/json 139 - 201 - application/json;+charset=utf-8 1075.1478ms
 2022-10-12 17:13:50.686 +01:00 [INF] - KEY:   | VALUE: {"FromUser":"Dummytester","ToUser":"Dummytester","ToAccountId":"c83f2bb6-cfd6-425c-94ab-bd27b9d39307","ToEmail":"wsMakerSynergy@gmail.com","Amount":"300"} - 
+2022-10-12 17:53:41.236 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-12 17:53:41.567 +01:00 [DBG] Hosting starting
+2022-10-12 17:53:41.710 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-12 17:53:41.732 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-12 17:53:41.797 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-12 17:53:41.809 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-12 17:53:41.833 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-12 17:53:41.856 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-12 17:53:41.860 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-12 17:53:41.880 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-12 17:53:41.926 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-12 17:53:41.937 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-12 17:53:41.941 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-12 17:53:41.952 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-12 17:53:41.971 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-12 17:53:41.988 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-12 17:53:41.994 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-12 17:53:42.908 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-12 17:53:42.978 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-12 17:53:42.986 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-12 17:53:42.987 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-12 17:53:42.989 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-12 17:53:42.991 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-12 17:53:42.992 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-12 17:53:42.993 +01:00 [INF] Hosting environment: Development
+2022-10-12 17:53:42.994 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-12 17:53:42.995 +01:00 [DBG] Hosting started
+2022-10-12 17:53:43.066 +01:00 [DBG] Connection id "0HMLCE9926145" accepted.
+2022-10-12 17:53:43.067 +01:00 [DBG] Connection id "0HMLCE9926146" accepted.
+2022-10-12 17:53:43.071 +01:00 [DBG] Connection id "0HMLCE9926146" started.
+2022-10-12 17:53:43.071 +01:00 [DBG] Connection id "0HMLCE9926145" started.
+2022-10-12 17:53:44.117 +01:00 [DBG] Connection id "0HMLCE9926147" accepted.
+2022-10-12 17:53:44.124 +01:00 [DBG] Connection id "0HMLCE9926147" started.
+2022-10-12 17:53:44.210 +01:00 [DBG] Connection 0HMLCE9926147 established using the following protocol: "Tls13"
+2022-10-12 17:53:44.304 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger - -
+2022-10-12 17:53:44.390 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-12 17:53:44.490 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger - - - 301 0 - 189.2300ms
+2022-10-12 17:53:44.506 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-12 17:53:44.583 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-12 17:53:44.751 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-12 17:53:44.755 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 249.0521ms
+2022-10-12 17:53:44.797 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui-bundle.js - -
+2022-10-12 17:53:44.797 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui.css - -
+2022-10-12 17:53:44.850 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui-standalone-preset.js - -
+2022-10-12 17:53:44.862 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-12 17:53:44.878 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-12 17:53:44.905 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-10-12 17:53:44.943 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-10-12 17:53:44.947 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 149.5918ms
+2022-10-12 17:53:44.905 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-10-12 17:53:44.993 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 143.3915ms
+2022-10-12 17:53:44.947 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui.css - - - 200 143632 text/css 150.1220ms
+2022-10-12 17:53:44.959 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 92.0405ms
+2022-10-12 17:53:45.077 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 215.9528ms
+2022-10-12 17:53:45.157 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/favicon-16x16.png - -
+2022-10-12 17:53:45.159 +01:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2022-10-12 17:53:45.161 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/favicon-16x16.png - - - 200 665 image/png 3.6101ms
+2022-10-12 17:53:45.238 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-12 17:53:45.456 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 217.4006ms
+2022-10-12 18:21:25.605 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-12 18:21:25.740 +01:00 [DBG] Hosting starting
+2022-10-12 18:21:25.794 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-12 18:21:25.799 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-12 18:21:25.813 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-12 18:21:25.815 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-12 18:21:25.823 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-12 18:21:25.831 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-12 18:21:25.832 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-12 18:21:25.841 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-12 18:21:25.845 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-12 18:21:25.849 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-12 18:21:25.851 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-12 18:21:25.857 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-12 18:21:25.860 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-12 18:21:25.864 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-12 18:21:25.865 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-12 18:21:26.050 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-12 18:21:26.109 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-12 18:21:26.110 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-12 18:21:26.112 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-12 18:21:26.113 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-12 18:21:26.114 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-12 18:21:26.115 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-12 18:21:26.116 +01:00 [INF] Hosting environment: Development
+2022-10-12 18:21:26.116 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-12 18:21:26.117 +01:00 [DBG] Hosting started
+2022-10-12 18:21:26.421 +01:00 [DBG] Connection id "0HMLCEOOP6643" accepted.
+2022-10-12 18:21:26.421 +01:00 [DBG] Connection id "0HMLCEOOP6644" accepted.
+2022-10-12 18:21:26.425 +01:00 [DBG] Connection id "0HMLCEOOP6643" started.
+2022-10-12 18:21:26.430 +01:00 [DBG] Connection id "0HMLCEOOP6644" started.
+2022-10-12 18:21:26.433 +01:00 [DBG] Connection id "0HMLCEOOP6643" received FIN.
+2022-10-12 18:21:26.433 +01:00 [DBG] Connection id "0HMLCEOOP6644" received FIN.
+2022-10-12 18:21:26.472 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-12 18:21:26.472 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-12 18:21:26.655 +01:00 [DBG] Connection id "0HMLCEOOP6643" stopped.
+2022-10-12 18:21:26.655 +01:00 [DBG] Connection id "0HMLCEOOP6644" stopped.
+2022-10-12 18:21:26.670 +01:00 [DBG] Connection id "0HMLCEOOP6643" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-12 18:21:26.670 +01:00 [DBG] Connection id "0HMLCEOOP6644" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-12 18:21:26.947 +01:00 [DBG] Connection id "0HMLCEOOP6645" accepted.
+2022-10-12 18:21:26.954 +01:00 [DBG] Connection id "0HMLCEOOP6645" started.
+2022-10-12 18:21:27.058 +01:00 [DBG] Connection 0HMLCEOOP6645 established using the following protocol: "Tls13"
+2022-10-12 18:21:27.144 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger - -
+2022-10-12 18:21:27.215 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-12 18:21:27.319 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger - - - 301 0 - 179.7987ms
+2022-10-12 18:21:27.335 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-12 18:21:27.415 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-12 18:21:27.556 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-12 18:21:27.559 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 223.4732ms
+2022-10-12 18:21:27.587 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui.css - -
+2022-10-12 18:21:27.587 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui-standalone-preset.js - -
+2022-10-12 18:21:27.587 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui-bundle.js - -
+2022-10-12 18:21:27.594 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-12 18:21:27.594 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-12 18:21:27.609 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 14.1306ms
+2022-10-12 18:21:27.648 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-10-12 18:21:27.648 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-10-12 18:21:27.652 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui.css - - - 200 143632 text/css 65.0006ms
+2022-10-12 18:21:27.656 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 68.4853ms
+2022-10-12 18:21:27.662 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.7909ms
+2022-10-12 18:21:27.671 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-10-12 18:21:27.673 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 85.7431ms
+2022-10-12 18:21:27.804 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/favicon-16x16.png - -
+2022-10-12 18:21:27.806 +01:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2022-10-12 18:21:27.807 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/favicon-16x16.png - - - 200 665 image/png 2.6150ms
+2022-10-12 18:21:27.902 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-12 18:21:28.119 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 216.1635ms
+2022-10-12 18:22:04.783 +01:00 [DBG] Connection id "0HMLCEOOP6646" accepted.
+2022-10-12 18:22:04.787 +01:00 [DBG] Connection id "0HMLCEOOP6646" received FIN.
+2022-10-12 18:22:04.788 +01:00 [DBG] Connection id "0HMLCEOOP6646" started.
+2022-10-12 18:22:04.789 +01:00 [DBG] Connection id "0HMLCEOOP6647" accepted.
+2022-10-12 18:22:04.795 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-12 18:22:04.796 +01:00 [DBG] Connection id "0HMLCEOOP6647" started.
+2022-10-12 18:22:04.799 +01:00 [DBG] Connection id "0HMLCEOOP6646" stopped.
+2022-10-12 18:22:04.801 +01:00 [DBG] Connection id "0HMLCEOOP6646" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-12 18:22:04.806 +01:00 [DBG] Connection 0HMLCEOOP6647 established using the following protocol: "Tls13"
+2022-10-12 18:22:04.817 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7074/api/transfers application/json 139
+2022-10-12 18:22:04.819 +01:00 [DBG] POST requests are not supported
+2022-10-12 18:22:04.845 +01:00 [DBG] 1 candidate(s) found for the request path '/api/transfers'
+2022-10-12 18:22:04.851 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.TransfersController.MakeTransfer (SimpleBank.AcctManage.API)' with route pattern 'api/Transfers' is valid for the request path '/api/transfers'
+2022-10-12 18:22:04.853 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.TransfersController.MakeTransfer (SimpleBank.AcctManage.API)'
+2022-10-12 18:22:05.622 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-12 18:22:05.627 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-12 18:22:05.633 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-12 18:22:05.639 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2022-10-12 18:22:05.650 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2022-10-12 18:22:05.662 +01:00 [DBG] Connection id "0HMLCEOOP6647" completed keep alive response.
+2022-10-12 18:22:05.663 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7074/api/transfers application/json 139 - 401 0 - 846.4628ms
+2022-10-12 18:22:05.665 +01:00 [DBG] Connection id "0HMLCEOOP6647", Request id "0HMLCEOOP6647:00000002": started reading request body.
+2022-10-12 18:22:05.667 +01:00 [DBG] Connection id "0HMLCEOOP6647", Request id "0HMLCEOOP6647:00000002": done reading request body.
+2022-10-12 18:22:11.097 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7074/api/users/login application/json 61
+2022-10-12 18:22:11.099 +01:00 [DBG] POST requests are not supported
+2022-10-12 18:22:11.101 +01:00 [DBG] 1 candidate(s) found for the request path '/api/users/login'
+2022-10-12 18:22:11.102 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Login (SimpleBank.AcctManage.API)' with route pattern 'api/Users/Login' is valid for the request path '/api/users/login'
+2022-10-12 18:22:11.104 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Login (SimpleBank.AcctManage.API)'
+2022-10-12 18:22:11.107 +01:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-10-12 18:22:11.108 +01:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-10-12 18:22:11.109 +01:00 [INF] Executing endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Login (SimpleBank.AcctManage.API)'
+2022-10-12 18:22:11.144 +01:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SimpleBank.AcctManage.API.DTModels.Responses.LoginUserResponse]] Login(SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest) on controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API).
+2022-10-12 18:22:11.148 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-10-12 18:22:11.149 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-10-12 18:22:11.150 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-10-12 18:22:11.153 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-10-12 18:22:11.155 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-10-12 18:22:11.158 +01:00 [DBG] Executing controller factory for controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API)
+2022-10-12 18:22:11.736 +01:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-10-12 18:22:11.784 +01:00 [DBG] Executed controller factory for controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API)
+2022-10-12 18:22:11.795 +01:00 [DBG] Attempting to bind parameter 'loginUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest' ...
+2022-10-12 18:22:11.799 +01:00 [DBG] Attempting to bind parameter 'loginUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest' using the name '' in request data ...
+2022-10-12 18:22:11.802 +01:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2022-10-12 18:22:11.813 +01:00 [DBG] Connection id "0HMLCEOOP6647", Request id "0HMLCEOOP6647:00000003": started reading request body.
+2022-10-12 18:22:11.815 +01:00 [DBG] Connection id "0HMLCEOOP6647", Request id "0HMLCEOOP6647:00000003": done reading request body.
+2022-10-12 18:22:11.824 +01:00 [DBG] JSON input formatter succeeded, deserializing to type 'SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest'
+2022-10-12 18:22:11.826 +01:00 [DBG] Done attempting to bind parameter 'loginUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest'.
+2022-10-12 18:22:11.828 +01:00 [DBG] Done attempting to bind parameter 'loginUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest'.
+2022-10-12 18:22:11.829 +01:00 [DBG] Attempting to validate the bound parameter 'loginUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest' ...
+2022-10-12 18:22:11.843 +01:00 [DBG] Done attempting to validate the bound parameter 'loginUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest'.
+2022-10-12 18:22:12.936 +01:00 [INF] Entity Framework Core 6.0.7 initialized 'SimpleBankDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.7+5b98e4b74de93b590b44aef8dd7967c03acc433c' with options: None
+2022-10-12 18:22:13.018 +01:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .FirstOrDefault(u => u.Username == __username_0)'
+2022-10-12 18:22:13.412 +01:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedAt (DateTime) Required ValueGenerated.OnAdd, 1], [Property: User.Email (string) Required Index MaxLength(320), 2], [Property: User.Fullname (string) Required, 3], [Property: User.Password (byte[]) Required, 4], [Property: User.PasswordChangedAt (DateTime?) ValueGenerated.OnAdd, 5], [Property: User.Salt (byte[]) Required, 6], [Property: User.Username (string) Required Index, 7] }
+        SELECT TOP(1) u.user_id, u.created_at, u.email, u.fullname, u.Password, u.password_changed_at, u.salt, u.username
+        FROM Users AS u
+        WHERE u.username == @__username_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    SimpleBank.AcctManage.Infrastructure.Persistence.SimpleBankDbContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2022-10-12 18:22:13.463 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-12 18:22:13.549 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (83ms).
+2022-10-12 18:22:13.560 +01:00 [DBG] Opening connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:13.807 +01:00 [DBG] Opened connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:13.823 +01:00 [DBG] Executing DbCommand [Parameters=[@__username_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u.user_id, u.created_at, u.email, u.fullname, u."Password", u.password_changed_at, u.salt, u.username
+FROM "Users" AS u
+WHERE u.username = @__username_0
+LIMIT 1
+2022-10-12 18:22:13.928 +01:00 [INF] Executed DbCommand (107ms) [Parameters=[@__username_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u.user_id, u.created_at, u.email, u.fullname, u."Password", u.password_changed_at, u.salt, u.username
+FROM "Users" AS u
+WHERE u.username = @__username_0
+LIMIT 1
+2022-10-12 18:22:13.986 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:14.044 +01:00 [DBG] A data reader was disposed.
+2022-10-12 18:22:14.049 +01:00 [DBG] Closing connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:14.059 +01:00 [DBG] Closed connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:14.065 +01:00 [DBG] Compiling query expression: 
+'DbSet<Session>()
+    .Where(s => s.UserId == __userId_0)
+    .OrderByDescending(s => s.CreatedAt)
+    .FirstOrDefault()'
+2022-10-12 18:22:14.075 +01:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Session>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Session.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Session.AccessToken (string) Required, 1], [Property: Session.AccessTokenExpiresAt (DateTime) Required, 2], [Property: Session.Active (bool) Required, 3], [Property: Session.CreatedAt (DateTime) Required, 4], [Property: Session.RefreshToken (string) Required, 5], [Property: Session.RefreshTokenExpiresAt (DateTime) Required, 6], [Property: Session.UserId (Guid) Required FK Index, 7] }
+        SELECT TOP(1) s.session_id, s.access_token, s.access_token_expires_at, s.active, s.created_at, s.refresh_token, s.refresh_token_expires_at, s.user_id
+        FROM Sessions AS s
+        WHERE s.user_id == @__userId_0
+        ORDER BY s.created_at DESC), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Session>, 
+    SimpleBank.AcctManage.Infrastructure.Persistence.SimpleBankDbContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2022-10-12 18:22:14.079 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-12 18:22:14.081 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2022-10-12 18:22:14.082 +01:00 [DBG] Opening connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:14.083 +01:00 [DBG] Opened connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:14.084 +01:00 [DBG] Executing DbCommand [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.session_id, s.access_token, s.access_token_expires_at, s.active, s.created_at, s.refresh_token, s.refresh_token_expires_at, s.user_id
+FROM "Sessions" AS s
+WHERE s.user_id = @__userId_0
+ORDER BY s.created_at DESC
+LIMIT 1
+2022-10-12 18:22:14.096 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.session_id, s.access_token, s.access_token_expires_at, s.active, s.created_at, s.refresh_token, s.refresh_token_expires_at, s.user_id
+FROM "Sessions" AS s
+WHERE s.user_id = @__userId_0
+ORDER BY s.created_at DESC
+LIMIT 1
+2022-10-12 18:22:14.104 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'Session' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:14.142 +01:00 [DBG] A data reader was disposed.
+2022-10-12 18:22:14.144 +01:00 [DBG] Closing connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:14.145 +01:00 [DBG] Closed connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:14.165 +01:00 [DBG] An entity of type 'Session' tracked by 'SimpleBankDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:14.179 +01:00 [DBG] SaveChanges starting for 'SimpleBankDbContext'.
+2022-10-12 18:22:14.183 +01:00 [DBG] DetectChanges starting for 'SimpleBankDbContext'.
+2022-10-12 18:22:14.210 +01:00 [DBG] DetectChanges completed for 'SimpleBankDbContext'.
+2022-10-12 18:22:14.244 +01:00 [DBG] Opening connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:14.247 +01:00 [DBG] Opened connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:14.251 +01:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2022-10-12 18:22:14.263 +01:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2022-10-12 18:22:14.327 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-12 18:22:14.329 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2022-10-12 18:22:14.333 +01:00 [DBG] Executing DbCommand [Parameters=[@p7='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime2), @p4='?', @p5='?' (DbType = DateTime2), @p6='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Sessions" SET access_token = @p0, access_token_expires_at = @p1, active = @p2, created_at = @p3, refresh_token = @p4, refresh_token_expires_at = @p5, user_id = @p6
+WHERE session_id = @p7;
+2022-10-12 18:22:14.363 +01:00 [INF] Executed DbCommand (30ms) [Parameters=[@p7='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime2), @p4='?', @p5='?' (DbType = DateTime2), @p6='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Sessions" SET access_token = @p0, access_token_expires_at = @p1, active = @p2, created_at = @p3, refresh_token = @p4, refresh_token_expires_at = @p5, user_id = @p6
+WHERE session_id = @p7;
+2022-10-12 18:22:14.380 +01:00 [DBG] A data reader was disposed.
+2022-10-12 18:22:14.398 +01:00 [DBG] Committing transaction.
+2022-10-12 18:22:14.418 +01:00 [DBG] Committed transaction.
+2022-10-12 18:22:14.426 +01:00 [DBG] Closing connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:14.429 +01:00 [DBG] Closed connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:14.434 +01:00 [DBG] Disposing transaction.
+2022-10-12 18:22:14.441 +01:00 [DBG] An entity of type 'Session' tracked by 'SimpleBankDbContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:14.446 +01:00 [DBG] SaveChanges completed for 'SimpleBankDbContext' with 1 entities written to the database.
+2022-10-12 18:22:14.499 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'Session' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:14.502 +01:00 [DBG] SaveChanges starting for 'SimpleBankDbContext'.
+2022-10-12 18:22:14.503 +01:00 [DBG] DetectChanges starting for 'SimpleBankDbContext'.
+2022-10-12 18:22:14.506 +01:00 [DBG] DetectChanges completed for 'SimpleBankDbContext'.
+2022-10-12 18:22:14.508 +01:00 [DBG] Opening connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:14.509 +01:00 [DBG] Opened connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:14.511 +01:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2022-10-12 18:22:14.512 +01:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2022-10-12 18:22:14.518 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-12 18:22:14.520 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2022-10-12 18:22:14.521 +01:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (DbType = DateTime2), @p5='?', @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Sessions" (session_id, access_token, access_token_expires_at, active, created_at, refresh_token, refresh_token_expires_at, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2022-10-12 18:22:14.529 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (DbType = DateTime2), @p5='?', @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Sessions" (session_id, access_token, access_token_expires_at, active, created_at, refresh_token, refresh_token_expires_at, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2022-10-12 18:22:14.531 +01:00 [DBG] A data reader was disposed.
+2022-10-12 18:22:14.532 +01:00 [DBG] Committing transaction.
+2022-10-12 18:22:14.535 +01:00 [DBG] Committed transaction.
+2022-10-12 18:22:14.536 +01:00 [DBG] Closing connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:14.537 +01:00 [DBG] Closed connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:14.538 +01:00 [DBG] Disposing transaction.
+2022-10-12 18:22:14.539 +01:00 [DBG] An entity of type 'Session' tracked by 'SimpleBankDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:14.541 +01:00 [DBG] SaveChanges completed for 'SimpleBankDbContext' with 1 entities written to the database.
+2022-10-12 18:22:14.553 +01:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-10-12 18:22:14.559 +01:00 [DBG] No information found on request to perform content negotiation.
+2022-10-12 18:22:14.560 +01:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-10-12 18:22:14.562 +01:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-10-12 18:22:14.564 +01:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2022-10-12 18:22:14.566 +01:00 [INF] Executing OkObjectResult, writing value of type 'SimpleBank.AcctManage.API.DTModels.Responses.LoginUserResponse'.
+2022-10-12 18:22:14.584 +01:00 [INF] Executed action SimpleBank.AcctManage.API.Controllers.UsersController.Login (SimpleBank.AcctManage.API) in 3421.929ms
+2022-10-12 18:22:14.588 +01:00 [INF] Executed endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Login (SimpleBank.AcctManage.API)'
+2022-10-12 18:22:14.592 +01:00 [DBG] Connection id "0HMLCEOOP6647" completed keep alive response.
+2022-10-12 18:22:14.596 +01:00 [DBG] 'SimpleBankDbContext' disposed.
+2022-10-12 18:22:14.602 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7074/api/users/login application/json 61 - 200 - application/json;+charset=utf-8 3505.2013ms
+2022-10-12 18:22:32.133 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7074/api/transfers application/json 139
+2022-10-12 18:22:32.134 +01:00 [DBG] POST requests are not supported
+2022-10-12 18:22:32.135 +01:00 [DBG] 1 candidate(s) found for the request path '/api/transfers'
+2022-10-12 18:22:32.136 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.TransfersController.MakeTransfer (SimpleBank.AcctManage.API)' with route pattern 'api/Transfers' is valid for the request path '/api/transfers'
+2022-10-12 18:22:32.139 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.TransfersController.MakeTransfer (SimpleBank.AcctManage.API)'
+2022-10-12 18:22:32.159 +01:00 [DBG] Successfully validated the token.
+2022-10-12 18:22:32.162 +01:00 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2022-10-12 18:22:32.163 +01:00 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2022-10-12 18:22:32.165 +01:00 [DBG] Authorization was successful.
+2022-10-12 18:22:32.165 +01:00 [INF] Executing endpoint 'SimpleBank.AcctManage.API.Controllers.TransfersController.MakeTransfer (SimpleBank.AcctManage.API)'
+2022-10-12 18:22:32.170 +01:00 [INF] Route matched with {action = "MakeTransfer", controller = "Transfers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SimpleBank.AcctManage.API.DTModels.Responses.TransferResponse]] MakeTransfer(SimpleBank.AcctManage.API.DTModels.Requests.TransferRequest) on controller SimpleBank.AcctManage.API.Controllers.TransfersController (SimpleBank.AcctManage.API).
+2022-10-12 18:22:32.172 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-10-12 18:22:32.174 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-10-12 18:22:32.176 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-10-12 18:22:32.178 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-10-12 18:22:32.180 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-10-12 18:22:32.181 +01:00 [DBG] Executing controller factory for controller SimpleBank.AcctManage.API.Controllers.TransfersController (SimpleBank.AcctManage.API)
+2022-10-12 18:22:32.183 +01:00 [DBG] Executed controller factory for controller SimpleBank.AcctManage.API.Controllers.TransfersController (SimpleBank.AcctManage.API)
+2022-10-12 18:22:32.185 +01:00 [DBG] Attempting to bind parameter 'transferRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.TransferRequest' ...
+2022-10-12 18:22:32.186 +01:00 [DBG] Attempting to bind parameter 'transferRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.TransferRequest' using the name '' in request data ...
+2022-10-12 18:22:32.187 +01:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2022-10-12 18:22:32.192 +01:00 [DBG] Connection id "0HMLCEOOP6647", Request id "0HMLCEOOP6647:00000004": started reading request body.
+2022-10-12 18:22:32.194 +01:00 [DBG] Connection id "0HMLCEOOP6647", Request id "0HMLCEOOP6647:00000004": done reading request body.
+2022-10-12 18:22:32.199 +01:00 [DBG] JSON input formatter succeeded, deserializing to type 'SimpleBank.AcctManage.API.DTModels.Requests.TransferRequest'
+2022-10-12 18:22:32.200 +01:00 [DBG] Done attempting to bind parameter 'transferRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.TransferRequest'.
+2022-10-12 18:22:32.202 +01:00 [DBG] Done attempting to bind parameter 'transferRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.TransferRequest'.
+2022-10-12 18:22:32.203 +01:00 [DBG] Attempting to validate the bound parameter 'transferRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.TransferRequest' ...
+2022-10-12 18:22:32.206 +01:00 [DBG] Done attempting to validate the bound parameter 'transferRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.TransferRequest'.
+2022-10-12 18:22:32.254 +01:00 [INF] Entity Framework Core 6.0.7 initialized 'SimpleBankDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.7+5b98e4b74de93b590b44aef8dd7967c03acc433c' with options: None
+2022-10-12 18:22:32.267 +01:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .FirstOrDefault(e => object.Equals(
+        objA: EF.Property<object>(e, "Id"), 
+        objB: (object)__get_Item_0))'
+2022-10-12 18:22:32.343 +01:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedAt (DateTime) Required ValueGenerated.OnAdd, 1], [Property: User.Email (string) Required Index MaxLength(320), 2], [Property: User.Fullname (string) Required, 3], [Property: User.Password (byte[]) Required, 4], [Property: User.PasswordChangedAt (DateTime?) ValueGenerated.OnAdd, 5], [Property: User.Salt (byte[]) Required, 6], [Property: User.Username (string) Required Index, 7] }
+        SELECT TOP(1) u.user_id, u.created_at, u.email, u.fullname, u.Password, u.password_changed_at, u.salt, u.username
+        FROM Users AS u
+        WHERE u.user_id == @__get_Item_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    SimpleBank.AcctManage.Infrastructure.Persistence.SimpleBankDbContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2022-10-12 18:22:32.347 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-12 18:22:32.349 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2022-10-12 18:22:32.350 +01:00 [DBG] Opening connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.351 +01:00 [DBG] Opened connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.352 +01:00 [DBG] Executing DbCommand [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT u.user_id, u.created_at, u.email, u.fullname, u."Password", u.password_changed_at, u.salt, u.username
+FROM "Users" AS u
+WHERE u.user_id = @__get_Item_0
+LIMIT 1
+2022-10-12 18:22:32.357 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT u.user_id, u.created_at, u.email, u.fullname, u."Password", u.password_changed_at, u.salt, u.username
+FROM "Users" AS u
+WHERE u.user_id = @__get_Item_0
+LIMIT 1
+2022-10-12 18:22:32.361 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.362 +01:00 [DBG] A data reader was disposed.
+2022-10-12 18:22:32.363 +01:00 [DBG] Closing connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.364 +01:00 [DBG] Closed connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.366 +01:00 [DBG] Compiling query expression: 
+'DbSet<Session>()
+    .FirstOrDefault(e => object.Equals(
+        objA: EF.Property<object>(e, "Id"), 
+        objB: (object)__get_Item_0))'
+2022-10-12 18:22:32.369 +01:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Session>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Session.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Session.AccessToken (string) Required, 1], [Property: Session.AccessTokenExpiresAt (DateTime) Required, 2], [Property: Session.Active (bool) Required, 3], [Property: Session.CreatedAt (DateTime) Required, 4], [Property: Session.RefreshToken (string) Required, 5], [Property: Session.RefreshTokenExpiresAt (DateTime) Required, 6], [Property: Session.UserId (Guid) Required FK Index, 7] }
+        SELECT TOP(1) s.session_id, s.access_token, s.access_token_expires_at, s.active, s.created_at, s.refresh_token, s.refresh_token_expires_at, s.user_id
+        FROM Sessions AS s
+        WHERE s.session_id == @__get_Item_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Session>, 
+    SimpleBank.AcctManage.Infrastructure.Persistence.SimpleBankDbContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2022-10-12 18:22:32.372 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-12 18:22:32.373 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2022-10-12 18:22:32.375 +01:00 [DBG] Opening connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.376 +01:00 [DBG] Opened connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.378 +01:00 [DBG] Executing DbCommand [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.session_id, s.access_token, s.access_token_expires_at, s.active, s.created_at, s.refresh_token, s.refresh_token_expires_at, s.user_id
+FROM "Sessions" AS s
+WHERE s.session_id = @__get_Item_0
+LIMIT 1
+2022-10-12 18:22:32.381 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.session_id, s.access_token, s.access_token_expires_at, s.active, s.created_at, s.refresh_token, s.refresh_token_expires_at, s.user_id
+FROM "Sessions" AS s
+WHERE s.session_id = @__get_Item_0
+LIMIT 1
+2022-10-12 18:22:32.383 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'Session' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.384 +01:00 [DBG] A data reader was disposed.
+2022-10-12 18:22:32.385 +01:00 [DBG] Closing connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.386 +01:00 [DBG] Closed connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.391 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-12 18:22:32.393 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2022-10-12 18:22:32.394 +01:00 [DBG] Opening connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.395 +01:00 [DBG] Opened connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.396 +01:00 [DBG] Executing DbCommand [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.session_id, s.access_token, s.access_token_expires_at, s.active, s.created_at, s.refresh_token, s.refresh_token_expires_at, s.user_id
+FROM "Sessions" AS s
+WHERE s.user_id = @__userId_0
+ORDER BY s.created_at DESC
+LIMIT 1
+2022-10-12 18:22:32.400 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.session_id, s.access_token, s.access_token_expires_at, s.active, s.created_at, s.refresh_token, s.refresh_token_expires_at, s.user_id
+FROM "Sessions" AS s
+WHERE s.user_id = @__userId_0
+ORDER BY s.created_at DESC
+LIMIT 1
+2022-10-12 18:22:32.402 +01:00 [DBG] A data reader was disposed.
+2022-10-12 18:22:32.403 +01:00 [DBG] Closing connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.404 +01:00 [DBG] Closed connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.414 +01:00 [DBG] Compiling query expression: 
+'DbSet<Account>()
+    .FirstOrDefault(e => object.Equals(
+        objA: EF.Property<object>(e, "Id"), 
+        objB: (object)__get_Item_0))'
+2022-10-12 18:22:32.419 +01:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<Account>(
+    asyncEnumerable: new SingleQueryingEnumerable<Account>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Account.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Account.Balance (decimal) Required, 1], [Property: Account.CreatedAt (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Account.Currency (string) Required ValueGenerated.OnAdd MaxLength(3), 3], [Property: Account.UserId (Guid) Required FK Index, 4] }
+            SELECT TOP(1) a.account_id, a.balance, a.created_at, a.currency, a.user_id
+            FROM Accounts AS a
+            WHERE a.account_id == @__get_Item_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Account>, 
+        SimpleBank.AcctManage.Infrastructure.Persistence.SimpleBankDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2022-10-12 18:22:32.435 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-12 18:22:32.437 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2022-10-12 18:22:32.439 +01:00 [DBG] Opening connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.442 +01:00 [DBG] Opened connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.446 +01:00 [DBG] Executing DbCommand [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.account_id, a.balance, a.created_at, a.currency, a.user_id
+FROM "Accounts" AS a
+WHERE a.account_id = @__get_Item_0
+LIMIT 1
+2022-10-12 18:22:32.454 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.account_id, a.balance, a.created_at, a.currency, a.user_id
+FROM "Accounts" AS a
+WHERE a.account_id = @__get_Item_0
+LIMIT 1
+2022-10-12 18:22:32.483 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'Account' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.499 +01:00 [DBG] A data reader was disposed.
+2022-10-12 18:22:32.500 +01:00 [DBG] Closing connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.501 +01:00 [DBG] Closed connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.504 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-12 18:22:32.505 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2022-10-12 18:22:32.506 +01:00 [DBG] Opening connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.509 +01:00 [DBG] Opened connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.511 +01:00 [DBG] Executing DbCommand [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.account_id, a.balance, a.created_at, a.currency, a.user_id
+FROM "Accounts" AS a
+WHERE a.account_id = @__get_Item_0
+LIMIT 1
+2022-10-12 18:22:32.515 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.account_id, a.balance, a.created_at, a.currency, a.user_id
+FROM "Accounts" AS a
+WHERE a.account_id = @__get_Item_0
+LIMIT 1
+2022-10-12 18:22:32.517 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'Account' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.519 +01:00 [DBG] A data reader was disposed.
+2022-10-12 18:22:32.520 +01:00 [DBG] Closing connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.521 +01:00 [DBG] Closed connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.537 +01:00 [DBG] 'SimpleBankDbContext' generated a value for the property 'Id.Transfer'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.551 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'Transfer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.555 +01:00 [DBG] 'SimpleBankDbContext' generated a value for the property 'Id.Movement'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.566 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'Movement' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.568 +01:00 [DBG] 'SimpleBankDbContext' generated a value for the property 'Id.Movement'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.570 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'Movement' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.572 +01:00 [DBG] An entity of type 'Account' tracked by 'SimpleBankDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.573 +01:00 [DBG] An entity of type 'Account' tracked by 'SimpleBankDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.577 +01:00 [DBG] SaveChanges starting for 'SimpleBankDbContext'.
+2022-10-12 18:22:32.578 +01:00 [DBG] DetectChanges starting for 'SimpleBankDbContext'.
+2022-10-12 18:22:32.585 +01:00 [DBG] DetectChanges completed for 'SimpleBankDbContext'.
+2022-10-12 18:22:32.586 +01:00 [DBG] Opening connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.591 +01:00 [DBG] Opened connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.596 +01:00 [DBG] Enlisted in an ambient transaction with isolation level 'Serializable'.
+2022-10-12 18:22:32.605 +01:00 [DBG] Executing 5 update commands as a batch.
+2022-10-12 18:22:32.609 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-12 18:22:32.610 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2022-10-12 18:22:32.612 +01:00 [DBG] Executing DbCommand [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = Decimal), @p1='?' (DbType = DateTime2), @p2='?', @p3='?' (DbType = Guid), @p9='?' (DbType = Guid), @p5='?' (DbType = Decimal), @p6='?' (DbType = DateTime2), @p7='?', @p8='?' (DbType = Guid), @p10='?' (DbType = Guid), @p11='?' (DbType = Guid), @p12='?' (DbType = Decimal), @p13='?' (DbType = DateTime2), @p14='?' (DbType = Guid), @p15='?' (DbType = Guid), @p16='?' (DbType = Decimal), @p17='?' (DbType = DateTime2), @p18='?' (DbType = Guid), @p19='?' (DbType = Decimal), @p20='?' (DbType = DateTime2), @p21='?' (DbType = Guid), @p22='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Accounts" SET balance = @p0, created_at = @p1, currency = @p2, user_id = @p3
+WHERE account_id = @p4;
+UPDATE "Accounts" SET balance = @p5, created_at = @p6, currency = @p7, user_id = @p8
+WHERE account_id = @p9;
+INSERT INTO "Movements" (movement_id, account_id, amount, created_at)
+VALUES (@p10, @p11, @p12, @p13);
+INSERT INTO "Movements" (movement_id, account_id, amount, created_at)
+VALUES (@p14, @p15, @p16, @p17);
+INSERT INTO "Transfers" (transfer_id, amount, created_at, from_account_id, to_account_id)
+VALUES (@p18, @p19, @p20, @p21, @p22);
+2022-10-12 18:22:32.630 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = Decimal), @p1='?' (DbType = DateTime2), @p2='?', @p3='?' (DbType = Guid), @p9='?' (DbType = Guid), @p5='?' (DbType = Decimal), @p6='?' (DbType = DateTime2), @p7='?', @p8='?' (DbType = Guid), @p10='?' (DbType = Guid), @p11='?' (DbType = Guid), @p12='?' (DbType = Decimal), @p13='?' (DbType = DateTime2), @p14='?' (DbType = Guid), @p15='?' (DbType = Guid), @p16='?' (DbType = Decimal), @p17='?' (DbType = DateTime2), @p18='?' (DbType = Guid), @p19='?' (DbType = Decimal), @p20='?' (DbType = DateTime2), @p21='?' (DbType = Guid), @p22='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Accounts" SET balance = @p0, created_at = @p1, currency = @p2, user_id = @p3
+WHERE account_id = @p4;
+UPDATE "Accounts" SET balance = @p5, created_at = @p6, currency = @p7, user_id = @p8
+WHERE account_id = @p9;
+INSERT INTO "Movements" (movement_id, account_id, amount, created_at)
+VALUES (@p10, @p11, @p12, @p13);
+INSERT INTO "Movements" (movement_id, account_id, amount, created_at)
+VALUES (@p14, @p15, @p16, @p17);
+INSERT INTO "Transfers" (transfer_id, amount, created_at, from_account_id, to_account_id)
+VALUES (@p18, @p19, @p20, @p21, @p22);
+2022-10-12 18:22:32.634 +01:00 [DBG] A data reader was disposed.
+2022-10-12 18:22:32.634 +01:00 [DBG] Closing connection to database 'bank-api-local' on server 'tcp://localhost:5432'.
+2022-10-12 18:22:32.636 +01:00 [DBG] Closed connection to database 'bank-api-local' on server ''.
+2022-10-12 18:22:32.638 +01:00 [DBG] An entity of type 'Transfer' tracked by 'SimpleBankDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.641 +01:00 [DBG] An entity of type 'Movement' tracked by 'SimpleBankDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.644 +01:00 [DBG] An entity of type 'Movement' tracked by 'SimpleBankDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.648 +01:00 [DBG] An entity of type 'Account' tracked by 'SimpleBankDbContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.652 +01:00 [DBG] An entity of type 'Account' tracked by 'SimpleBankDbContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-12 18:22:32.654 +01:00 [DBG] SaveChanges completed for 'SimpleBankDbContext' with 5 entities written to the database.
+2022-10-12 18:22:32.848 +01:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-10-12 18:22:32.851 +01:00 [DBG] No information found on request to perform content negotiation.
+2022-10-12 18:22:32.852 +01:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-10-12 18:22:32.853 +01:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-10-12 18:22:32.854 +01:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2022-10-12 18:22:32.856 +01:00 [INF] Executing CreatedResult, writing value of type 'SimpleBank.AcctManage.API.DTModels.Responses.TransferResponse'.
+2022-10-12 18:22:32.863 +01:00 [INF] Executed action SimpleBank.AcctManage.API.Controllers.TransfersController.MakeTransfer (SimpleBank.AcctManage.API) in 681.9869ms
+2022-10-12 18:22:32.866 +01:00 [INF] Executed endpoint 'SimpleBank.AcctManage.API.Controllers.TransfersController.MakeTransfer (SimpleBank.AcctManage.API)'
+2022-10-12 18:22:32.870 +01:00 [DBG] Connection id "0HMLCEOOP6647" completed keep alive response.
+2022-10-12 18:22:32.881 +01:00 [DBG] 'SimpleBankDbContext' disposed.
+2022-10-12 18:22:32.883 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7074/api/transfers application/json 139 - 201 - application/json;+charset=utf-8 750.0643ms
+2022-10-12 18:22:34.484 +01:00 [INF] - KEY:   | VALUE: {"FromUser":"Dummytester","ToUser":"Dummytester","ToAccountId":"c83f2bb6-cfd6-425c-94ab-bd27b9d39307","ToEmail":"wsMakerSynergy@gmail.com","Amount":"300"} - 
