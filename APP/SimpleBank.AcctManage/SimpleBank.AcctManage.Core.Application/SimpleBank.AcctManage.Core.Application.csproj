@@ -18,8 +18,9 @@
 	</ItemGroup>
 
 
+
 	<ItemGroup>
-		<ProjectReference Include="..\SimpleBank.AcctManage.Core.Domain\SimpleBank.AcctManage.Core.Domain.csproj" />
+	  <ProjectReference Include="..\SimpleBank.AcctManage.Core.Domain\SimpleBank.AcctManage.Core.Domain.csproj" />
 	</ItemGroup>
 
 </Project>

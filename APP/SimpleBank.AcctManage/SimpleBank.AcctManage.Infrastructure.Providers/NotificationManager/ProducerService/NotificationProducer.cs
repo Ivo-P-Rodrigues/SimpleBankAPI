@@ -1,25 +1,24 @@
 ﻿using Confluent.Kafka;
 using Serilog;
 using Microsoft.Extensions.Configuration;
-using SimpleBank.AcctManage.Core.Application.Contracts.Providers.Notification;
 using System.Text.Json;
-using SimpleBank.AcctManage.Core.Application.NotificationModels;
+using SimpleBank.AcctManage.Core.Application.Contracts.Providers.Notification;
 
-namespace SimpleBank.AcctManage.Infrastructure.Providers.Notification.ProducerService
+namespace SimpleBank.AcctManage.Infrastructure.Providers.NotificationManager.ProducerService
 {
-    public class TransferNotificationProducer : ITransferNotificationProducer
+    public class NotificationProducer : INotificationProducer
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
 
-        public TransferNotificationProducer(IConfiguration configuration, ILogger logger)
+        public NotificationProducer(IConfiguration configuration, ILogger logger)
         {
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             _logger = logger;
         }
 
 
-        public async Task<bool> RegisterTransferAsync(TransferMailNotification notification)
+        public async Task<bool> RegisterNotificationAsync(INotification notification)
         {
             string notificationStringed = JsonSerializer.Serialize(notification);
 
@@ -45,6 +44,6 @@ namespace SimpleBank.AcctManage.Infrastructure.Providers.Notification.ProducerSe
             return await Task.FromResult(false);
         }
 
-
+  
     }
 }

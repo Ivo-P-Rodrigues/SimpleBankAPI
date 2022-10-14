@@ -1,12 +1,13 @@
 ﻿using Confluent.Kafka;
 using Microsoft.Extensions.Configuration;
+using SimpleBank.AcctManage.Infrastructure.Providers.Notification.ConsumerService;
 
-namespace SimpleBank.AcctManage.Infrastructure.Providers.Notification.ConsumerService
+namespace SimpleBank.AcctManage.Infrastructure.Providers.NotificationManager.ConsumerService
 {
-    public class TransferNoticationConsumer : ITransferNoticationConsumer<IConsumer<Ignore, string>>
+    public class NoticationConsumer : INoticationConsumer<IConsumer<Ignore, string>>
     {
         private readonly IConfiguration _configuration;
-        public TransferNoticationConsumer(IConfiguration configuration)
+        public NoticationConsumer(IConfiguration configuration)
         {
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }

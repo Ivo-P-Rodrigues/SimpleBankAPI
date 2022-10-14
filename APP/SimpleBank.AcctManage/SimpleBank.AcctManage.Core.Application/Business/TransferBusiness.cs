@@ -1,24 +1,22 @@
 ﻿using SimpleBank.AcctManage.Core.Application.Contracts.Business;
 using SimpleBank.AcctManage.Core.Application.Contracts.Persistence;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers.Notification;
-using SimpleBank.AcctManage.Core.Application.NotificationModels;
 using SimpleBank.AcctManage.Core.Domain;
-using Microsoft.Extensions.Configuration;
 using System.Transactions;
 using Serilog;
-using System.Security.Cryptography.Xml;
+using SimpleBank.AcctManage.Core.Application.Models.Notification;
 
 namespace SimpleBank.AcctManage.Core.Application.Business
 {
     public class TransferBusiness : ITransferBusiness
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ITransferNotificationProducer _notificationProducer;
+        private readonly INotificationProducer _notificationProducer;
         private readonly ILogger _logger;
 
         public TransferBusiness(
             IUnitOfWork unitOfWork,
-            ITransferNotificationProducer notificationProducer,
+            INotificationProducer notificationProducer,
             ILogger logger
         )
         {
@@ -52,7 +50,6 @@ namespace SimpleBank.AcctManage.Core.Application.Business
 
             return (false, false, transferProcessed);
         }
-
 
 
         private bool ValidateTransfer(Transfer transfer, Account? accountFrom, Account? accountTo)
@@ -101,15 +98,17 @@ namespace SimpleBank.AcctManage.Core.Application.Business
         {
             var userFrom = _unitOfWork.Users.Get(fromUserId);
             var userTo = _unitOfWork.Users.Get(toUserId);
+            var accountTo = _unitOfWork.Accounts.Get(transfer.ToAccountId);
 
-            TransferMailNotification transferNotification = new TransferMailNotification(
-                userFrom!.Username,
+            var description = $"Hello {userTo!.Username}! You just received {transfer.Amount} {accountTo!.Currency} from {userFrom!.Username} on your Account:{transfer.ToAccountId}.";
+
+            var transferNotification = new MailNotification(
                 userTo!.Username,
-                transfer.ToAccountId.ToString(),
-                userTo.Email,
-                transfer.Amount.ToString());
+                description,
+                userTo.Email);
 
-            await _notificationProducer.RegisterTransferAsync(transferNotification);
+
+            await _notificationProducer.RegisterNotificationAsync(transferNotification);
         }
 
     }

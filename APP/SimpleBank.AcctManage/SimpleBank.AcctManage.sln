@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleBank.AcctManage.Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleBank.AcctManage.Infrastructure.Providers", "SimpleBank.AcctManage.Infrastructure.Providers\SimpleBank.AcctManage.Infrastructure.Providers.csproj", "{3E430C48-D742-4E7A-87FF-2F24158251AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBank.AcctManage.Core.Domain", "SimpleBank.AcctManage.Core.Domain\SimpleBank.AcctManage.Core.Domain.csproj", "{5B3FF752-090A-4804-9CE0-A4469B69F9F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleBank.AcctManage.Core.Domain", "SimpleBank.AcctManage.Core.Domain\SimpleBank.AcctManage.Core.Domain.csproj", "{5B3FF752-090A-4804-9CE0-A4469B69F9F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -54,9 +54,14 @@ services:
 #      dockerfile: SimpleBank.AcctManage.API/Dockerfile
 #    ports:
 #        - "5000:443"
-        
-        
-        
+#    networks:
+#        - internal
+#    depends_on:
+#      - broker
+#    environment:
+#      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT_INTERNAL://broker:29092
+
+
 #    volumes:
 #        - ../app:/app
 #    links:

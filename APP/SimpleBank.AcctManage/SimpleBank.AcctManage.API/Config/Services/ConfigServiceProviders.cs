@@ -1,6 +1,6 @@
 ﻿using SimpleBank.AcctManage.API.Providers;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers.Notification;
-using SimpleBank.AcctManage.Infrastructure.Providers.Notification.ProducerService;
+using SimpleBank.AcctManage.Infrastructure.Providers.NotificationManager.ProducerService;
 
 namespace SimpleBank.AcctManage.API.Config.Services
 {
@@ -11,7 +11,7 @@ namespace SimpleBank.AcctManage.API.Config.Services
             services.AddTransient<IAuthenthicationProvider, AuthenthicationProvider>();
             services.AddTransient<IEntityMapper, EntityMapper>();
 
-            services.AddTransient<ITransferNotificationProducer, TransferNotificationProducer>();
+            
             return services;
         }
 

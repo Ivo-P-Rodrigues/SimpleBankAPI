@@ -1,8 +1,5 @@
-﻿using Confluent.Kafka;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 using System.Reflection;
-using System.Text;
 
 namespace SimpleBank.AcctManage.API.Config.Services
 {

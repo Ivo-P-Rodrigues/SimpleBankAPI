@@ -2,25 +2,26 @@
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers.Notification;
+using SimpleBank.AcctManage.Infrastructure.Providers.NotificationManager.Providers;
 
-namespace SimpleBank.AcctManage.Infrastructure.Providers.Notification.ConsumerService
+namespace SimpleBank.AcctManage.Infrastructure.Providers.NotificationManager.ConsumerService
 {
-    public class TransferNotificationConsumerThread<T> : BackgroundService where T : class 
+    public class NotificationConsumerThread : BackgroundService
     {
         private readonly IConsumer<Ignore, string> _consumer;
-        private readonly ITransferNotificationProvider _notificationProvider;
+        private readonly INotificationProvider<INotification> _notificationProvider;
         private readonly ILogger _logger;
 
-
-        public TransferNotificationConsumerThread(
+        public NotificationConsumerThread(
             IConsumer<Ignore, string> consumer,
-            ITransferNotificationProvider notificationProvider,
+            INotificationProvider<INotification> notificationProvider,
             ILogger logger)
         {
             _consumer = consumer ?? throw new ArgumentNullException(nameof(consumer));
             _notificationProvider = notificationProvider ?? throw new ArgumentNullException(nameof(notificationProvider));
             _logger = logger;
         }
+
 
         protected override async Task ExecuteAsync(CancellationToken cancellationToken)
         {
