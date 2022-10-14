@@ -1,0 +1,48 @@
+2022-10-14 12:12:00.334 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-14 12:12:00.536 +01:00 [DBG] Hosting starting
+2022-10-14 12:12:00.616 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-14 12:12:00.624 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-14 12:12:00.729 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-14 12:12:00.789 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-14 12:12:00.856 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-14 12:12:00.866 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-14 12:12:00.868 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-14 12:12:00.883 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-14 12:12:00.886 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-14 12:12:00.890 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-14 12:12:00.893 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-14 12:12:00.900 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-14 12:12:00.907 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-14 12:12:00.922 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-14 12:12:00.927 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-14 12:12:01.254 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-14 12:12:01.310 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-14 12:12:01.312 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-14 12:12:01.313 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-14 12:12:01.314 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-14 12:12:01.315 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-14 12:12:01.316 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-14 12:12:01.317 +01:00 [INF] Hosting environment: Development
+2022-10-14 12:12:01.318 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-14 12:12:01.319 +01:00 [DBG] Hosting started
+2022-10-14 12:12:01.334 +01:00 [DBG] Connection id "0HMLDQJLFLAM9" accepted.
+2022-10-14 12:12:01.337 +01:00 [DBG] Connection id "0HMLDQJLFLAM9" started.
+2022-10-14 12:12:01.367 +01:00 [DBG] Connection id "0HMLDQJLFLAMA" accepted.
+2022-10-14 12:12:01.369 +01:00 [DBG] Connection id "0HMLDQJLFLAMA" started.
+2022-10-14 12:12:02.119 +01:00 [DBG] Connection id "0HMLDQJLFLAMB" accepted.
+2022-10-14 12:12:02.120 +01:00 [DBG] Connection id "0HMLDQJLFLAMB" started.
+2022-10-14 12:12:02.191 +01:00 [DBG] Connection id "0HMLDQJLFLAMB" received FIN.
+2022-10-14 12:12:02.205 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-14 12:12:02.368 +01:00 [DBG] Connection id "0HMLDQJLFLAMB" stopped.
+2022-10-14 12:12:02.370 +01:00 [DBG] Connection id "0HMLDQJLFLAMB" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-14 12:12:11.372 +01:00 [DBG] Authentication of the HTTPS connection timed out.
+2022-10-14 12:12:11.377 +01:00 [DBG] Connection id "0HMLDQJLFLAM9" stopped.
+2022-10-14 12:12:11.378 +01:00 [DBG] Connection id "0HMLDQJLFLAM9" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-14 12:12:11.381 +01:00 [DBG] Authentication of the HTTPS connection timed out.
+2022-10-14 12:12:11.382 +01:00 [DBG] Connection id "0HMLDQJLFLAMA" stopped.
+2022-10-14 12:12:11.383 +01:00 [DBG] Connection id "0HMLDQJLFLAMA" sending FIN because: "The Socket transport's send loop completed gracefully."
