@@ -24,6 +24,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
                 .HasForeignKey(d => d.AccountId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("movements_accounts_fkey");
+
+            builder.ToTable("Movements", "SB-operational");
         }
     }
 }

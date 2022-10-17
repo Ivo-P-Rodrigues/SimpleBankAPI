@@ -20,18 +20,15 @@ namespace SimpleBank.AcctManage.API.Controllers
     {
         private readonly IAuthenthicationProvider _authenthicationProvider;
         private readonly IUserBusiness _userBusiness;
-        private readonly ISessionBusiness _sessionBusiness;
         private readonly IEntityMapper _entityMapper;
 
         public UsersController(
             IAuthenthicationProvider authenthicationProvider,
             IUserBusiness userBusiness,
-            ISessionBusiness sessionBusiness,
             IEntityMapper entityMapper)
         {
             _authenthicationProvider = authenthicationProvider ?? throw new ArgumentNullException(nameof(authenthicationProvider));
             _userBusiness = userBusiness ?? throw new ArgumentNullException(nameof(userBusiness));
-            _sessionBusiness = sessionBusiness ?? throw new ArgumentNullException(nameof(sessionBusiness));
             _entityMapper = entityMapper ?? throw new ArgumentNullException(nameof(entityMapper));
         }
 
@@ -89,7 +86,6 @@ namespace SimpleBank.AcctManage.API.Controllers
         }
 
 
-
         /// <summary>
         /// Renews the refresh token.
         /// </summary>
@@ -113,7 +109,6 @@ namespace SimpleBank.AcctManage.API.Controllers
             var loginResponse = _entityMapper.MapSessionToLoginResponse(session);
             return Ok(loginResponse);
         }
-
 
 
         /// <summary>

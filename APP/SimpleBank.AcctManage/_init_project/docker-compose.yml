@@ -1,0 +1,71 @@
+#docker-compose -f "docker-compose.yml" up --build
+
+#https://onexlab-io.medium.com/docker-compose-postgres-multiple-database-bbc0816db603
+
+version: '3.7'
+name: 'SimpleBank-v4'
+networks:
+  internal:
+    driver: bridge
+services:
+
+  postgres:
+    image: postgres:11.1
+    container_name: postgres-test
+#    restart: always
+    environment: 
+      DATABASE_HOST: 127.0.0.1
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: SimpleBank
+    ports:
+      - "5432:5432"
+    volumes: 
+      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+    
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.0.1
+    container_name: zookeeper-test
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - internal
+    ports:
+      - "2181:2181"
+
+  broker:
+    image: confluentinc/cp-kafka:7.0.1
+    container_name: broker-test
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://broker:29092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_CREATE_TOPICS: "transfer:1:1"      
+    networks:
+      -  internal
+
+#  simplebank:
+#    container_name: simplebankapi-test
+#    build:
+#      context: .
+#      dockerfile: ./SimpleBank.AcctManage.API/Dockerfile2
+#    ports:
+#        - "5000:49153"
+#    networks:
+#      -  internal    
+        
+        
+#    volumes:
+#        - ../app:/app
+#    links:
+#        - postgres
+

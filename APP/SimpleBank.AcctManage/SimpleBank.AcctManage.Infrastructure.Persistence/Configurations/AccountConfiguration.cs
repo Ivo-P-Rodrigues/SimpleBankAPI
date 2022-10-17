@@ -30,6 +30,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("account_user_fkey");
+
+            builder.ToTable("Accounts", "SB-operational");
         }
     }
 }

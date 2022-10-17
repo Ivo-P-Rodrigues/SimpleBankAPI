@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
-using SimpleBank.AcctManage.Core.Application.NotificationModels;
+using SimpleBank.AcctManage.Core.Application.Models;
 using System.Text;
 
 namespace SimpleBank.AcctManage.Infrastructure.Providers.Notification.Providers

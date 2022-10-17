@@ -11,7 +11,7 @@ namespace SimpleBank.AcctManage.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class AccountsController : ControllerBase
     {
         private readonly IAuthenthicationProvider _authenthicationProvider;
@@ -37,7 +37,7 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// <response code="200">Ok - Returns all Accounts of logged user.</response>
         /// <response code="204">NoContent - Logged user has no Accounts.</response>
         [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+ //       [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [ProducesResponseType(typeof(IEnumerable<AccountResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]

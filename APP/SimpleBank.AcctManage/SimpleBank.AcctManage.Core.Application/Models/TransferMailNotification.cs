@@ -1,4 +1,4 @@
-﻿namespace SimpleBank.AcctManage.Core.Application.NotificationModels
+﻿namespace SimpleBank.AcctManage.Core.Application.Models
 {
     public class TransferMailNotification
     {
@@ -11,6 +11,9 @@
             Amount = amount;
         }
 
+        //public Guid Id { get; set; }
+        //public DateTime CreatedAt { get; set; } = DateTime.Now;
+		
         public string FromUser { get; set; }
         public string ToUser { get; set; }
         public string ToAccountId { get; set; }

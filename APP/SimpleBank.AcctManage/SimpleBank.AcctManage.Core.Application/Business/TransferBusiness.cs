@@ -1,7 +1,7 @@
 ﻿using SimpleBank.AcctManage.Core.Application.Contracts.Business;
 using SimpleBank.AcctManage.Core.Application.Contracts.Persistence;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers.Notification;
-using SimpleBank.AcctManage.Core.Application.NotificationModels;
+using SimpleBank.AcctManage.Core.Application.Models;
 using SimpleBank.AcctManage.Core.Domain;
 using Microsoft.Extensions.Configuration;
 using System.Transactions;
