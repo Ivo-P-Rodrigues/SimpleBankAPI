@@ -1,13 +1,11 @@
 ﻿using SimpleBank.AcctManage.Core.Domain.Common;
-using System.Text.Json.Serialization;
 
 namespace SimpleBank.AcctManage.Core.Domain
 {
     public class UserToken : BaseEntity
     {
-        public UserToken(Guid id, Guid userId, string accessToken, DateTime accessTokenExpiresAt, string refreshToken, DateTime refreshTokenExpiresAt)
+        public UserToken(Guid userId, string accessToken, DateTime accessTokenExpiresAt, string refreshToken, DateTime refreshTokenExpiresAt)
         {
-            Id = id;
             UserId = userId;
             AccessToken = accessToken;
             AccessTokenExpiresAt = accessTokenExpiresAt;
@@ -22,10 +20,8 @@ namespace SimpleBank.AcctManage.Core.Domain
         public string RefreshToken { get; set; }
         public DateTime RefreshTokenExpiresAt { get; set; }
 
-        [JsonIgnore]
-        public bool Active => AccessTokenExpiresAt > DateTime.UtcNow;
-        [JsonIgnore]
-        public bool Refresh => RefreshTokenExpiresAt > DateTime.UtcNow;
+        public bool Active => AccessTokenExpiresAt > DateTime.Now;
+        public bool Refresh => RefreshTokenExpiresAt > DateTime.Now;
 
 
     }

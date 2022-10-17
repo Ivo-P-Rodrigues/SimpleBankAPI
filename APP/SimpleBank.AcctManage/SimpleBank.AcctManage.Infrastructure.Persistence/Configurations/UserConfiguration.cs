@@ -15,7 +15,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
                 .IsUnique();
 
             builder.Property(e => e.Id)
-                .HasColumnName("user_id");
+                .HasColumnName("user_id")
+                .HasDefaultValueSql("uuid_generate_v4()");
 
             builder.Property(e => e.CreatedAt)
                 .HasColumnType("timestamp without time zone")

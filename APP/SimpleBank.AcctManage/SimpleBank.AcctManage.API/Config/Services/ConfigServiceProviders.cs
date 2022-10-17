@@ -1,5 +1,7 @@
-﻿using SimpleBank.AcctManage.API.Providers;
+﻿using SimpleBank.AcctManage.API.Profile;
+using SimpleBank.AcctManage.Core.Application.Contracts.Providers;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers.Notification;
+using SimpleBank.AcctManage.Infrastructure.Auth;
 using SimpleBank.AcctManage.Infrastructure.Providers.Notification.ProducerService;
 
 namespace SimpleBank.AcctManage.API.Config.Services

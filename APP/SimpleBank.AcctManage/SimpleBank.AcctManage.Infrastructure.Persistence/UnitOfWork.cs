@@ -13,8 +13,7 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence
             IAccountRepository accounts,
             IMovementRepository movements,
             ITransferRepository transfers,
-            IUserTokenRepository userTokens,
-            ISessionRepository sessions)
+            IUserTokenRepository userTokens)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             Users = users ?? throw new ArgumentNullException(nameof(users));
@@ -22,7 +21,6 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence
             Movements = movements ?? throw new ArgumentNullException(nameof(movements));
             Transfers = transfers ?? throw new ArgumentNullException(nameof(transfers));
             UserTokens = userTokens ?? throw new ArgumentNullException(nameof(userTokens));
-            Sessions = sessions ?? throw new ArgumentNullException(nameof(sessions));
         }
 
 
@@ -31,7 +29,6 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence
         public IMovementRepository Movements { get; private set; }
         public ITransferRepository Transfers { get; private set; }
         public IUserTokenRepository UserTokens { get; private set; }
-        public ISessionRepository Sessions { get; private set; }
 
 
         public int SaveChanges() =>

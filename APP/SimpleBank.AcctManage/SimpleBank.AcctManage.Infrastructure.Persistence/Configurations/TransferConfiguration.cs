@@ -9,7 +9,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Transfer> builder)
         {
             builder.Property(e => e.Id)
-                .HasColumnName("transfer_id");
+                .HasColumnName("transfer_id")
+                .HasDefaultValueSql("uuid_generate_v4()");
 
             builder.Property(e => e.Amount)
                 .HasColumnName("amount");

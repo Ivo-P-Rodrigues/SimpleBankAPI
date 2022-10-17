@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SimpleBank.AcctManage.Core.Domain;
+using System.Reflection.Emit;
 
 namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
 {
@@ -10,11 +12,12 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
         {
             builder.Property(e => e.Id)
                 .HasColumnName("user_token_id")
-                .HasDefaultValueSql("(gen_random_uuid())::text");
+                .HasDefaultValueSql("uuid_generate_v4()");
 
             builder.Property(e => e.CreatedAt)
                 .HasColumnType("timestamp without time zone")
-                .HasColumnName("created_at");
+                .HasColumnName("created_at")
+                .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
             builder.Property(e => e.AccessToken)
                 .HasColumnName("access_token");
@@ -29,6 +32,10 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
             builder.Property(e => e.RefreshTokenExpiresAt)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("refresh_token_expires_at");
+
+            builder.Ignore(i => i.Active);
+            
+            builder.Ignore(i => i.Refresh);
 
             builder.Property(e => e.UserId)
                 .HasColumnName("user_id");

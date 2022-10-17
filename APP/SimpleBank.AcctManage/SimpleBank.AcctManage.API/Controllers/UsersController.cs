@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using SimpleBank.AcctManage.API.Providers;
+using SimpleBank.AcctManage.API.Profile;
 using SimpleBank.AcctManage.Core.Application.Business;
 using SimpleBank.AcctManage.API.DTModels.Responses;
 using SimpleBank.AcctManage.API.DTModels.Requests;
 using SimpleBank.AcctManage.Core.Domain;
 using SimpleBank.AcctManage.Core.Application.Contracts.Business;
+using SimpleBank.AcctManage.Core.Application.Contracts.Providers;
 
 namespace SimpleBank.AcctManage.API.Controllers
 {
@@ -73,15 +74,18 @@ namespace SimpleBank.AcctManage.API.Controllers
         public async Task<ActionResult<LoginUserResponse>> Login(LoginUserRequest loginUserRequest)
         {
             if (!_userBusiness.VerifyUserCredentials(loginUserRequest.Password, loginUserRequest.Username, out Guid userId))
-            { return Unauthorized("User credentials are incorrect."); }
+                { return Unauthorized("User credentials are incorrect."); }
 
-            var checkAuthorization = await _authenthicationProvider.ValidateAuthorizationOnLoginAsync(userId);
-            if (checkAuthorization != null) { return checkAuthorization; }
+            var (userToken, possibleError) = await _authenthicationProvider.ProcessLoginAsync(userId);
 
-            var session = await _sessionBusiness.ProcessLoginAsync(userId);
-            if (session == null) { return Problem("Error on Login."); }
+            if(userToken == null)
+            {
+                return possibleError == null ?
+                    StatusCode(StatusCodes.Status500InternalServerError, "Error on login, please contact our customer support.") :
+                    StatusCode(StatusCodes.Status400BadRequest, possibleError);
+            }
 
-            var loginResponse = _entityMapper.MapSessionToLoginResponse(session);
+            var loginResponse = _entityMapper.MapUserTokenToLoginResponse(userToken);
             return Ok(loginResponse);
         }
 
@@ -96,17 +100,18 @@ namespace SimpleBank.AcctManage.API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<LoginUserResponse>> RenewRefreshToken(RenewRequest renewRequest)
+        public async Task<ActionResult<LoginUserResponse>> RenewToken(RenewRequest renewRequest)
         {
-            var checkAuthorization = await _authenthicationProvider.ValidateAuthorizationOnRefreshAsync(User.Claims);
-            if (checkAuthorization != null) { return checkAuthorization; }
+            var (userToken, possibleError) = await _authenthicationProvider.ProcessRenewToken(renewRequest.RefreshToken);
 
-            var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
-            var session = await _sessionBusiness.RefreshSessionAsync(userId, renewRequest.RefreshToken);
+            if (userToken == null)
+            {
+                return possibleError == null ?
+                    StatusCode(StatusCodes.Status500InternalServerError, "Error on renew, please contact our customer support.") :
+                    StatusCode(StatusCodes.Status400BadRequest, possibleError);
+            }
 
-            if(session == null) { return BadRequest("Invalid refresh token."); }
-
-            var loginResponse = _entityMapper.MapSessionToLoginResponse(session);
+            var loginResponse = _entityMapper.MapUserTokenToLoginResponse(userToken);
             return Ok(loginResponse);
         }
 
@@ -123,17 +128,19 @@ namespace SimpleBank.AcctManage.API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Logout(LogoutUserRequest logoutUserRequest)
         {
-            var checkAuthorization = await _authenthicationProvider.ValidateAuthorizationOnLogoutAsync(User.Claims);
-            if (checkAuthorization != null) { return checkAuthorization; }
+            var bla = await _authenthicationProvider.ProcessLogout(logoutUserRequest.UserTokenId);
 
-            var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
-            if(!_sessionBusiness.VerifyLogoutRequestObj(userId, logoutUserRequest.SessionId, out Session session))
-                { return BadRequest("Invalid logout"); }
+            switch (bla)
+            {
+                case null:
+                    return StatusCode(StatusCodes.Status500InternalServerError, "Error on logout, please contact our customer support.");
+                case false:
+                    return StatusCode(StatusCodes.Status400BadRequest, "Logout unavailable.");
+                default:
+                    return Ok("User logged out.");
 
-            var logoutCheck = await _sessionBusiness.ProcessLogoutAsync(session);
-            if(!logoutCheck) { return BadRequest("No session to logout"); }
+            }
 
-            return Ok("Session ended.");
         }
 
 

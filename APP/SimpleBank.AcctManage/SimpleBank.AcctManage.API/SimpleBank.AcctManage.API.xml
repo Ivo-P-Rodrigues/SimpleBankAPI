@@ -54,7 +54,7 @@
             <param name="loginUserRequest">User's param to Login</param>
             <returns>A Token</returns>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.UsersController.RenewRefreshToken(SimpleBank.AcctManage.API.DTModels.Requests.RenewRequest)">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.UsersController.RenewToken(SimpleBank.AcctManage.API.DTModels.Requests.RenewRequest)">
             <summary>
             Renews the refresh token.
             </summary>
