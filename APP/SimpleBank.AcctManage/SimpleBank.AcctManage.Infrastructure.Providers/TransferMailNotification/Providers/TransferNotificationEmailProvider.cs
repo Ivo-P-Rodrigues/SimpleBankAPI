@@ -22,6 +22,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Providers.Notification.Providers
 
         public void SendNotification(TransferMailNotification notification)
         {
+            if(notification.ToEmail == null) { return; }
+
             var newMail = MakeMailMessage(notification);
 
             try
