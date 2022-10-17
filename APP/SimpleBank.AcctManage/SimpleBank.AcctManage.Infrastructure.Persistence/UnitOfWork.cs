@@ -1,4 +1,5 @@
 ﻿using SimpleBank.AcctManage.Core.Application.Contracts.Persistence;
+using SimpleBank.AcctManage.Core.Domain;
 
 namespace SimpleBank.AcctManage.Infrastructure.Persistence
 {
@@ -8,26 +9,26 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence
 
         public UnitOfWork(
             SimpleBankDbContext context,
+            IUserRepository users,
             IAccountRepository accounts,
             IMovementRepository movements,
             ITransferRepository transfers,
-            IUserRepository users,
-            ISessionRepository sessions)
+            IUserTokenRepository userTokens)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            Users = users ?? throw new ArgumentNullException(nameof(users));
             Accounts = accounts ?? throw new ArgumentNullException(nameof(accounts));
             Movements = movements ?? throw new ArgumentNullException(nameof(movements));
             Transfers = transfers ?? throw new ArgumentNullException(nameof(transfers));
-            Users = users ?? throw new ArgumentNullException(nameof(users));
-            Sessions = sessions ?? throw new ArgumentNullException(nameof(sessions));
+            UserTokens = userTokens ?? throw new ArgumentNullException(nameof(userTokens));
         }
 
 
+        public IUserRepository Users { get; private set; }
         public IAccountRepository Accounts { get; private set; }
         public IMovementRepository Movements { get; private set; }
         public ITransferRepository Transfers { get; private set; }
-        public IUserRepository Users { get; private set; }
-        public ISessionRepository Sessions { get; private set; }
+        public IUserTokenRepository UserTokens { get; private set; }
 
 
         public int SaveChanges() =>

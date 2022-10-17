@@ -8,11 +8,15 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Movement> builder)
         {
-            builder.Property(e => e.Id).HasColumnName("movement_id");
+            builder.Property(e => e.Id)
+                .HasColumnName("movement_id")
+                .HasDefaultValueSql("uuid_generate_v4()"); 
 
-            builder.Property(e => e.AccountId).HasColumnName("account_id");
+            builder.Property(e => e.AccountId)
+                .HasColumnName("account_id");
 
-            builder.Property(e => e.Amount).HasColumnName("amount");
+            builder.Property(e => e.Amount)
+                .HasColumnName("amount");
 
             builder.Property(e => e.CreatedAt)
                 .HasColumnType("timestamp without time zone")
@@ -24,6 +28,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
                 .HasForeignKey(d => d.AccountId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("movements_accounts_fkey");
+
+            builder.ToTable("Movements", "SB-operational");
         }
     }
 }

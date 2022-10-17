@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SimpleBank.AcctManage.Core.Application\SimpleBank.AcctManage.Core.Application.csproj" />
+    <ProjectReference Include="..\SimpleBank.AcctManage.Infrastructure.Auth\SimpleBank.AcctManage.Infrastructure.Auth.csproj" />
     <ProjectReference Include="..\SimpleBank.AcctManage.Infrastructure.Persistence\SimpleBank.AcctManage.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\SimpleBank.AcctManage.Infrastructure.Providers\SimpleBank.AcctManage.Infrastructure.Providers.csproj" />
   </ItemGroup>

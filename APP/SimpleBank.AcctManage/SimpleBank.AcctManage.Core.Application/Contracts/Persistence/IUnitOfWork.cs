@@ -6,7 +6,7 @@
         IMovementRepository Movements { get; }
         ITransferRepository Transfers { get; }
         IUserRepository Users { get; }
-        ISessionRepository Sessions { get; }
+        IUserTokenRepository UserTokens { get; }
 
 
    

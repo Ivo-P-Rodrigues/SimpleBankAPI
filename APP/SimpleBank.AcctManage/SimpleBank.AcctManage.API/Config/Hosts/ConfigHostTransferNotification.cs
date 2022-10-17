@@ -1,4 +1,4 @@
-﻿using SimpleBank.AcctManage.Core.Application.NotificationModels;
+﻿using SimpleBank.AcctManage.Core.Application.Models;
 using SimpleBank.AcctManage.Infrastructure.Providers.Notification.ConsumerService;
 using SimpleBank.AcctManage.Infrastructure.Providers.Notification.Providers;
 

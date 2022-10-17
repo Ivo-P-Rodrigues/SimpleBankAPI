@@ -3,7 +3,7 @@ using Serilog;
 using Microsoft.Extensions.Configuration;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers.Notification;
 using System.Text.Json;
-using SimpleBank.AcctManage.Core.Application.NotificationModels;
+using SimpleBank.AcctManage.Core.Application.Models;
 
 namespace SimpleBank.AcctManage.Infrastructure.Providers.Notification.ProducerService
 {

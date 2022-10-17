@@ -1,5 +1,5 @@
 ﻿
-using SimpleBank.AcctManage.Core.Application.NotificationModels;
+using SimpleBank.AcctManage.Core.Application.Models;
 
 namespace SimpleBank.AcctManage.Core.Application.Contracts.Providers.Notification
 {

@@ -2,6 +2,7 @@
 using Serilog;
 using SimpleBank.AcctManage.Core.Application.Contracts.Persistence;
 using SimpleBank.AcctManage.Core.Domain.Common;
+using System;
 using System.Linq.Expressions;
 
 namespace SimpleBank.AcctManage.Infrastructure.Persistence.Repositories.Common
@@ -124,8 +125,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Repositories.Common
         public virtual bool Exists(Expression<Func<TEntity, bool>> predicate) =>
             _context.Set<TEntity>().Any(predicate);
 
-
-
+        public virtual void UntrackEntity(TEntity entity) =>
+            _context.Entry(entity).State = EntityState.Detached;
 
     }
 }

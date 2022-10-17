@@ -27,5 +27,6 @@ namespace SimpleBank.AcctManage.Core.Application.Contracts.Persistence
         void RemoveRange(IEnumerable<TEntity> entities);
         void Update(TEntity entity);
         void UpdateRange(IEnumerable<TEntity> entities);
+        void UntrackEntity(TEntity entity);
     }
 }

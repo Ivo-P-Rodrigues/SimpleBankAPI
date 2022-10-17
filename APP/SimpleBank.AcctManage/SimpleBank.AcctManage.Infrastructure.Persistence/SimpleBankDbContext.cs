@@ -11,7 +11,7 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence
         public virtual DbSet<Movement> Movements { get; set; } = null!;
         public virtual DbSet<Transfer> Transfers { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
-        public virtual DbSet<Session> Sessions { get; set; } = null!;
+        public virtual DbSet<UserToken> UserTokens { get; set; } = null!;
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using SimpleBank.AcctManage.API.Providers;
+using SimpleBank.AcctManage.API.Profile;
 using SimpleBank.AcctManage.API.DTModels.Responses;
 using SimpleBank.AcctManage.API.DTModels.Requests;
 using SimpleBank.AcctManage.Core.Domain;
@@ -14,16 +14,13 @@ namespace SimpleBank.AcctManage.API.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class TransfersController : ControllerBase
     {
-        private readonly IAuthenthicationProvider _authenthicationProvider;
         private readonly ITransferBusiness _transferBusiness;
         private readonly IEntityMapper _entityMapper;
 
         public TransfersController(
-            IAuthenthicationProvider authenthicationProvider,
             ITransferBusiness transferBusiness,
             IEntityMapper entityMapper)
         {
-            _authenthicationProvider = authenthicationProvider ?? throw new ArgumentNullException(nameof(authenthicationProvider));
             _transferBusiness = transferBusiness ?? throw new ArgumentNullException(nameof(transferBusiness));
             _entityMapper = entityMapper ?? throw new ArgumentNullException(nameof(entityMapper));
         }
@@ -40,10 +37,6 @@ namespace SimpleBank.AcctManage.API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<TransferResponse>> MakeTransfer(TransferRequest transferRequest)
         {
-            //auth
-            var checkAuthorization = await _authenthicationProvider.ValidateAuthorizationAsync(User.Claims);
-            if (checkAuthorization != null) { return checkAuthorization; }
-
             //make transfer
             var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
             var transfer = _entityMapper.MapRequestToTransfer(transferRequest);

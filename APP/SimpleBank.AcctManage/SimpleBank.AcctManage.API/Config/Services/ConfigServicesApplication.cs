@@ -8,7 +8,6 @@ namespace SimpleBank.AcctManage.API.Config.Services
         public static IServiceCollection ConfigureApplicationServices(this IServiceCollection services)
         {
             services.AddTransient<IUserBusiness, UserBusiness>();
-            services.AddTransient<ISessionBusiness, SessionBusiness>();
             services.AddTransient<IAccountBusiness, AccountBusiness>();
             services.AddTransient<ITransferBusiness, TransferBusiness>();
 

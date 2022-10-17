@@ -29,7 +29,7 @@ namespace SimpleBank.AcctManage.Core.Application.Business
             return savedUser;
         }
 
-
+        //Login
         public bool VerifyUserCredentials(string password, string username, out Guid userId)
         {
             var user = _unitOfWork.Users.FirstOrDefault(u => u.Username == username); 

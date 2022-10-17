@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using SimpleBank.AcctManage.API.DTModels.Requests;
 using SimpleBank.AcctManage.API.DTModels.Responses;
 using SimpleBank.AcctManage.Core.Domain;
-using SimpleBank.AcctManage.API.Providers;
+using SimpleBank.AcctManage.API.Profile;
 using SimpleBank.AcctManage.Core.Application.Contracts.Business;
 
 namespace SimpleBank.AcctManage.API.Controllers
@@ -14,16 +14,13 @@ namespace SimpleBank.AcctManage.API.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class AccountsController : ControllerBase
     {
-        private readonly IAuthenthicationProvider _authenthicationProvider;
         private readonly IAccountBusiness _accountBusiness;
         private readonly IEntityMapper _entityMapper;
 
         public AccountsController(
-            IAuthenthicationProvider authenthicationProvider,
             IAccountBusiness accountBusiness,
             IEntityMapper entityMapper)
         {
-            _authenthicationProvider = authenthicationProvider ?? throw new ArgumentNullException(nameof(authenthicationProvider));
             _accountBusiness = accountBusiness ?? throw new ArgumentNullException(nameof(accountBusiness));
             _entityMapper = entityMapper ?? throw new ArgumentNullException(nameof(entityMapper));
         }
@@ -45,9 +42,6 @@ namespace SimpleBank.AcctManage.API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<AccountResponse>>> GetAllAccounts()
         {
-            var checkAuthorization = await _authenthicationProvider.ValidateAuthorizationAsync(User.Claims);
-            if (checkAuthorization != null) { return checkAuthorization; }
-
             var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
             var accounts = _accountBusiness.GetAllUserAccounts(userId);
             if (accounts == null || accounts.Count() == 0) { return NotFound(); }
@@ -71,9 +65,6 @@ namespace SimpleBank.AcctManage.API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<AccountMovims>> GetAccount(Guid accountId)
         {
-            var checkAuthorization = await _authenthicationProvider.ValidateAuthorizationAsync(User.Claims);
-            if (checkAuthorization != null) { return checkAuthorization; }
-
             var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
             (bool, Account?, IEnumerable<Movement>?) result = await _accountBusiness.GetAccountWithMovements(accountId, userId);
 
@@ -101,9 +92,6 @@ namespace SimpleBank.AcctManage.API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<AccountResponse>> CreateAccount(CreateAccountRequest accountRequest)
         {
-            var checkAuthorization = await _authenthicationProvider.ValidateAuthorizationAsync(User.Claims);
-            if (checkAuthorization != null) { return checkAuthorization; }
-
             var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
             var accountToCreate = _entityMapper.MapRequestToAccountModel(accountRequest, userId);
 

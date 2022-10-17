@@ -1,0 +1,1186 @@
+2022-10-15 20:11:49.002 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-15 20:11:49.146 +01:00 [DBG] Hosting starting
+2022-10-15 20:11:49.203 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-15 20:11:49.209 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-15 20:11:49.244 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-15 20:11:49.256 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-15 20:11:49.276 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-15 20:11:49.286 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-15 20:11:49.287 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-15 20:11:49.297 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-15 20:11:49.301 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:11:49.305 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-15 20:11:49.307 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:11:49.313 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-15 20:11:49.317 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-15 20:11:49.321 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-15 20:11:49.323 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-15 20:11:50.295 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-15 20:11:50.435 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-15 20:11:50.445 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-15 20:11:50.446 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-15 20:11:50.447 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-15 20:11:50.448 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-15 20:11:50.449 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-15 20:11:50.451 +01:00 [INF] Hosting environment: Development
+2022-10-15 20:11:50.452 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-15 20:11:50.454 +01:00 [DBG] Hosting started
+2022-10-15 20:11:50.711 +01:00 [DBG] Connection id "0HMLES4EJ581M" accepted.
+2022-10-15 20:11:50.711 +01:00 [DBG] Connection id "0HMLES4EJ581L" accepted.
+2022-10-15 20:11:50.715 +01:00 [DBG] Connection id "0HMLES4EJ581M" started.
+2022-10-15 20:11:50.715 +01:00 [DBG] Connection id "0HMLES4EJ581L" started.
+2022-10-15 20:11:52.217 +01:00 [DBG] Connection id "0HMLES4EJ581N" accepted.
+2022-10-15 20:11:52.223 +01:00 [DBG] Connection id "0HMLES4EJ581N" started.
+2022-10-15 20:11:52.299 +01:00 [DBG] Connection id "0HMLES4EJ581N" received FIN.
+2022-10-15 20:11:52.327 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:11:52.599 +01:00 [DBG] Connection id "0HMLES4EJ581N" stopped.
+2022-10-15 20:11:52.605 +01:00 [DBG] Connection id "0HMLES4EJ581N" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:11:55.242 +01:00 [DBG] Connection id "0HMLES4EJ581O" accepted.
+2022-10-15 20:11:55.243 +01:00 [DBG] Connection id "0HMLES4EJ581O" started.
+2022-10-15 20:11:55.274 +01:00 [DBG] Connection 0HMLES4EJ581O established using the following protocol: "Tls13"
+2022-10-15 20:11:55.343 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger - -
+2022-10-15 20:11:55.392 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-15 20:11:55.501 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger - - - 301 0 - 161.5964ms
+2022-10-15 20:11:55.511 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-15 20:11:55.585 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-15 20:11:55.762 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-15 20:11:55.766 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 254.4125ms
+2022-10-15 20:11:55.792 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui-standalone-preset.js - -
+2022-10-15 20:11:55.792 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-15 20:11:55.792 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui.css - -
+2022-10-15 20:11:55.792 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-15 20:11:55.792 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui-bundle.js - -
+2022-10-15 20:11:55.817 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 24.3845ms
+2022-10-15 20:11:55.843 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-10-15 20:11:55.847 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui.css - - - 200 143632 text/css 54.9112ms
+2022-10-15 20:11:55.843 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-10-15 20:11:55.871 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 79.3450ms
+2022-10-15 20:11:55.883 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-10-15 20:11:55.885 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 92.5394ms
+2022-10-15 20:11:55.893 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 100.3937ms
+2022-10-15 20:11:56.022 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/favicon-16x16.png - -
+2022-10-15 20:11:56.023 +01:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2022-10-15 20:11:56.026 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/favicon-16x16.png - - - 200 665 image/png 3.9981ms
+2022-10-15 20:11:56.118 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-15 20:11:56.316 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 197.4214ms
+2022-10-15 20:12:00.815 +01:00 [DBG] Authentication of the HTTPS connection timed out.
+2022-10-15 20:12:00.822 +01:00 [DBG] Connection id "0HMLES4EJ581M" stopped.
+2022-10-15 20:12:00.827 +01:00 [DBG] Connection id "0HMLES4EJ581M" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:12:00.897 +01:00 [DBG] Authentication of the HTTPS connection timed out.
+2022-10-15 20:12:00.899 +01:00 [DBG] Connection id "0HMLES4EJ581L" stopped.
+2022-10-15 20:12:00.901 +01:00 [DBG] Connection id "0HMLES4EJ581L" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:16:13.204 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-15 20:16:13.329 +01:00 [DBG] Hosting starting
+2022-10-15 20:16:13.379 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-15 20:16:13.384 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-15 20:16:13.397 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-15 20:16:13.400 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-15 20:16:13.408 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-15 20:16:13.416 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-15 20:16:13.417 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-15 20:16:13.425 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-15 20:16:13.428 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:16:13.432 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-15 20:16:13.434 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:16:13.439 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-15 20:16:13.442 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-15 20:16:13.446 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-15 20:16:13.447 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-15 20:16:13.626 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-15 20:16:13.686 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-15 20:16:13.687 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-15 20:16:13.688 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-15 20:16:13.690 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-15 20:16:13.691 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-15 20:16:13.693 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-15 20:16:13.694 +01:00 [INF] Hosting environment: Development
+2022-10-15 20:16:13.696 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-15 20:16:13.698 +01:00 [DBG] Hosting started
+2022-10-15 20:16:14.086 +01:00 [DBG] Connection id "0HMLES6T2T93N" accepted.
+2022-10-15 20:16:14.089 +01:00 [DBG] Connection id "0HMLES6T2T93N" started.
+2022-10-15 20:16:14.098 +01:00 [DBG] Connection id "0HMLES6T2T93O" accepted.
+2022-10-15 20:16:14.101 +01:00 [DBG] Connection id "0HMLES6T2T93O" started.
+2022-10-15 20:16:14.116 +01:00 [DBG] Connection id "0HMLES6T2T93O" received FIN.
+2022-10-15 20:16:14.117 +01:00 [DBG] Connection id "0HMLES6T2T93N" received FIN.
+2022-10-15 20:16:14.139 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:16:14.139 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:16:14.284 +01:00 [DBG] Connection id "0HMLES6T2T93N" stopped.
+2022-10-15 20:16:14.284 +01:00 [DBG] Connection id "0HMLES6T2T93O" stopped.
+2022-10-15 20:16:14.291 +01:00 [DBG] Connection id "0HMLES6T2T93N" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:16:14.291 +01:00 [DBG] Connection id "0HMLES6T2T93O" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:16:14.428 +01:00 [DBG] Connection id "0HMLES6T2T93P" accepted.
+2022-10-15 20:16:14.430 +01:00 [DBG] Connection id "0HMLES6T2T93P" started.
+2022-10-15 20:16:14.474 +01:00 [DBG] Connection 0HMLES6T2T93P established using the following protocol: "Tls13"
+2022-10-15 20:16:14.558 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger - -
+2022-10-15 20:16:14.603 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-15 20:16:14.694 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger - - - 301 0 - 140.9246ms
+2022-10-15 20:16:14.706 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-15 20:16:14.783 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-15 20:16:14.903 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-15 20:16:14.907 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 201.0915ms
+2022-10-15 20:16:14.925 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui-standalone-preset.js - -
+2022-10-15 20:16:14.925 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui.css - -
+2022-10-15 20:16:14.925 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/swagger-ui-bundle.js - -
+2022-10-15 20:16:14.932 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-15 20:16:14.940 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-15 20:16:14.949 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 9.5355ms
+2022-10-15 20:16:14.960 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-10-15 20:16:14.972 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui.css - - - 200 143632 text/css 46.3313ms
+2022-10-15 20:16:14.991 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.2597ms
+2022-10-15 20:16:14.998 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-10-15 20:16:15.007 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 82.1891ms
+2022-10-15 20:16:15.010 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-10-15 20:16:15.013 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 87.6633ms
+2022-10-15 20:16:15.145 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/favicon-16x16.png - -
+2022-10-15 20:16:15.147 +01:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2022-10-15 20:16:15.148 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/favicon-16x16.png - - - 200 665 image/png 3.6020ms
+2022-10-15 20:16:15.222 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-15 20:16:15.394 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 172.3364ms
+2022-10-15 20:16:46.783 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-15 20:16:46.884 +01:00 [DBG] Hosting starting
+2022-10-15 20:16:46.928 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-15 20:16:46.932 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-15 20:16:46.937 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-15 20:16:46.939 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-15 20:16:46.944 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-15 20:16:46.950 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-15 20:16:46.951 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-15 20:16:46.959 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-15 20:16:46.962 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:16:46.966 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-15 20:16:46.967 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:16:46.976 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-15 20:16:46.979 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-15 20:16:46.982 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-15 20:16:46.984 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-15 20:16:47.122 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-15 20:16:47.182 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-15 20:16:47.183 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-15 20:16:47.185 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-15 20:16:47.186 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-15 20:16:47.188 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-15 20:16:47.189 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-15 20:16:47.190 +01:00 [INF] Hosting environment: Development
+2022-10-15 20:16:47.191 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-15 20:16:47.192 +01:00 [DBG] Hosting started
+2022-10-15 20:16:47.509 +01:00 [DBG] Connection id "0HMLES771L4NC" accepted.
+2022-10-15 20:16:47.509 +01:00 [DBG] Connection id "0HMLES771L4ND" accepted.
+2022-10-15 20:16:47.512 +01:00 [DBG] Connection id "0HMLES771L4NC" started.
+2022-10-15 20:16:47.513 +01:00 [DBG] Connection id "0HMLES771L4ND" started.
+2022-10-15 20:16:47.541 +01:00 [DBG] Connection id "0HMLES771L4ND" received FIN.
+2022-10-15 20:16:47.541 +01:00 [DBG] Connection id "0HMLES771L4NC" received FIN.
+2022-10-15 20:16:47.553 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:16:47.553 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:16:47.617 +01:00 [DBG] Connection id "0HMLES771L4NC" stopped.
+2022-10-15 20:16:47.629 +01:00 [DBG] Connection id "0HMLES771L4ND" stopped.
+2022-10-15 20:16:47.635 +01:00 [DBG] Connection id "0HMLES771L4NC" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:16:47.642 +01:00 [DBG] Connection id "0HMLES771L4ND" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:16:47.822 +01:00 [DBG] Connection id "0HMLES771L4NE" accepted.
+2022-10-15 20:16:47.823 +01:00 [DBG] Connection id "0HMLES771L4NE" started.
+2022-10-15 20:16:47.856 +01:00 [DBG] Connection 0HMLES771L4NE established using the following protocol: "Tls13"
+2022-10-15 20:16:47.906 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-15 20:16:47.947 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-15 20:16:48.073 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-15 20:16:48.193 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-15 20:16:48.198 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 294.9073ms
+2022-10-15 20:16:48.251 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-15 20:16:48.252 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-15 20:16:48.266 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 14.7765ms
+2022-10-15 20:16:48.283 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.4988ms
+2022-10-15 20:16:48.480 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-15 20:16:48.691 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 210.6044ms
+2022-10-15 20:17:15.820 +01:00 [DBG] Connection id "0HMLES771L4NF" accepted.
+2022-10-15 20:17:15.824 +01:00 [DBG] Connection id "0HMLES771L4NF" received FIN.
+2022-10-15 20:17:15.825 +01:00 [DBG] Connection id "0HMLES771L4NF" started.
+2022-10-15 20:17:15.826 +01:00 [DBG] Connection id "0HMLES771L4NG" accepted.
+2022-10-15 20:17:15.834 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:17:15.835 +01:00 [DBG] Connection id "0HMLES771L4NG" started.
+2022-10-15 20:17:15.838 +01:00 [DBG] Connection id "0HMLES771L4NF" stopped.
+2022-10-15 20:17:15.840 +01:00 [DBG] Connection id "0HMLES771L4NF" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:17:15.842 +01:00 [DBG] Connection 0HMLES771L4NG established using the following protocol: "Tls13"
+2022-10-15 20:17:15.855 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7074/api/accounts - -
+2022-10-15 20:17:15.859 +01:00 [DBG] The request path  does not match the path filter
+2022-10-15 20:17:15.890 +01:00 [DBG] 1 candidate(s) found for the request path '/api/accounts'
+2022-10-15 20:17:15.895 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)' with route pattern 'api/Accounts' is valid for the request path '/api/accounts'
+2022-10-15 20:17:15.898 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:17:16.774 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-15 20:17:16.779 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-15 20:17:16.786 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-15 20:17:16.791 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2022-10-15 20:17:16.803 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2022-10-15 20:17:16.816 +01:00 [DBG] Connection id "0HMLES771L4NG" completed keep alive response.
+2022-10-15 20:17:16.818 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7074/api/accounts - - - 401 0 - 962.7625ms
+2022-10-15 20:17:38.725 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7074/api/accounts - -
+2022-10-15 20:17:38.733 +01:00 [DBG] The request path  does not match the path filter
+2022-10-15 20:17:38.737 +01:00 [DBG] 1 candidate(s) found for the request path '/api/accounts'
+2022-10-15 20:17:38.740 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)' with route pattern 'api/Accounts' is valid for the request path '/api/accounts'
+2022-10-15 20:17:38.743 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:17:38.747 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-15 20:17:38.751 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-15 20:17:38.752 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-15 20:17:38.754 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2022-10-15 20:17:38.757 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2022-10-15 20:17:38.759 +01:00 [DBG] Connection id "0HMLES771L4NG" completed keep alive response.
+2022-10-15 20:17:38.760 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7074/api/accounts - - - 401 0 - 37.7742ms
+2022-10-15 20:18:08.294 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-15 20:18:08.364 +01:00 [DBG] Hosting starting
+2022-10-15 20:18:08.378 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-15 20:18:08.382 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-15 20:18:08.387 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-15 20:18:08.389 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-15 20:18:08.394 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-15 20:18:08.398 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-15 20:18:08.399 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-15 20:18:08.405 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-15 20:18:08.408 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:18:08.410 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-15 20:18:08.412 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:18:08.416 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-15 20:18:08.419 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-15 20:18:08.422 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-15 20:18:08.423 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-15 20:18:08.488 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-15 20:18:08.519 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-15 20:18:08.522 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-15 20:18:08.524 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-15 20:18:08.525 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-15 20:18:08.525 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-15 20:18:08.526 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-15 20:18:08.527 +01:00 [INF] Hosting environment: Development
+2022-10-15 20:18:08.528 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-15 20:18:08.529 +01:00 [DBG] Hosting started
+2022-10-15 20:18:08.968 +01:00 [DBG] Connection id "0HMLES7VAHB88" received FIN.
+2022-10-15 20:18:08.974 +01:00 [DBG] Connection id "0HMLES7VAHB88" accepted.
+2022-10-15 20:18:08.977 +01:00 [DBG] Connection id "0HMLES7VAHB88" started.
+2022-10-15 20:18:08.986 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:18:09.003 +01:00 [DBG] Connection id "0HMLES7VAHB88" stopped.
+2022-10-15 20:18:09.006 +01:00 [DBG] Connection id "0HMLES7VAHB88" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:18:15.405 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-15 20:18:15.513 +01:00 [DBG] Hosting starting
+2022-10-15 20:18:15.548 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-15 20:18:15.552 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-15 20:18:15.557 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-15 20:18:15.558 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-15 20:18:15.564 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-15 20:18:15.569 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-15 20:18:15.571 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-15 20:18:15.579 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-15 20:18:15.582 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:18:15.585 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-15 20:18:15.587 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:18:15.591 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-15 20:18:15.595 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-15 20:18:15.598 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-15 20:18:15.599 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-15 20:18:15.734 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-15 20:18:15.781 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-15 20:18:15.782 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-15 20:18:15.784 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-15 20:18:15.784 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-15 20:18:15.785 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-15 20:18:15.786 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-15 20:18:15.787 +01:00 [INF] Hosting environment: Development
+2022-10-15 20:18:15.788 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-15 20:18:15.789 +01:00 [DBG] Hosting started
+2022-10-15 20:18:15.867 +01:00 [DBG] Connection id "0HMLES81CAIAP" received FIN.
+2022-10-15 20:18:15.871 +01:00 [DBG] Connection id "0HMLES81CAIAQ" accepted.
+2022-10-15 20:18:15.871 +01:00 [DBG] Connection id "0HMLES81CAIAP" accepted.
+2022-10-15 20:18:15.867 +01:00 [DBG] Connection id "0HMLES81CAIAQ" received FIN.
+2022-10-15 20:18:15.874 +01:00 [DBG] Connection id "0HMLES81CAIAP" started.
+2022-10-15 20:18:15.874 +01:00 [DBG] Connection id "0HMLES81CAIAQ" started.
+2022-10-15 20:18:15.896 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:18:15.896 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:18:16.007 +01:00 [DBG] Connection id "0HMLES81CAIAP" stopped.
+2022-10-15 20:18:16.007 +01:00 [DBG] Connection id "0HMLES81CAIAQ" stopped.
+2022-10-15 20:18:16.013 +01:00 [DBG] Connection id "0HMLES81CAIAP" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:18:16.014 +01:00 [DBG] Connection id "0HMLES81CAIAQ" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:18:16.181 +01:00 [DBG] Connection id "0HMLES81CAIAR" accepted.
+2022-10-15 20:18:16.182 +01:00 [DBG] Connection id "0HMLES81CAIAR" started.
+2022-10-15 20:18:16.221 +01:00 [DBG] Connection 0HMLES81CAIAR established using the following protocol: "Tls13"
+2022-10-15 20:18:16.271 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-15 20:18:16.305 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-15 20:18:16.425 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-15 20:18:16.549 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-15 20:18:16.559 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 290.2191ms
+2022-10-15 20:18:16.601 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-15 20:18:16.601 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-15 20:18:16.608 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 6.6784ms
+2022-10-15 20:18:16.624 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 23.0636ms
+2022-10-15 20:18:16.809 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-15 20:18:16.971 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 161.7850ms
+2022-10-15 20:18:23.777 +01:00 [DBG] Connection id "0HMLES81CAIAS" accepted.
+2022-10-15 20:18:23.778 +01:00 [DBG] Connection id "0HMLES81CAIAS" received FIN.
+2022-10-15 20:18:23.779 +01:00 [DBG] Connection id "0HMLES81CAIAT" accepted.
+2022-10-15 20:18:23.779 +01:00 [DBG] Connection id "0HMLES81CAIAS" started.
+2022-10-15 20:18:23.781 +01:00 [DBG] Connection id "0HMLES81CAIAT" started.
+2022-10-15 20:18:23.782 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:18:23.793 +01:00 [DBG] Connection id "0HMLES81CAIAS" stopped.
+2022-10-15 20:18:23.793 +01:00 [DBG] Connection 0HMLES81CAIAT established using the following protocol: "Tls13"
+2022-10-15 20:18:23.794 +01:00 [DBG] Connection id "0HMLES81CAIAS" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:18:23.809 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7074/api/accounts - -
+2022-10-15 20:18:23.812 +01:00 [DBG] The request path  does not match the path filter
+2022-10-15 20:18:23.846 +01:00 [DBG] 1 candidate(s) found for the request path '/api/accounts'
+2022-10-15 20:18:23.854 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)' with route pattern 'api/Accounts' is valid for the request path '/api/accounts'
+2022-10-15 20:18:23.857 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:18:24.169 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-15 20:18:24.176 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-15 20:18:24.179 +01:00 [INF] Executing endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:18:24.209 +01:00 [INF] Route matched with {action = "GetAllAccounts", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[SimpleBank.AcctManage.API.DTModels.Responses.AccountResponse]]] GetAllAccounts() on controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API).
+2022-10-15 20:18:24.214 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-10-15 20:18:24.216 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-10-15 20:18:24.220 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-10-15 20:18:24.223 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-10-15 20:18:24.225 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-10-15 20:18:24.229 +01:00 [DBG] Executing controller factory for controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API)
+2022-10-15 20:18:24.892 +01:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-10-15 20:18:24.933 +01:00 [DBG] Executed controller factory for controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API)
+2022-10-15 20:18:24.943 +01:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-10-15 20:18:24.948 +01:00 [DBG] No information found on request to perform content negotiation.
+2022-10-15 20:18:24.948 +01:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-10-15 20:18:24.949 +01:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-10-15 20:18:24.954 +01:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response.
+2022-10-15 20:18:24.956 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2022-10-15 20:18:24.974 +01:00 [INF] Executed action SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API) in 738.6293ms
+2022-10-15 20:18:24.977 +01:00 [INF] Executed endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:18:24.978 +01:00 [DBG] Connection id "0HMLES81CAIAT" completed keep alive response.
+2022-10-15 20:18:24.982 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7074/api/accounts - - - 401 - text/plain;+charset=utf-8 1172.8919ms
+2022-10-15 20:18:35.761 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7074/api/accounts - -
+2022-10-15 20:18:35.763 +01:00 [DBG] The request path  does not match the path filter
+2022-10-15 20:18:35.765 +01:00 [DBG] 1 candidate(s) found for the request path '/api/accounts'
+2022-10-15 20:18:35.766 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)' with route pattern 'api/Accounts' is valid for the request path '/api/accounts'
+2022-10-15 20:18:35.768 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:18:35.769 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-15 20:18:35.773 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-15 20:18:35.774 +01:00 [INF] Executing endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:18:35.775 +01:00 [INF] Route matched with {action = "GetAllAccounts", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[SimpleBank.AcctManage.API.DTModels.Responses.AccountResponse]]] GetAllAccounts() on controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API).
+2022-10-15 20:18:35.777 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-10-15 20:18:35.780 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-10-15 20:18:35.782 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-10-15 20:18:35.784 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-10-15 20:18:35.786 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-10-15 20:18:35.787 +01:00 [DBG] Executing controller factory for controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API)
+2022-10-15 20:18:35.799 +01:00 [DBG] Executed controller factory for controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API)
+2022-10-15 20:20:11.141 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-15 20:20:11.243 +01:00 [DBG] Hosting starting
+2022-10-15 20:20:11.279 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-15 20:20:11.283 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-15 20:20:11.288 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-15 20:20:11.290 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-15 20:20:11.295 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-15 20:20:11.301 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-15 20:20:11.302 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-15 20:20:11.310 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-15 20:20:11.313 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:20:11.316 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-15 20:20:11.318 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:20:11.323 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-15 20:20:11.326 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-15 20:20:11.329 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-15 20:20:11.330 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-15 20:20:11.459 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-15 20:20:11.505 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-15 20:20:11.507 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-15 20:20:11.508 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-15 20:20:11.509 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-15 20:20:11.510 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-15 20:20:11.511 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-15 20:20:11.512 +01:00 [INF] Hosting environment: Development
+2022-10-15 20:20:11.512 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-15 20:20:11.513 +01:00 [DBG] Hosting started
+2022-10-15 20:20:11.530 +01:00 [DBG] Connection id "0HMLES93RBA0A" accepted.
+2022-10-15 20:20:11.533 +01:00 [DBG] Connection id "0HMLES93RBA0A" started.
+2022-10-15 20:20:11.562 +01:00 [DBG] Connection id "0HMLES93RBA0A" received FIN.
+2022-10-15 20:20:11.581 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:20:11.644 +01:00 [DBG] Connection id "0HMLES93RBA0A" stopped.
+2022-10-15 20:20:11.648 +01:00 [DBG] Connection id "0HMLES93RBA0A" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:20:11.856 +01:00 [DBG] Connection id "0HMLES93RBA0B" accepted.
+2022-10-15 20:20:11.861 +01:00 [DBG] Connection id "0HMLES93RBA0B" started.
+2022-10-15 20:20:11.899 +01:00 [DBG] Connection 0HMLES93RBA0B established using the following protocol: "Tls13"
+2022-10-15 20:20:11.948 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-15 20:20:11.985 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-15 20:20:12.110 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-15 20:20:12.232 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-15 20:20:12.239 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 293.8920ms
+2022-10-15 20:20:12.294 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-15 20:20:12.296 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-15 20:20:12.309 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 13.3092ms
+2022-10-15 20:20:12.366 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 71.8886ms
+2022-10-15 20:20:12.551 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-15 20:20:12.723 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 172.5473ms
+2022-10-15 20:20:15.369 +01:00 [DBG] Connection id "0HMLES93RBA0C" accepted.
+2022-10-15 20:20:15.369 +01:00 [DBG] Connection id "0HMLES93RBA0C" received FIN.
+2022-10-15 20:20:15.371 +01:00 [DBG] Connection id "0HMLES93RBA0C" started.
+2022-10-15 20:20:15.371 +01:00 [DBG] Connection id "0HMLES93RBA0D" accepted.
+2022-10-15 20:20:15.375 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:20:15.375 +01:00 [DBG] Connection id "0HMLES93RBA0D" started.
+2022-10-15 20:20:15.378 +01:00 [DBG] Connection id "0HMLES93RBA0C" stopped.
+2022-10-15 20:20:15.380 +01:00 [DBG] Connection id "0HMLES93RBA0C" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:20:15.382 +01:00 [DBG] Connection 0HMLES93RBA0D established using the following protocol: "Tls13"
+2022-10-15 20:20:15.392 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7074/api/accounts - -
+2022-10-15 20:20:15.398 +01:00 [DBG] The request path  does not match the path filter
+2022-10-15 20:20:15.421 +01:00 [DBG] 1 candidate(s) found for the request path '/api/accounts'
+2022-10-15 20:20:15.426 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)' with route pattern 'api/Accounts' is valid for the request path '/api/accounts'
+2022-10-15 20:20:15.431 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:20:15.717 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-15 20:20:15.723 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-15 20:20:15.727 +01:00 [INF] Executing endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:20:15.747 +01:00 [INF] Route matched with {action = "GetAllAccounts", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[SimpleBank.AcctManage.API.DTModels.Responses.AccountResponse]]] GetAllAccounts() on controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API).
+2022-10-15 20:20:15.751 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-10-15 20:20:15.753 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-10-15 20:20:15.754 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-10-15 20:20:15.756 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-10-15 20:20:15.758 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-10-15 20:20:15.760 +01:00 [DBG] Executing controller factory for controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API)
+2022-10-15 20:20:15.956 +01:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-10-15 20:20:15.990 +01:00 [DBG] Executed controller factory for controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API)
+2022-10-15 20:22:27.272 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-15 20:22:27.445 +01:00 [DBG] Hosting starting
+2022-10-15 20:22:27.484 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-15 20:22:27.488 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-15 20:22:27.493 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-15 20:22:27.494 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-15 20:22:27.500 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-15 20:22:27.505 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-15 20:22:27.506 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-15 20:22:27.514 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-15 20:22:27.517 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:22:27.520 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-15 20:22:27.522 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:22:27.527 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-15 20:22:27.531 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-15 20:22:27.534 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-15 20:22:27.535 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-15 20:22:27.662 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-15 20:22:27.713 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-15 20:22:27.714 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-15 20:22:27.715 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-15 20:22:27.716 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-15 20:22:27.716 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-15 20:22:27.718 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-15 20:22:27.718 +01:00 [INF] Hosting environment: Development
+2022-10-15 20:22:27.719 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-15 20:22:27.720 +01:00 [DBG] Hosting started
+2022-10-15 20:22:27.767 +01:00 [DBG] Connection id "0HMLESACEKD6A" received FIN.
+2022-10-15 20:22:27.782 +01:00 [DBG] Connection id "0HMLESACEKD6A" accepted.
+2022-10-15 20:22:27.785 +01:00 [DBG] Connection id "0HMLESACEKD6A" started.
+2022-10-15 20:22:27.803 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:22:27.869 +01:00 [DBG] Connection id "0HMLESACEKD6A" stopped.
+2022-10-15 20:22:27.881 +01:00 [DBG] Connection id "0HMLESACEKD6A" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:22:28.055 +01:00 [DBG] Connection id "0HMLESACEKD6B" accepted.
+2022-10-15 20:22:28.057 +01:00 [DBG] Connection id "0HMLESACEKD6B" started.
+2022-10-15 20:22:28.101 +01:00 [DBG] Connection 0HMLESACEKD6B established using the following protocol: "Tls13"
+2022-10-15 20:22:28.151 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-15 20:22:28.187 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-15 20:22:28.304 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-15 20:22:28.430 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-15 20:22:28.436 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 288.1623ms
+2022-10-15 20:22:28.482 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-15 20:22:28.483 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-15 20:22:28.497 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 14.3275ms
+2022-10-15 20:22:28.628 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 145.6222ms
+2022-10-15 20:22:28.815 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-15 20:22:29.000 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 184.7954ms
+2022-10-15 20:22:30.086 +01:00 [DBG] Connection id "0HMLESACEKD6C" accepted.
+2022-10-15 20:22:30.086 +01:00 [DBG] Connection id "0HMLESACEKD6C" received FIN.
+2022-10-15 20:22:30.088 +01:00 [DBG] Connection id "0HMLESACEKD6C" started.
+2022-10-15 20:22:30.088 +01:00 [DBG] Connection id "0HMLESACEKD6D" accepted.
+2022-10-15 20:22:30.091 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:22:30.091 +01:00 [DBG] Connection id "0HMLESACEKD6D" started.
+2022-10-15 20:22:30.094 +01:00 [DBG] Connection id "0HMLESACEKD6C" stopped.
+2022-10-15 20:22:30.097 +01:00 [DBG] Connection id "0HMLESACEKD6C" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:22:30.099 +01:00 [DBG] Connection 0HMLESACEKD6D established using the following protocol: "Tls13"
+2022-10-15 20:22:30.110 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7074/api/accounts - -
+2022-10-15 20:22:30.113 +01:00 [DBG] The request path  does not match the path filter
+2022-10-15 20:22:30.139 +01:00 [DBG] 1 candidate(s) found for the request path '/api/accounts'
+2022-10-15 20:22:30.144 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)' with route pattern 'api/Accounts' is valid for the request path '/api/accounts'
+2022-10-15 20:22:30.147 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:22:30.432 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-15 20:22:30.437 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-15 20:22:30.440 +01:00 [INF] Executing endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:22:30.458 +01:00 [INF] Route matched with {action = "GetAllAccounts", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[SimpleBank.AcctManage.API.DTModels.Responses.AccountResponse]]] GetAllAccounts() on controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API).
+2022-10-15 20:22:30.461 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-10-15 20:22:30.463 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-10-15 20:22:30.465 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-10-15 20:22:30.467 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-10-15 20:22:30.469 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-10-15 20:22:30.471 +01:00 [DBG] Executing controller factory for controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API)
+2022-10-15 20:22:30.664 +01:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-10-15 20:22:30.694 +01:00 [DBG] Executed controller factory for controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API)
+2022-10-15 20:22:56.808 +01:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-10-15 20:22:56.814 +01:00 [DBG] No information found on request to perform content negotiation.
+2022-10-15 20:22:56.814 +01:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-10-15 20:22:56.815 +01:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-10-15 20:22:56.817 +01:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response.
+2022-10-15 20:22:56.818 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2022-10-15 20:22:56.836 +01:00 [INF] Executed action SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API) in 26361.0392ms
+2022-10-15 20:22:56.839 +01:00 [INF] Executed endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:22:56.842 +01:00 [DBG] Connection id "0HMLESACEKD6D" completed keep alive response.
+2022-10-15 20:23:01.760 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7074/api/accounts - - - 401 - text/plain;+charset=utf-8 31650.4631ms
+2022-10-15 20:23:06.422 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7074/api/accounts - -
+2022-10-15 20:23:06.424 +01:00 [DBG] The request path  does not match the path filter
+2022-10-15 20:23:06.425 +01:00 [DBG] 1 candidate(s) found for the request path '/api/accounts'
+2022-10-15 20:23:06.426 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)' with route pattern 'api/Accounts' is valid for the request path '/api/accounts'
+2022-10-15 20:23:06.428 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:23:06.430 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-15 20:23:06.435 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2022-10-15 20:23:06.439 +01:00 [INF] Executing endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:23:06.441 +01:00 [INF] Route matched with {action = "GetAllAccounts", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[SimpleBank.AcctManage.API.DTModels.Responses.AccountResponse]]] GetAllAccounts() on controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API).
+2022-10-15 20:23:06.444 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-10-15 20:23:06.446 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-10-15 20:23:06.448 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-10-15 20:23:06.452 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-10-15 20:23:06.455 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-10-15 20:23:06.457 +01:00 [DBG] Executing controller factory for controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API)
+2022-10-15 20:23:06.465 +01:00 [DBG] Executed controller factory for controller SimpleBank.AcctManage.API.Controllers.AccountsController (SimpleBank.AcctManage.API)
+2022-10-15 20:24:00.684 +01:00 [DBG] Connection id "0HMLESACEKD6B" received FIN.
+2022-10-15 20:24:00.711 +01:00 [DBG] Connection id "0HMLESACEKD6B" is closing.
+2022-10-15 20:24:00.780 +01:00 [DBG] Connection id "0HMLESACEKD6B" is closed. The last processed stream ID was 21.
+2022-10-15 20:24:00.806 +01:00 [DBG] Connection id "0HMLESACEKD6B" sending FIN because: "The client closed the connection."
+2022-10-15 20:24:00.828 +01:00 [DBG] Connection id "0HMLESACEKD6B" stopped.
+2022-10-15 20:24:00.841 +01:00 [INF] Executed action SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API) in 54383.8051ms
+2022-10-15 20:24:00.846 +01:00 [INF] Executed endpoint 'SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts (SimpleBank.AcctManage.API)'
+2022-10-15 20:24:00.855 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'input')
+   at System.Guid.Parse(String input)
+   at SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts() in C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\Controllers\AccountsController.cs:line 51
+   at lambda_method8(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-10-15 20:24:00.932 +01:00 [DBG] Connection id "0HMLESACEKD6D" completed keep alive response.
+2022-10-15 20:27:29.808 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-15 20:27:29.920 +01:00 [DBG] Hosting starting
+2022-10-15 20:27:29.956 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-15 20:27:29.961 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-15 20:27:29.965 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-15 20:27:29.967 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-15 20:27:29.973 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-15 20:27:29.978 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-15 20:27:29.980 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-15 20:27:29.987 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-15 20:27:29.991 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:27:29.994 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-15 20:27:29.996 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:27:30.000 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-15 20:27:30.003 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-15 20:27:30.006 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-15 20:27:30.007 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-15 20:27:30.151 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-15 20:27:30.198 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-15 20:27:30.199 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-15 20:27:30.201 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-15 20:27:30.202 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-15 20:27:30.203 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-15 20:27:30.204 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-15 20:27:30.204 +01:00 [INF] Hosting environment: Development
+2022-10-15 20:27:30.205 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-15 20:27:30.206 +01:00 [DBG] Hosting started
+2022-10-15 20:27:30.274 +01:00 [DBG] Connection id "0HMLESD6JHHG3" accepted.
+2022-10-15 20:27:30.277 +01:00 [DBG] Connection id "0HMLESD6JHHG4" accepted.
+2022-10-15 20:27:30.277 +01:00 [DBG] Connection id "0HMLESD6JHHG3" started.
+2022-10-15 20:27:30.279 +01:00 [DBG] Connection id "0HMLESD6JHHG4" started.
+2022-10-15 20:27:30.312 +01:00 [DBG] Connection id "0HMLESD6JHHG4" received FIN.
+2022-10-15 20:27:30.312 +01:00 [DBG] Connection id "0HMLESD6JHHG3" received FIN.
+2022-10-15 20:27:30.324 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:27:30.324 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:27:30.377 +01:00 [DBG] Connection id "0HMLESD6JHHG4" stopped.
+2022-10-15 20:27:30.377 +01:00 [DBG] Connection id "0HMLESD6JHHG3" stopped.
+2022-10-15 20:27:30.381 +01:00 [DBG] Connection id "0HMLESD6JHHG4" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:27:30.381 +01:00 [DBG] Connection id "0HMLESD6JHHG3" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:27:30.591 +01:00 [DBG] Connection id "0HMLESD6JHHG5" accepted.
+2022-10-15 20:27:30.592 +01:00 [DBG] Connection id "0HMLESD6JHHG5" started.
+2022-10-15 20:27:30.633 +01:00 [DBG] Connection 0HMLESD6JHHG5 established using the following protocol: "Tls13"
+2022-10-15 20:27:30.697 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-15 20:27:30.735 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-15 20:27:30.845 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-15 20:27:30.965 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-15 20:27:30.972 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 278.8998ms
+2022-10-15 20:27:31.004 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-15 20:27:31.005 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-15 20:27:31.015 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 11.1460ms
+2022-10-15 20:27:31.035 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.4448ms
+2022-10-15 20:27:31.216 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-15 20:27:31.427 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 211.4214ms
+2022-10-15 20:27:37.590 +01:00 [DBG] Connection id "0HMLESD6JHHG6" accepted.
+2022-10-15 20:27:37.591 +01:00 [DBG] Connection id "0HMLESD6JHHG6" received FIN.
+2022-10-15 20:27:37.592 +01:00 [DBG] Connection id "0HMLESD6JHHG6" started.
+2022-10-15 20:27:37.593 +01:00 [DBG] Connection id "0HMLESD6JHHG7" accepted.
+2022-10-15 20:27:37.596 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:27:37.596 +01:00 [DBG] Connection id "0HMLESD6JHHG7" started.
+2022-10-15 20:27:37.599 +01:00 [DBG] Connection id "0HMLESD6JHHG6" stopped.
+2022-10-15 20:27:37.601 +01:00 [DBG] Connection id "0HMLESD6JHHG6" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:27:37.604 +01:00 [DBG] Connection 0HMLESD6JHHG7 established using the following protocol: "Tls13"
+2022-10-15 20:27:37.614 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7074/api/users/ application/json 137
+2022-10-15 20:27:37.617 +01:00 [DBG] POST requests are not supported
+2022-10-15 20:27:37.650 +01:00 [DBG] 1 candidate(s) found for the request path '/api/users/'
+2022-10-15 20:27:37.658 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)' with route pattern 'api/Users' is valid for the request path '/api/users/'
+2022-10-15 20:27:37.660 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)'
+2022-10-15 20:27:37.739 +01:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-10-15 20:27:37.744 +01:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-10-15 20:27:37.746 +01:00 [INF] Executing endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)'
+2022-10-15 20:27:37.778 +01:00 [INF] Route matched with {action = "Create", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SimpleBank.AcctManage.API.DTModels.Responses.CreateUserResponse]] Create(SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest) on controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API).
+2022-10-15 20:27:37.782 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-10-15 20:27:37.784 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-10-15 20:27:37.785 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-10-15 20:27:37.789 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-10-15 20:27:37.791 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-10-15 20:27:37.793 +01:00 [DBG] Executing controller factory for controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API)
+2022-10-15 20:27:37.985 +01:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-10-15 20:27:38.015 +01:00 [DBG] Executed controller factory for controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API)
+2022-10-15 20:27:38.032 +01:00 [DBG] Attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest' ...
+2022-10-15 20:27:38.036 +01:00 [DBG] Attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest' using the name '' in request data ...
+2022-10-15 20:27:38.041 +01:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2022-10-15 20:27:38.048 +01:00 [DBG] Connection id "0HMLESD6JHHG7", Request id "0HMLESD6JHHG7:00000002": started reading request body.
+2022-10-15 20:27:38.051 +01:00 [DBG] Connection id "0HMLESD6JHHG7", Request id "0HMLESD6JHHG7:00000002": done reading request body.
+2022-10-15 20:27:38.060 +01:00 [DBG] JSON input formatter succeeded, deserializing to type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'
+2022-10-15 20:27:38.062 +01:00 [DBG] Done attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'.
+2022-10-15 20:27:38.064 +01:00 [DBG] Done attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'.
+2022-10-15 20:27:38.067 +01:00 [DBG] Attempting to validate the bound parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest' ...
+2022-10-15 20:27:38.082 +01:00 [DBG] Done attempting to validate the bound parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'.
+2022-10-15 20:27:39.261 +01:00 [INF] Entity Framework Core 6.0.7 initialized 'SimpleBankDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.7+5b98e4b74de93b590b44aef8dd7967c03acc433c' with options: None
+2022-10-15 20:27:39.304 +01:00 [DBG] 'SimpleBankDbContext' generated a value for the property 'Id.User'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-15 20:27:39.396 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-15 20:27:39.407 +01:00 [DBG] SaveChanges starting for 'SimpleBankDbContext'.
+2022-10-15 20:27:39.415 +01:00 [DBG] DetectChanges starting for 'SimpleBankDbContext'.
+2022-10-15 20:27:39.433 +01:00 [DBG] DetectChanges completed for 'SimpleBankDbContext'.
+2022-10-15 20:27:39.546 +01:00 [DBG] Opening connection to database 'SimpleBank' on server ''.
+2022-10-15 20:27:39.958 +01:00 [DBG] Opened connection to database 'SimpleBank' on server 'tcp://localhost:5432'.
+2022-10-15 20:27:39.966 +01:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2022-10-15 20:27:39.980 +01:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2022-10-15 20:27:40.054 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-15 20:27:40.064 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (5ms).
+2022-10-15 20:27:40.085 +01:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?', @p3='?', @p4='?' (DbType = Binary), @p5='?' (DbType = Binary), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" (user_id, created_at, email, fullname, "Password", salt, username)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING password_changed_at;
+2022-10-15 20:27:40.204 +01:00 [ERR] Failed executing DbCommand (146ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?', @p3='?', @p4='?' (DbType = Binary), @p5='?' (DbType = Binary), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" (user_id, created_at, email, fullname, "Password", salt, username)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING password_changed_at;
+2022-10-15 20:27:40.245 +01:00 [DBG] Disposing transaction.
+2022-10-15 20:27:40.252 +01:00 [DBG] Closing connection to database 'SimpleBank' on server 'tcp://localhost:5432'.
+2022-10-15 20:27:40.264 +01:00 [DBG] Closed connection to database 'SimpleBank' on server ''.
+2022-10-15 20:27:40.283 +01:00 [ERR] An exception occurred in the database while saving changes for context type 'SimpleBank.AcctManage.Infrastructure.Persistence.SimpleBankDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "Users" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|215_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "Users" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1180
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "Users" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|215_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "Users" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1180
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2022-10-15 20:27:40.364 +01:00 [ERR] Error on creating new entity.
+2022-10-15 20:27:40.371 +01:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-10-15 20:27:40.377 +01:00 [DBG] No information found on request to perform content negotiation.
+2022-10-15 20:27:40.377 +01:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-10-15 20:27:40.379 +01:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-10-15 20:27:40.381 +01:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response.
+2022-10-15 20:27:40.383 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2022-10-15 20:27:40.393 +01:00 [INF] Executed action SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API) in 2594.5349ms
+2022-10-15 20:27:40.397 +01:00 [INF] Executed endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)'
+2022-10-15 20:27:40.400 +01:00 [DBG] Connection id "0HMLESD6JHHG7" completed keep alive response.
+2022-10-15 20:27:40.404 +01:00 [DBG] 'SimpleBankDbContext' disposed.
+2022-10-15 20:27:40.410 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7074/api/users/ application/json 137 - 400 - text/plain;+charset=utf-8 2795.2863ms
+2022-10-15 20:39:46.576 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-15 20:39:46.695 +01:00 [DBG] Hosting starting
+2022-10-15 20:39:46.745 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-15 20:39:46.751 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-15 20:39:46.764 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-15 20:39:46.767 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-15 20:39:46.774 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-15 20:39:46.782 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-15 20:39:46.783 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-15 20:39:46.791 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-15 20:39:46.794 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:39:46.797 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-15 20:39:46.799 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:39:46.803 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-15 20:39:46.806 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-15 20:39:46.809 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-15 20:39:46.810 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-15 20:39:47.003 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-15 20:39:47.064 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-15 20:39:47.066 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-15 20:39:47.067 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-15 20:39:47.069 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-15 20:39:47.071 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-15 20:39:47.072 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-15 20:39:47.074 +01:00 [INF] Hosting environment: Development
+2022-10-15 20:39:47.074 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-15 20:39:47.075 +01:00 [DBG] Hosting started
+2022-10-15 20:39:47.140 +01:00 [DBG] Connection id "0HMLESK26QDG0" accepted.
+2022-10-15 20:39:47.140 +01:00 [DBG] Connection id "0HMLESK26QDFV" accepted.
+2022-10-15 20:39:47.143 +01:00 [DBG] Connection id "0HMLESK26QDG0" started.
+2022-10-15 20:39:47.144 +01:00 [DBG] Connection id "0HMLESK26QDFV" started.
+2022-10-15 20:39:47.166 +01:00 [DBG] Connection id "0HMLESK26QDFV" received FIN.
+2022-10-15 20:39:47.166 +01:00 [DBG] Connection id "0HMLESK26QDG0" received FIN.
+2022-10-15 20:39:47.183 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:39:47.183 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:39:47.436 +01:00 [DBG] Connection id "0HMLESK26QDFV" stopped.
+2022-10-15 20:39:47.436 +01:00 [DBG] Connection id "0HMLESK26QDG0" stopped.
+2022-10-15 20:39:47.441 +01:00 [DBG] Connection id "0HMLESK26QDFV" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:39:47.441 +01:00 [DBG] Connection id "0HMLESK26QDG0" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:39:47.605 +01:00 [DBG] Connection id "0HMLESK26QDG1" accepted.
+2022-10-15 20:39:47.607 +01:00 [DBG] Connection id "0HMLESK26QDG1" started.
+2022-10-15 20:39:47.653 +01:00 [DBG] Connection 0HMLESK26QDG1 established using the following protocol: "Tls13"
+2022-10-15 20:39:47.717 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-15 20:39:47.779 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-15 20:39:47.907 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-15 20:39:48.057 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-15 20:39:48.063 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 350.1368ms
+2022-10-15 20:39:48.110 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-15 20:39:48.111 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-15 20:39:48.123 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 12.6131ms
+2022-10-15 20:39:48.189 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 78.4317ms
+2022-10-15 20:39:48.355 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-15 20:39:48.544 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 189.0365ms
+2022-10-15 20:39:51.102 +01:00 [DBG] Connection id "0HMLESK26QDG2" accepted.
+2022-10-15 20:39:51.106 +01:00 [DBG] Connection id "0HMLESK26QDG2" received FIN.
+2022-10-15 20:39:51.106 +01:00 [DBG] Connection id "0HMLESK26QDG2" started.
+2022-10-15 20:39:51.107 +01:00 [DBG] Connection id "0HMLESK26QDG3" accepted.
+2022-10-15 20:39:51.110 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:39:51.111 +01:00 [DBG] Connection id "0HMLESK26QDG3" started.
+2022-10-15 20:39:51.113 +01:00 [DBG] Connection id "0HMLESK26QDG2" stopped.
+2022-10-15 20:39:51.116 +01:00 [DBG] Connection id "0HMLESK26QDG2" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:39:51.118 +01:00 [DBG] Connection 0HMLESK26QDG3 established using the following protocol: "Tls13"
+2022-10-15 20:39:51.132 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7074/api/users/ application/json 137
+2022-10-15 20:39:51.138 +01:00 [DBG] POST requests are not supported
+2022-10-15 20:39:51.173 +01:00 [DBG] 1 candidate(s) found for the request path '/api/users/'
+2022-10-15 20:39:51.179 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)' with route pattern 'api/Users' is valid for the request path '/api/users/'
+2022-10-15 20:39:51.181 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)'
+2022-10-15 20:39:51.301 +01:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-10-15 20:39:51.309 +01:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-10-15 20:39:51.311 +01:00 [INF] Executing endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)'
+2022-10-15 20:39:51.357 +01:00 [INF] Route matched with {action = "Create", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SimpleBank.AcctManage.API.DTModels.Responses.CreateUserResponse]] Create(SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest) on controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API).
+2022-10-15 20:39:51.362 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-10-15 20:39:51.365 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-10-15 20:39:51.367 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-10-15 20:39:51.370 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-10-15 20:39:51.375 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-10-15 20:39:51.377 +01:00 [DBG] Executing controller factory for controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API)
+2022-10-15 20:39:51.631 +01:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-10-15 20:39:51.664 +01:00 [DBG] Executed controller factory for controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API)
+2022-10-15 20:39:51.681 +01:00 [DBG] Attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest' ...
+2022-10-15 20:39:51.685 +01:00 [DBG] Attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest' using the name '' in request data ...
+2022-10-15 20:39:51.689 +01:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2022-10-15 20:39:51.697 +01:00 [DBG] Connection id "0HMLESK26QDG3", Request id "0HMLESK26QDG3:00000002": started reading request body.
+2022-10-15 20:39:51.699 +01:00 [DBG] Connection id "0HMLESK26QDG3", Request id "0HMLESK26QDG3:00000002": done reading request body.
+2022-10-15 20:39:51.708 +01:00 [DBG] JSON input formatter succeeded, deserializing to type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'
+2022-10-15 20:39:51.710 +01:00 [DBG] Done attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'.
+2022-10-15 20:39:51.711 +01:00 [DBG] Done attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'.
+2022-10-15 20:39:51.712 +01:00 [DBG] Attempting to validate the bound parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest' ...
+2022-10-15 20:39:51.724 +01:00 [DBG] Done attempting to validate the bound parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'.
+2022-10-15 20:39:52.981 +01:00 [INF] Entity Framework Core 6.0.7 initialized 'SimpleBankDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.7+5b98e4b74de93b590b44aef8dd7967c03acc433c' with options: None
+2022-10-15 20:39:53.029 +01:00 [DBG] 'SimpleBankDbContext' generated a value for the property 'Id.User'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-15 20:39:53.127 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-15 20:39:53.138 +01:00 [DBG] SaveChanges starting for 'SimpleBankDbContext'.
+2022-10-15 20:39:53.146 +01:00 [DBG] DetectChanges starting for 'SimpleBankDbContext'.
+2022-10-15 20:39:53.164 +01:00 [DBG] DetectChanges completed for 'SimpleBankDbContext'.
+2022-10-15 20:39:53.283 +01:00 [DBG] Opening connection to database 'SimpleBank' on server ''.
+2022-10-15 20:39:53.583 +01:00 [DBG] Opened connection to database 'SimpleBank' on server 'tcp://localhost:5432'.
+2022-10-15 20:39:53.593 +01:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2022-10-15 20:39:53.613 +01:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2022-10-15 20:39:53.688 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-15 20:39:53.699 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (6ms).
+2022-10-15 20:39:53.726 +01:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?', @p3='?', @p4='?' (DbType = Binary), @p5='?' (DbType = Binary), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("SB-operational.user_id", "SB-operational.created_at", "SB-operational.email", "SB-operational.fullname", "Password", salt, "SB-operational.username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING "SB-operational.password_changed_at";
+2022-10-15 20:39:53.869 +01:00 [ERR] Failed executing DbCommand (177ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?', @p3='?', @p4='?' (DbType = Binary), @p5='?' (DbType = Binary), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("SB-operational.user_id", "SB-operational.created_at", "SB-operational.email", "SB-operational.fullname", "Password", salt, "SB-operational.username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING "SB-operational.password_changed_at";
+2022-10-15 20:39:53.905 +01:00 [DBG] Disposing transaction.
+2022-10-15 20:39:53.915 +01:00 [DBG] Closing connection to database 'SimpleBank' on server 'tcp://localhost:5432'.
+2022-10-15 20:39:53.930 +01:00 [DBG] Closed connection to database 'SimpleBank' on server ''.
+2022-10-15 20:39:53.955 +01:00 [ERR] An exception occurred in the database while saving changes for context type 'SimpleBank.AcctManage.Infrastructure.Persistence.SimpleBankDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "Users" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|215_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "Users" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1180
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "Users" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|215_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "Users" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1180
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2022-10-15 20:39:54.068 +01:00 [ERR] Error on creating new entity.
+2022-10-15 20:39:54.078 +01:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-10-15 20:39:54.083 +01:00 [DBG] No information found on request to perform content negotiation.
+2022-10-15 20:39:54.083 +01:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-10-15 20:39:54.084 +01:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-10-15 20:39:54.086 +01:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response.
+2022-10-15 20:39:54.087 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2022-10-15 20:39:54.099 +01:00 [INF] Executed action SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API) in 2718.3213ms
+2022-10-15 20:39:54.102 +01:00 [INF] Executed endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)'
+2022-10-15 20:39:54.106 +01:00 [DBG] Connection id "0HMLESK26QDG3" completed keep alive response.
+2022-10-15 20:39:54.111 +01:00 [DBG] 'SimpleBankDbContext' disposed.
+2022-10-15 20:39:54.116 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7074/api/users/ application/json 137 - 400 - text/plain;+charset=utf-8 2983.0974ms
+2022-10-15 20:47:53.454 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-15 20:47:53.579 +01:00 [DBG] Hosting starting
+2022-10-15 20:47:53.630 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-15 20:47:53.634 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-15 20:47:53.648 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-15 20:47:53.650 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-15 20:47:53.657 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-15 20:47:53.665 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-15 20:47:53.666 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-15 20:47:53.674 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-15 20:47:53.677 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:47:53.681 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-15 20:47:53.682 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-15 20:47:53.686 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-15 20:47:53.689 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-15 20:47:53.692 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-15 20:47:53.694 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-15 20:47:53.872 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-15 20:47:53.948 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-15 20:47:53.950 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-15 20:47:53.952 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-15 20:47:53.952 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-15 20:47:53.953 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-15 20:47:53.954 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-15 20:47:53.955 +01:00 [INF] Hosting environment: Development
+2022-10-15 20:47:53.956 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-15 20:47:53.957 +01:00 [DBG] Hosting started
+2022-10-15 20:47:54.326 +01:00 [DBG] Connection id "0HMLESOJD1710" received FIN.
+2022-10-15 20:47:54.348 +01:00 [DBG] Connection id "0HMLESOJD1710" accepted.
+2022-10-15 20:47:54.353 +01:00 [DBG] Connection id "0HMLESOJD1710" started.
+2022-10-15 20:47:54.390 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:47:54.517 +01:00 [DBG] Connection id "0HMLESOJD1710" stopped.
+2022-10-15 20:47:54.523 +01:00 [DBG] Connection id "0HMLESOJD1710" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:47:54.663 +01:00 [DBG] Connection id "0HMLESOJD1711" accepted.
+2022-10-15 20:47:54.664 +01:00 [DBG] Connection id "0HMLESOJD1711" started.
+2022-10-15 20:47:54.723 +01:00 [DBG] Connection 0HMLESOJD1711 established using the following protocol: "Tls13"
+2022-10-15 20:47:54.791 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/index.html - -
+2022-10-15 20:47:54.864 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-10-15 20:47:54.996 +01:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-10-15 20:47:55.132 +01:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-10-15 20:47:55.140 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/index.html - - - 200 - text/html;charset=utf-8 353.6007ms
+2022-10-15 20:47:55.169 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_vs/browserLink - -
+2022-10-15 20:47:55.169 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - -
+2022-10-15 20:47:55.180 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_framework/aspnetcore-browser-refresh.js - - - 200 12020 application/javascript;+charset=utf-8 10.7565ms
+2022-10-15 20:47:55.198 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.3975ms
+2022-10-15 20:47:55.384 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - -
+2022-10-15 20:47:55.605 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7074/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 221.2537ms
+2022-10-15 20:48:03.221 +01:00 [DBG] Connection id "0HMLESOJD1712" accepted.
+2022-10-15 20:48:03.221 +01:00 [DBG] Connection id "0HMLESOJD1712" received FIN.
+2022-10-15 20:48:03.223 +01:00 [DBG] Connection id "0HMLESOJD1712" started.
+2022-10-15 20:48:03.227 +01:00 [DBG] Connection id "0HMLESOJD1713" accepted.
+2022-10-15 20:48:03.231 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-15 20:48:03.232 +01:00 [DBG] Connection id "0HMLESOJD1713" started.
+2022-10-15 20:48:03.236 +01:00 [DBG] Connection id "0HMLESOJD1712" stopped.
+2022-10-15 20:48:03.239 +01:00 [DBG] Connection id "0HMLESOJD1712" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-15 20:48:03.244 +01:00 [DBG] Connection 0HMLESOJD1713 established using the following protocol: "Tls13"
+2022-10-15 20:48:03.257 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7074/api/users/ application/json 137
+2022-10-15 20:48:03.261 +01:00 [DBG] POST requests are not supported
+2022-10-15 20:48:03.292 +01:00 [DBG] 1 candidate(s) found for the request path '/api/users/'
+2022-10-15 20:48:03.299 +01:00 [DBG] Endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)' with route pattern 'api/Users' is valid for the request path '/api/users/'
+2022-10-15 20:48:03.302 +01:00 [DBG] Request matched endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)'
+2022-10-15 20:48:03.403 +01:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-10-15 20:48:03.407 +01:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-10-15 20:48:03.409 +01:00 [INF] Executing endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)'
+2022-10-15 20:48:03.448 +01:00 [INF] Route matched with {action = "Create", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SimpleBank.AcctManage.API.DTModels.Responses.CreateUserResponse]] Create(SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest) on controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API).
+2022-10-15 20:48:03.451 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-10-15 20:48:03.452 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-10-15 20:48:03.454 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-10-15 20:48:03.456 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-10-15 20:48:03.458 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-10-15 20:48:03.461 +01:00 [DBG] Executing controller factory for controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API)
+2022-10-15 20:48:03.728 +01:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-10-15 20:48:03.761 +01:00 [DBG] Executed controller factory for controller SimpleBank.AcctManage.API.Controllers.UsersController (SimpleBank.AcctManage.API)
+2022-10-15 20:48:03.784 +01:00 [DBG] Attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest' ...
+2022-10-15 20:48:03.789 +01:00 [DBG] Attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest' using the name '' in request data ...
+2022-10-15 20:48:03.791 +01:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2022-10-15 20:48:03.800 +01:00 [DBG] Connection id "0HMLESOJD1713", Request id "0HMLESOJD1713:00000002": started reading request body.
+2022-10-15 20:48:03.802 +01:00 [DBG] Connection id "0HMLESOJD1713", Request id "0HMLESOJD1713:00000002": done reading request body.
+2022-10-15 20:48:03.809 +01:00 [DBG] JSON input formatter succeeded, deserializing to type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'
+2022-10-15 20:48:03.811 +01:00 [DBG] Done attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'.
+2022-10-15 20:48:03.813 +01:00 [DBG] Done attempting to bind parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'.
+2022-10-15 20:48:03.814 +01:00 [DBG] Attempting to validate the bound parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest' ...
+2022-10-15 20:48:03.823 +01:00 [DBG] Done attempting to validate the bound parameter 'createUserRequest' of type 'SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest'.
+2022-10-15 20:48:04.968 +01:00 [INF] Entity Framework Core 6.0.7 initialized 'SimpleBankDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.7+5b98e4b74de93b590b44aef8dd7967c03acc433c' with options: None
+2022-10-15 20:48:05.010 +01:00 [DBG] 'SimpleBankDbContext' generated a value for the property 'Id.User'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-15 20:48:05.103 +01:00 [DBG] Context 'SimpleBankDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-15 20:48:05.113 +01:00 [DBG] SaveChanges starting for 'SimpleBankDbContext'.
+2022-10-15 20:48:05.122 +01:00 [DBG] DetectChanges starting for 'SimpleBankDbContext'.
+2022-10-15 20:48:05.139 +01:00 [DBG] DetectChanges completed for 'SimpleBankDbContext'.
+2022-10-15 20:48:05.255 +01:00 [DBG] Opening connection to database 'SimpleBank' on server ''.
+2022-10-15 20:48:05.486 +01:00 [DBG] Opened connection to database 'SimpleBank' on server 'tcp://localhost:5432'.
+2022-10-15 20:48:05.495 +01:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2022-10-15 20:48:05.517 +01:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2022-10-15 20:48:05.588 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-10-15 20:48:05.600 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (5ms).
+2022-10-15 20:48:05.621 +01:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?', @p3='?', @p4='?' (DbType = Binary), @p5='?' (DbType = Binary), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "SB-operational"."Users" (user_id, created_at, email, fullname, "Password", salt, username)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING password_changed_at;
+2022-10-15 20:48:05.744 +01:00 [INF] Executed DbCommand (130ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?', @p3='?', @p4='?' (DbType = Binary), @p5='?' (DbType = Binary), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "SB-operational"."Users" (user_id, created_at, email, fullname, "Password", salt, username)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING password_changed_at;
+2022-10-15 20:48:05.792 +01:00 [DBG] A data reader was disposed.
+2022-10-15 20:48:05.808 +01:00 [DBG] Committing transaction.
+2022-10-15 20:48:05.825 +01:00 [DBG] Committed transaction.
+2022-10-15 20:48:05.835 +01:00 [DBG] Closing connection to database 'SimpleBank' on server 'tcp://localhost:5432'.
+2022-10-15 20:48:05.845 +01:00 [DBG] Closed connection to database 'SimpleBank' on server ''.
+2022-10-15 20:48:05.853 +01:00 [DBG] Disposing transaction.
+2022-10-15 20:48:05.870 +01:00 [DBG] An entity of type 'User' tracked by 'SimpleBankDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-10-15 20:48:05.876 +01:00 [DBG] SaveChanges completed for 'SimpleBankDbContext' with 1 entities written to the database.
+2022-10-15 20:48:05.899 +01:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-10-15 20:48:05.905 +01:00 [DBG] No information found on request to perform content negotiation.
+2022-10-15 20:48:05.906 +01:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-10-15 20:48:05.907 +01:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-10-15 20:48:05.909 +01:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2022-10-15 20:48:05.911 +01:00 [INF] Executing CreatedResult, writing value of type 'SimpleBank.AcctManage.API.DTModels.Responses.CreateUserResponse'.
+2022-10-15 20:48:05.935 +01:00 [INF] Executed action SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API) in 2467.3173ms
+2022-10-15 20:48:05.939 +01:00 [INF] Executed endpoint 'SimpleBank.AcctManage.API.Controllers.UsersController.Create (SimpleBank.AcctManage.API)'
+2022-10-15 20:48:05.942 +01:00 [DBG] Connection id "0HMLESOJD1713" completed keep alive response.
+2022-10-15 20:48:05.946 +01:00 [DBG] 'SimpleBankDbContext' disposed.
+2022-10-15 20:48:05.954 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7074/api/users/ application/json 137 - 201 - application/json;+charset=utf-8 2696.9376ms
