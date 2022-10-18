@@ -1,0 +1,71 @@
+﻿@page "/test"
+@using SimpleBank.BlazorServerApp.Data.Requests
+@using SimpleBank.BlazorServerApp.Data.Responses
+@using SimpleBank.BlazorServerApp.Services
+
+@inject IUserService userService
+
+<PageTitle>test</PageTitle>
+
+<h3>Test</h3>
+
+<p>UserRequest: @createUserRequest</p>
+<p>UserResponse: @createUserResponse</p>
+
+<button class="btn btn-primary" @onclick="CallAPIToCreateUser">Click me</button>
+
+<br /><br /><br />
+
+@code {
+    private CreateUserRequest createUserRequest;
+    private CreateUserResponse createUserResponse;
+
+    private async Task CallAPIToCreateUser()
+    {
+        createUserRequest = new CreateUserRequest()
+            {
+                Email = "lalalalalala2323@gmail.com",
+                Fullname = "Joao Almeida Martins",
+                Password = "12345abc#",
+                Username = "JoaoTungas"
+            };
+
+        createUserResponse = await userService.NewUser(createUserRequest);
+    }
+
+}
+
+
+
+@*
+        request
+        public string Email { get; set; }
+        public string Fullname { get; set; }
+        public string Password { get; set; }
+        public string Username { get; set; }
+
+        response
+        public Guid UserId { get; set; }
+        public string CreatedAt { get; set; }
+        public string Email { get; set; }
+        public string Fullname { get; set; }
+        public string PasswordChangedAt { get; set; }
+        public string Username { get; set; }
+
+@page "/counter"
+<PageTitle>Counter</PageTitle>
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+*@
