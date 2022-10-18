@@ -1,4 +1,4 @@
-﻿namespace SimpleBank.AcctManage.API.DTModels.Responses
+﻿namespace SimpleBank.BlazorServerApp.Data.Responses
 {
     public class LoginUserResponse
     {

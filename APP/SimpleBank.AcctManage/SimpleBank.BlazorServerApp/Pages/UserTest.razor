@@ -1,16 +1,16 @@
-﻿@page "/test"
+﻿@page "/usertest"
 @using SimpleBank.BlazorServerApp.Data.Requests
 @using SimpleBank.BlazorServerApp.Data.Responses
 @using SimpleBank.BlazorServerApp.Services
 
 @inject IUserService userService
 
-<PageTitle>test</PageTitle>
+<PageTitle>UserTest</PageTitle>
 
-<h3>Test</h3>
+<h3>UserTest</h3>
 
-<p>UserRequest: @createUserRequest</p>
-<p>UserResponse: @createUserResponse</p>
+<p>UserRequest: @createUserRequest?.Username</p>
+<p>UserResponse: @createUserResponse?.Username</p>
 
 <button class="btn btn-primary" @onclick="CallAPIToCreateUser">Click me</button>
 
@@ -18,19 +18,20 @@
 
 @code {
     private CreateUserRequest createUserRequest;
-    private CreateUserResponse createUserResponse;
+    private CreateUserResponse? createUserResponse;
 
     private async Task CallAPIToCreateUser()
     {
         createUserRequest = new CreateUserRequest()
             {
-                Email = "lalalalalala2323@gmail.com",
+                Email = "lalalalalala23@gmail.com",
                 Fullname = "Joao Almeida Martins",
                 Password = "12345abc#",
-                Username = "JoaoTungas"
+                Username = "JoaoTungas7"
             };
 
-        createUserResponse = await userService.NewUser(createUserRequest);
+        var temp = await userService.Create(createUserRequest);
+        createUserResponse = temp;
     }
 
 }
@@ -52,20 +53,4 @@
         public string PasswordChangedAt { get; set; }
         public string Username { get; set; }
 
-@page "/counter"
-<PageTitle>Counter</PageTitle>
-<h1>Counter</h1>
-
-<p role="status">Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
-
-@code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
-}
 *@

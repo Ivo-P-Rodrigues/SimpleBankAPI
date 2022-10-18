@@ -7,20 +7,31 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IAccountService, AccountService>();
+builder.Services.AddTransient<ITransferService, TransferService>();
 builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7074/api/") });
+
+
+
+
+//builder.Services.AddHttpClient("API", client => //https://stackoverflow.com/questions/63076954/automatically-attaching-access-token-to-http-client-in-blazor-wasm
+//{
+//    client.BaseAddress = new Uri("https://localhost:7074/api/");
+//    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+//    //client.DefaultRequestHeaders.Authorization
+//});//.AddHttpMessageHandler<CustomAuthorizationMessageHandler>();
+
+
 
 
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

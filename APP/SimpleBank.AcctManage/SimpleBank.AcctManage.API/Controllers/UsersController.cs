@@ -128,9 +128,9 @@ namespace SimpleBank.AcctManage.API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Logout(LogoutUserRequest logoutUserRequest)
         {
-            var bla = await _authenthicationProvider.ProcessLogout(logoutUserRequest.UserTokenId);
+            var result = await _authenthicationProvider.ProcessLogout(logoutUserRequest.UserTokenId);
 
-            switch (bla)
+            switch (result)
             {
                 case null:
                     return StatusCode(StatusCodes.Status500InternalServerError, "Error on logout, please contact our customer support.");
