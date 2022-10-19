@@ -1,32 +1,32 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">SimpleBank.BlazorServerApp</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+﻿<nav class="navbar mr-auto navbar-dark bg-dark container-fluid">
+
+    <a class="navbar-brand" href="/">SimpleBank</a>
+
+    <button class="navbar-toggler" title="Navigation menu" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="@NavMenuCssClass">
+        <div class="navbar-nav">
+            <div class="nav-item">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    Home
+                </NavLink>
+            </div>
+            <div class="nav-item">
+                <NavLink class="nav-link" href="userspage">
+                    Users
+                </NavLink>
+            </div>
+            <div class="nav-item">
+                <NavLink class="nav-link" href="accountspage">
+                    Accounts
+                </NavLink>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="userspage">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> UsersPage
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="accountspage">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> AccountsPage
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
+</nav>
 
 
 @code {
