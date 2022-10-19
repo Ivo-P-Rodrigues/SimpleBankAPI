@@ -1,0 +1,83 @@
+﻿@page "/userspage"
+@using SimpleBank.BlazorServerApp.Data.Requests
+@using SimpleBank.BlazorServerApp.Data.Responses
+@using SimpleBank.BlazorServerApp.Services
+
+@inject IUserService userService
+
+<PageTitle>Users Page</PageTitle>
+
+<h3>Users Page</h3>
+
+<EditForm Model="@createUserRequest" OnSubmit="CallAPIToCreateUser">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p>
+        <label>
+            Fullname:
+            <InputText @bind-Value="createUserRequest.Fullname" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Username:
+            <InputText @bind-Value="createUserRequest.Username" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Email:
+            <InputText @bind-Value="createUserRequest.Email" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Password:
+            <InputText @bind-Value="createUserRequest.Password" />
+        </label>
+    </p>
+    <button type="submit">TEST ME</button>
+
+</EditForm>
+<br />
+
+<p>UserRequest: @createUserRequest?.Username</p>
+<p>UserResponse: @createUserResponse?.Username</p>
+
+<button class="btn btn-primary" @onclick="CallAPIToCreateUser">Click me</button>
+
+<br /><br /><br />
+
+
+
+@code {
+
+    private CreateUserRequest createUserRequest = new(); //start empty
+
+    private CreateUserResponse? createUserResponse;
+
+    private async Task CallAPIToCreateUser()
+    {
+        createUserResponse = await userService.Create(createUserRequest);
+    }
+
+}
+
+
+
+@*
+        User request
+        public string Email { get; set; }
+        public string Fullname { get; set; }
+        public string Password { get; set; }
+        public string Username { get; set; }
+
+        User response
+        public Guid UserId { get; set; }
+        public string CreatedAt { get; set; }
+        public string Email { get; set; }
+        public string Fullname { get; set; }
+        public string PasswordChangedAt { get; set; }
+        public string Username { get; set; }
+
+*@

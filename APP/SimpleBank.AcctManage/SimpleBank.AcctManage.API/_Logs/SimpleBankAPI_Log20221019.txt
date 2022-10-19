@@ -1,0 +1,224 @@
+2022-10-19 10:11:05.266 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-19 10:11:05.388 +01:00 [DBG] Hosting starting
+2022-10-19 10:11:05.463 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-19 10:11:05.468 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-19 10:11:05.475 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-19 10:11:05.476 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-19 10:11:05.484 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-19 10:11:05.490 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-19 10:11:05.491 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-19 10:11:05.499 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-19 10:11:05.502 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-19 10:11:05.507 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-19 10:11:05.509 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-19 10:11:05.513 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-19 10:11:05.516 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-19 10:11:05.521 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-19 10:11:05.522 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-19 10:11:05.742 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-19 10:11:05.885 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-19 10:11:05.889 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-19 10:11:05.890 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-19 10:11:05.893 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-19 10:11:05.895 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-19 10:11:05.896 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-19 10:11:05.897 +01:00 [INF] Hosting environment: Development
+2022-10-19 10:11:05.899 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-19 10:11:05.900 +01:00 [DBG] Hosting started
+2022-10-19 10:11:05.934 +01:00 [DBG] Connection id "0HMLHM7D7PPVM" accepted.
+2022-10-19 10:11:05.934 +01:00 [DBG] Connection id "0HMLHM7D7PPVN" accepted.
+2022-10-19 10:11:05.948 +01:00 [DBG] Connection id "0HMLHM7D7PPVN" started.
+2022-10-19 10:11:05.948 +01:00 [DBG] Connection id "0HMLHM7D7PPVM" started.
+2022-10-19 10:11:09.376 +01:00 [DBG] Connection id "0HMLHM7D7PPVO" accepted.
+2022-10-19 10:11:09.387 +01:00 [DBG] Connection id "0HMLHM7D7PPVO" started.
+2022-10-19 10:11:09.590 +01:00 [DBG] Connection id "0HMLHM7D7PPVO" received FIN.
+2022-10-19 10:11:09.611 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-19 10:11:09.927 +01:00 [DBG] Connection id "0HMLHM7D7PPVO" stopped.
+2022-10-19 10:11:09.953 +01:00 [DBG] Connection id "0HMLHM7D7PPVO" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 10:11:15.996 +01:00 [DBG] Authentication of the HTTPS connection timed out.
+2022-10-19 10:11:15.996 +01:00 [DBG] Authentication of the HTTPS connection timed out.
+2022-10-19 10:11:15.997 +01:00 [DBG] Connection id "0HMLHM7D7PPVM" stopped.
+2022-10-19 10:11:15.998 +01:00 [DBG] Connection id "0HMLHM7D7PPVN" stopped.
+2022-10-19 10:11:15.999 +01:00 [DBG] Connection id "0HMLHM7D7PPVM" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 10:11:16.000 +01:00 [DBG] Connection id "0HMLHM7D7PPVN" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 10:21:19.982 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-19 10:21:20.550 +01:00 [DBG] Hosting starting
+2022-10-19 10:21:20.620 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-19 10:21:20.625 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-19 10:21:20.631 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-19 10:21:20.632 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-19 10:21:20.639 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-19 10:21:20.645 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-19 10:21:20.646 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-19 10:21:20.657 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-19 10:21:20.659 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-19 10:21:20.663 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-19 10:21:20.665 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-19 10:21:20.672 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-19 10:21:20.674 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-19 10:21:20.678 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-19 10:21:20.679 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-19 10:21:20.829 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-19 10:21:20.912 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-19 10:21:20.920 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-19 10:21:20.921 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-19 10:21:20.924 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-19 10:21:20.931 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-19 10:21:20.932 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-19 10:21:20.934 +01:00 [INF] Hosting environment: Development
+2022-10-19 10:21:20.936 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-19 10:21:20.937 +01:00 [DBG] Hosting started
+2022-10-19 10:21:21.633 +01:00 [DBG] Connection id "0HMLHMD4NILKQ" received FIN.
+2022-10-19 10:21:21.633 +01:00 [DBG] Connection id "0HMLHMD4NILKP" received FIN.
+2022-10-19 10:21:21.633 +01:00 [DBG] Connection id "0HMLHMD4NILKP" accepted.
+2022-10-19 10:21:21.633 +01:00 [DBG] Connection id "0HMLHMD4NILKQ" accepted.
+2022-10-19 10:21:21.651 +01:00 [DBG] Connection id "0HMLHMD4NILKP" started.
+2022-10-19 10:21:21.651 +01:00 [DBG] Connection id "0HMLHMD4NILKQ" started.
+2022-10-19 10:21:21.677 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-19 10:21:21.677 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-19 10:21:21.779 +01:00 [DBG] Connection id "0HMLHMD4NILKQ" stopped.
+2022-10-19 10:21:21.779 +01:00 [DBG] Connection id "0HMLHMD4NILKP" stopped.
+2022-10-19 10:21:21.782 +01:00 [DBG] Connection id "0HMLHMD4NILKQ" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 10:21:21.782 +01:00 [DBG] Connection id "0HMLHMD4NILKP" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 10:21:21.946 +01:00 [DBG] Connection id "0HMLHMD4NILKR" accepted.
+2022-10-19 10:21:21.947 +01:00 [DBG] Connection id "0HMLHMD4NILKR" started.
+2022-10-19 10:21:21.985 +01:00 [DBG] Connection id "0HMLHMD4NILKR" received FIN.
+2022-10-19 10:21:22.009 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-19 10:21:22.051 +01:00 [DBG] Connection id "0HMLHMD4NILKR" stopped.
+2022-10-19 10:21:22.062 +01:00 [DBG] Connection id "0HMLHMD4NILKR" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 10:58:54.126 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-19 10:58:54.241 +01:00 [DBG] Hosting starting
+2022-10-19 10:58:54.283 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-19 10:58:54.287 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-19 10:58:54.292 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-19 10:58:54.294 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-19 10:58:54.300 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-19 10:58:54.305 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-19 10:58:54.306 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-19 10:58:54.314 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-19 10:58:54.317 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-19 10:58:54.321 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-19 10:58:54.323 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-19 10:58:54.334 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-19 10:58:54.339 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-19 10:58:54.348 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-19 10:58:54.351 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-19 10:58:54.618 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-19 10:58:54.736 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-19 10:58:54.748 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-19 10:58:54.755 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-19 10:58:54.756 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-19 10:58:54.757 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-19 10:58:54.759 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-19 10:58:54.769 +01:00 [INF] Hosting environment: Development
+2022-10-19 10:58:54.836 +01:00 [DBG] Connection id "0HMLHN247NQUU" accepted.
+2022-10-19 10:58:54.836 +01:00 [DBG] Connection id "0HMLHN247NQUV" accepted.
+2022-10-19 10:58:54.945 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-19 10:58:54.945 +01:00 [DBG] Connection id "0HMLHN247NQUV" received FIN.
+2022-10-19 10:58:54.945 +01:00 [DBG] Connection id "0HMLHN247NQUU" received FIN.
+2022-10-19 10:58:54.957 +01:00 [DBG] Connection id "0HMLHN247NQUV" started.
+2022-10-19 10:58:54.958 +01:00 [DBG] Connection id "0HMLHN247NQUU" started.
+2022-10-19 10:58:54.960 +01:00 [DBG] Hosting started
+2022-10-19 10:58:54.999 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-19 10:58:55.102 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-19 10:58:55.367 +01:00 [DBG] Connection id "0HMLHN247NQV0" accepted.
+2022-10-19 10:58:55.453 +01:00 [DBG] Connection id "0HMLHN247NQV0" started.
+2022-10-19 10:58:55.454 +01:00 [DBG] Connection id "0HMLHN247NQUU" stopped.
+2022-10-19 10:58:55.454 +01:00 [DBG] Connection id "0HMLHN247NQUV" stopped.
+2022-10-19 10:58:55.459 +01:00 [DBG] Connection id "0HMLHN247NQUV" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 10:58:55.459 +01:00 [DBG] Connection id "0HMLHN247NQUU" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 10:58:55.528 +01:00 [DBG] Connection id "0HMLHN247NQV0" received FIN.
+2022-10-19 10:58:55.552 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-19 10:58:55.648 +01:00 [DBG] Connection id "0HMLHN247NQV0" stopped.
+2022-10-19 10:58:55.651 +01:00 [DBG] Connection id "0HMLHN247NQV0" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 11:03:12.640 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-10-19 11:03:12.769 +01:00 [DBG] Hosting starting
+2022-10-19 11:03:12.823 +01:00 [INF] User profile is available. Using 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-19 11:03:12.827 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-3152f07b-30a7-4e78-998a-7fbe0c511d49.xml'.
+2022-10-19 11:03:12.833 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-39e65c09-2014-4c2e-81b8-f002f10ef3e8.xml'.
+2022-10-19 11:03:12.835 +01:00 [DBG] Reading data from file 'C:\Users\ivo_m\AppData\Local\ASP.NET\DataProtection-Keys\key-6f35828d-18a5-42d0-ae68-7003daa6031c.xml'.
+2022-10-19 11:03:12.841 +01:00 [DBG] Found key {3152f07b-30a7-4e78-998a-7fbe0c511d49}.
+2022-10-19 11:03:12.847 +01:00 [DBG] Found key {39e65c09-2014-4c2e-81b8-f002f10ef3e8}.
+2022-10-19 11:03:12.848 +01:00 [DBG] Found key {6f35828d-18a5-42d0-ae68-7003daa6031c}.
+2022-10-19 11:03:12.856 +01:00 [DBG] Considering key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} with expiration date 2023-01-02 15:04:49Z as default key.
+2022-10-19 11:03:12.859 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-19 11:03:12.863 +01:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-10-19 11:03:12.864 +01:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-19 11:03:12.869 +01:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-10-19 11:03:12.872 +01:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-10-19 11:03:12.875 +01:00 [DBG] Using key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} as the default key.
+2022-10-19 11:03:12.877 +01:00 [DBG] Key ring with default key {39e65c09-2014-4c2e-81b8-f002f10ef3e8} was loaded during application startup.
+2022-10-19 11:03:13.041 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 3907BD28E3DCA40F44EB5F54AD4AF0BF61FE96F5)
+2022-10-19 11:03:13.302 +01:00 [INF] Now listening on: https://localhost:7074
+2022-10-19 11:03:13.304 +01:00 [INF] Now listening on: http://localhost:5074
+2022-10-19 11:03:13.306 +01:00 [DBG] Loaded hosting startup assembly SimpleBank.AcctManage.API
+2022-10-19 11:03:13.307 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-19 11:03:13.308 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-19 11:03:13.309 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-19 11:03:13.310 +01:00 [INF] Hosting environment: Development
+2022-10-19 11:03:13.311 +01:00 [INF] Content root path: C:\_github\SimpleBankAPI\APP\SimpleBank.AcctManage\SimpleBank.AcctManage.API\
+2022-10-19 11:03:13.312 +01:00 [DBG] Hosting started
+2022-10-19 11:03:13.464 +01:00 [DBG] Connection id "0HMLHN4HA8TB6" accepted.
+2022-10-19 11:03:13.465 +01:00 [DBG] Connection id "0HMLHN4HA8TB7" accepted.
+2022-10-19 11:03:13.467 +01:00 [DBG] Connection id "0HMLHN4HA8TB7" started.
+2022-10-19 11:03:13.467 +01:00 [DBG] Connection id "0HMLHN4HA8TB6" started.
+2022-10-19 11:03:13.519 +01:00 [DBG] Connection id "0HMLHN4HA8TB6" received FIN.
+2022-10-19 11:03:13.519 +01:00 [DBG] Connection id "0HMLHN4HA8TB7" received FIN.
+2022-10-19 11:03:13.530 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-19 11:03:13.530 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-19 11:03:13.596 +01:00 [DBG] Connection id "0HMLHN4HA8TB6" stopped.
+2022-10-19 11:03:13.596 +01:00 [DBG] Connection id "0HMLHN4HA8TB7" stopped.
+2022-10-19 11:03:13.599 +01:00 [DBG] Connection id "0HMLHN4HA8TB7" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 11:03:13.599 +01:00 [DBG] Connection id "0HMLHN4HA8TB6" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-10-19 11:03:13.766 +01:00 [DBG] Connection id "0HMLHN4HA8TB8" accepted.
+2022-10-19 11:03:13.770 +01:00 [DBG] Connection id "0HMLHN4HA8TB8" started.
+2022-10-19 11:03:13.814 +01:00 [DBG] Connection id "0HMLHN4HA8TB8" received FIN.
+2022-10-19 11:03:13.819 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-10-19 11:03:13.842 +01:00 [DBG] Connection id "0HMLHN4HA8TB8" stopped.
+2022-10-19 11:03:13.862 +01:00 [DBG] Connection id "0HMLHN4HA8TB8" sending FIN because: "The Socket transport's send loop completed gracefully."

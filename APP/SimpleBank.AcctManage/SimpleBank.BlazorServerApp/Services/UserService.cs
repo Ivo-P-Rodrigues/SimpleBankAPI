@@ -1,4 +1,5 @@
-﻿using SimpleBank.BlazorServerApp.Data.Requests;
+﻿using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using SimpleBank.BlazorServerApp.Data.Requests;
 using SimpleBank.BlazorServerApp.Data.Responses;
 using System.Net.Http.Headers;
 
@@ -9,6 +10,7 @@ namespace SimpleBank.BlazorServerApp.Services
         private readonly HttpClient _httpClient;
         private readonly string _requestUri = "/api/users/";
 
+        private readonly ProtectedLocalStorage _protectedLocalStorage;
 
         public UserService(HttpClient httpClient)
         {
@@ -30,6 +32,7 @@ namespace SimpleBank.BlazorServerApp.Services
         public async Task<LoginUserResponse?> Login(LoginUserRequest loginUserRequest)
         {
             var httpRsp = await _httpClient.PostAsJsonAsync(_requestUri + "login", loginUserRequest);
+
             if (httpRsp.IsSuccessStatusCode)
             {
                 return await httpRsp.Content.ReadFromJsonAsync(typeof(LoginUserResponse)) as LoginUserResponse;
@@ -41,6 +44,7 @@ namespace SimpleBank.BlazorServerApp.Services
         public async Task<LoginUserResponse?> RenewToken(RenewRequest renewRequest)
         {
             var httpRsp = await _httpClient.PostAsJsonAsync(_requestUri + "renew", renewRequest);
+
             if (httpRsp.IsSuccessStatusCode)
             {
                 return await httpRsp.Content.ReadFromJsonAsync(typeof(LoginUserResponse)) as LoginUserResponse;
