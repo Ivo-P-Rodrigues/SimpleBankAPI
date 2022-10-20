@@ -1,7 +1,7 @@
 ﻿using SimpleBank.BlazorServerApp.Data.Requests;
 using SimpleBank.BlazorServerApp.Data.Responses;
 
-namespace SimpleBank.BlazorServerApp.Services
+namespace SimpleBank.BlazorServerApp.Contracts
 {
     public interface IAccountService
     {

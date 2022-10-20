@@ -2,6 +2,7 @@
 using SimpleBank.BlazorServerApp.Data.Responses;
 using System.Text.Json;
 using System.Net.Http.Headers;
+using SimpleBank.BlazorServerApp.Contracts;
 
 namespace SimpleBank.BlazorServerApp.Services
 {

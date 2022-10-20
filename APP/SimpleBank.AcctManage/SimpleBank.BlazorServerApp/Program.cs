@@ -1,6 +1,5 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using SimpleBank.BlazorServerApp.Data;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using SimpleBank.BlazorServerApp.Contracts;
 using SimpleBank.BlazorServerApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +11,7 @@ builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IAccountService, AccountService>();
 builder.Services.AddTransient<ITransferService, TransferService>();
 builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7074/api/") });
-
-
+builder.Services.AddScoped<ProtectedLocalStorage>();
 
 
 //builder.Services.AddHttpClient("API", client => //https://stackoverflow.com/questions/63076954/automatically-attaching-access-token-to-http-client-in-blazor-wasm

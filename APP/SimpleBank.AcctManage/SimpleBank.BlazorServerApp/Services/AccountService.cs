@@ -1,4 +1,5 @@
-﻿using SimpleBank.BlazorServerApp.Data.Requests;
+﻿using SimpleBank.BlazorServerApp.Contracts;
+using SimpleBank.BlazorServerApp.Data.Requests;
 using SimpleBank.BlazorServerApp.Data.Responses;
 using System.Net.Http;
 using System.Net.Http.Headers;
