@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using SimpleBank.BlazorServerApp.Contracts;
 using SimpleBank.BlazorServerApp.Services;
+using SimpleBank.BlazorServerApp.Services.Base;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IAccountService, AccountService>();
 builder.Services.AddTransient<ITransferService, TransferService>();
+builder.Services.AddTransient<SimpleBank.BlazorServerApp.Contracts.UserStorage, SbLocalStorage>();
+builder.Services.AddTransient<IUserStorage, SimpleBank.BlazorServerApp.Services.Base.UserStorage>();
 builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7074/api/") });
 builder.Services.AddScoped<ProtectedLocalStorage>();
 

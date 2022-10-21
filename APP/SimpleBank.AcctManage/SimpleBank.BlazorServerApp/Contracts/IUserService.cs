@@ -6,8 +6,7 @@ namespace SimpleBank.BlazorServerApp.Contracts
     public interface IUserService
     {
         Task<CreateUserResponse?> Create(CreateUserRequest createUserRequest);
-        Task<LoginUserResponse?> Login(LoginUserRequest loginUserRequest);
-        Task<string?> Logout();
-        Task<LoginUserResponse?> RenewToken(RenewRequest renewRequest);
+        Task<bool> Login(LoginUserRequest loginUserRequest);
+        Task<bool> Logout();
     }
 }

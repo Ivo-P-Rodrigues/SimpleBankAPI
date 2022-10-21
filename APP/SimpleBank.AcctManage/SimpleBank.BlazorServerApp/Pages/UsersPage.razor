@@ -72,63 +72,20 @@
             <p>Username: @createUserResponse?.Username</p>
         </div>
     </div>
-    
+    <br />
 
-    <div style="float:left; width:100%;">
-        <br /><br /><br />
-        <h5>Login</h5>
-        <hr /><br />
-    </div>
+    <button @onclick="CallAPIToLogin">
+        Login
+    </button>
+    <br />
+    <button @onclick="CallAPIToLogout">
+        Logout
+    </button>
+    <br />
 
-    <div style="float:left; width:100%;">
-
-        <div style="float:left; width:30%;">
-            <div style="float:left; width:30%;">
-                <button @onclick="CallAPIToLogin">
-                    Login
-                </button>
-            </div>
-        </div>
-
-        <div style="float:left; width:30%;">
-            <p><strong>Login Request</strong></p>
-            <p>Password: @loginUserRequest?.Password</p>
-            <p>Username: @loginUserRequest?.Username</p>
-        </div>
-        <div style="float:left; width:30%;">
-            <p><strong>Login Response</strong></p>
-            <p>UserId: @loginUserResponse?.UserId</p>
-            <p>UserTokenId: @loginUserResponse?.UserTokenId</p>
-            <p>AccessToken: @loginUserResponse?.AccessToken</p>
-            <p>AccessTokenExpiresAt: @loginUserResponse?.AccessTokenExpiresAt</p>
-            <p>RefreshToken: @loginUserResponse?.RefreshToken</p>
-            <p>RefreshTokenExpiresAt: @loginUserResponse?.RefreshTokenExpiresAt</p>
-        </div>
-    </div>
-   
-
-
-    <div style="float:left; width:100%;">
-        <br /><br /><br />
-        <h5>Logout</h5>
-        <hr /><br />
-    </div>
-
-    <div style="float:left; width:100%;">
-        <div style="float:left; width:30%;">
-            <button @onclick="CallAPIToLogout">
-                Logout
-            </button>
-        </div>
-
-        <div style="float:left; width:30%;">
-            <p><strong>Logout Request</strong></p>
-            <p>UserTokenId: @logoutUserRequest?.UserTokenId</p>
-        </div>
-        <div style="float:left; width:30%;">
-            <p><strong>Logout Response</strong></p>
-            <p>@logoutResponse</p>
-        </div>
+    <div>
+        <p>@loginUserResponse</p><br />
+        <p>@logoutResponse</p><br />
     </div>
 
 </div>
@@ -139,7 +96,7 @@
     private CreateUserRequest createUserRequest = new(); 
     private CreateUserResponse? createUserResponse;
     private LoginUserRequest loginUserRequest = new();
-    private LoginUserResponse? loginUserResponse = new();
+    private LoginUserResponse? loginUserResponse;
     private LogoutUserRequest logoutUserRequest = new();
     private string? logoutResponse;
     private string accessToken = "";
