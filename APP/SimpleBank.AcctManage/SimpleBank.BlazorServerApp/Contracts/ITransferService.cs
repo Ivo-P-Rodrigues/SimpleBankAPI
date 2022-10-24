@@ -5,6 +5,8 @@ namespace SimpleBank.BlazorServerApp.Contracts
 {
     public interface ITransferService
     {
-        Task<TransferResponse?> MakeTransfer(TransferRequest transferRequest, string accessToken);
+        Task<TransferResponse?> MakeTransfer(TransferRequest transferRequest);
+
+        Task<bool> CheckIfUserIsLogged();
     }
 }

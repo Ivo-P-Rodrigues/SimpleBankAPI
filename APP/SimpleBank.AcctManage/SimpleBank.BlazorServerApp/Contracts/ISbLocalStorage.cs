@@ -2,7 +2,7 @@
 
 namespace SimpleBank.BlazorServerApp.Contracts
 {
-    public interface UserStorage
+    public interface ISbLocalStorage
     {
         Task DeleteAsync(object obj);
         Task<string?> GetAsync(string key);

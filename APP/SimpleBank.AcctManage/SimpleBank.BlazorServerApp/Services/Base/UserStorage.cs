@@ -5,10 +5,12 @@ namespace SimpleBank.BlazorServerApp.Services.Base
 {
     public class UserStorage : IUserStorage
     {
-        private readonly Contracts.UserStorage _sbLocalStorage;
+        private readonly ISbLocalStorage _sbLocalStorage;
 
-        public UserStorage(Contracts.UserStorage sbLocalStorage) =>
+        public UserStorage(ISbLocalStorage sbLocalStorage) =>
             _sbLocalStorage = sbLocalStorage ?? throw new ArgumentNullException(nameof(sbLocalStorage));
+
+
 
 
         public async Task SetUserInfo(LoginUserResponse loginUserResponse) =>

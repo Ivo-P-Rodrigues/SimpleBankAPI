@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using SimpleBank.BlazorServerApp.Contracts;
-using SimpleBank.BlazorServerApp.Data.Responses;
 using System.Reflection;
 
 namespace SimpleBank.BlazorServerApp.Services.Base
 {
-    public class SbLocalStorage : Contracts.UserStorage
+    public class SbLocalStorage : ISbLocalStorage
     {
         private readonly ProtectedLocalStorage _protectedLocalStorage;
         private readonly IConfiguration _configuration;

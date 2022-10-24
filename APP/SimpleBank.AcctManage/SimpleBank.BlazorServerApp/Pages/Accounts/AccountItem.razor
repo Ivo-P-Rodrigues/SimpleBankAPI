@@ -1,0 +1,129 @@
+﻿@using SimpleBank.BlazorServerApp.Contracts
+@using SimpleBank.BlazorServerApp.Data.Responses
+@using SimpleBank.BlazorServerApp.Data.Requests
+
+@inject IAccountService accountService
+@inject ITransferService transferService
+
+<tr>
+    <td>@Account.AccountId</td>
+    <td>@Account.Balance</td>
+    <td>@Account.Currency</td>
+    <td>
+        <button class="btn-sm float-right" @onclick="() => AccountDetails(Account.AccountId)">
+            Details
+        </button>
+    </td>
+    <td>
+        <button class="btn-sm float-right" @onclick="TransferDetails">
+            Transfer
+        </button>
+    </td>
+</tr>
+
+@if (displayDetails)
+{
+    <tr>
+        <th></th>
+        <th>Movims:</th>
+        <th>CreatedAt</th>
+        <th>Amount</th>
+        <th></th>
+    </tr>
+
+    @foreach (var movim in movimsList)
+    {
+        <MovimItem Movim="@movim"  />
+    }
+}
+
+@if (displayTransfer)
+{
+    <tr>
+        <td></td>
+        <td><input placeholder="To Account Id" @bind="toAccountId" /></td>
+        <td><input placeholder="To Account Id" @bind="amount" /></td>
+        <td>
+            <button class="btn-sm float-right" @onclick="() => MakeTransfer(Account.AccountId)">
+                Send
+            </button>
+        </td>
+        <td><p>@msg</p></td>
+    </tr>
+}
+
+
+@code {
+
+    [Parameter]
+    public AccountResponse Account { get; set; }
+
+    private List<Movim> movimsList = new();
+    private bool displayDetails = false;
+    private bool displayTransfer = false;
+
+    private Guid toAccountId = Guid.Empty;
+    private decimal amount = 0;
+    private string? msg = "";
+
+
+    private async Task AccountDetails(Guid accountId)
+    {
+        displayTransfer = false;
+        var accountsLoad = await accountService.GetAccount(accountId);
+
+        if (accountsLoad != null && accountsLoad.Movims != null && accountsLoad?.Movims.Count != 0)
+        {
+            movimsList = new();
+            displayDetails = displayDetails ? false : true;
+
+            foreach (var movim in accountsLoad.Movims)
+            {
+                movimsList.Add(movim);
+            }
+        }
+
+    }
+
+    private void TransferDetails()
+    {
+        displayDetails = false;
+        msg = "";
+        displayTransfer = displayTransfer ? false : true;
+    }
+
+    private async Task MakeTransfer(Guid accountId)
+    {
+        if (amount > 0 && toAccountId != Guid.Empty)
+        {
+            TransferRequest transferRequest = new()
+                {
+                    FromAccountId = Account.AccountId,
+                    ToAccountId = toAccountId,
+                    Amount = amount
+                };
+
+            var response = await transferService.MakeTransfer(transferRequest);
+
+            if (response != null)
+            {
+                Account.Balance += amount;
+                msg = "Success!";
+                toAccountId = Guid.Empty;
+                amount = 0;
+            }
+            else
+            {
+                msg = "Invalid.";
+            }
+        }
+        else
+        {
+            msg = "Incorrect.";
+        }
+
+    }
+
+
+
+}

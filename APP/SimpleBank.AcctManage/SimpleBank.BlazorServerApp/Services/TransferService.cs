@@ -9,14 +9,15 @@ namespace SimpleBank.BlazorServerApp.Services
 {
     public class TransferService : BaseService, ITransferService
     {
-        private readonly string _requestUri = "/api/transfers/";
+        private readonly string _requestUri;
 
-        public TransferService(HttpClient httpClient, IUserStorage userStorage) :base(httpClient, userStorage)
+        public TransferService(HttpClient httpClient, IUserStorage userStorage, IConfiguration configuration) :base(httpClient, userStorage, configuration)
         {
+            _requestUri = Configuration["SbApiEndPointsAddresses:Transfers"];
         }
 
 
-        public async Task<TransferResponse?> MakeTransfer(TransferRequest transferRequest, string accessToken)
+        public async Task<TransferResponse?> MakeTransfer(TransferRequest transferRequest)
         {
             var httpRsp = await PostAsync(_requestUri, transferRequest, true);
             if(httpRsp == null) { return null; }

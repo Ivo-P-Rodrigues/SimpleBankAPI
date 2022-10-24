@@ -5,8 +5,10 @@ namespace SimpleBank.BlazorServerApp.Contracts
 {
     public interface IAccountService
     {
-        Task<AccountResponse?> CreateAccount(CreateAccountRequest accountRequest, string accessToken);
-        Task<AccountMovims?> GetAccount(Guid accountId, string accessToken);
-        Task<IEnumerable<AccountResponse>?> GetAllAccounts(string accessToken);
+        Task<AccountResponse?> CreateAccount(CreateAccountRequest accountRequest);
+        Task<AccountMovims?> GetAccount(Guid accountId);
+        Task<IEnumerable<AccountResponse>?> GetAllAccounts();
+
+        Task<bool> CheckIfUserIsLogged();
     }
 }

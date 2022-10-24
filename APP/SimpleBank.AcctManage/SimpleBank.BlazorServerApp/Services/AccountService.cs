@@ -2,20 +2,19 @@
 using SimpleBank.BlazorServerApp.Data.Requests;
 using SimpleBank.BlazorServerApp.Data.Responses;
 using SimpleBank.BlazorServerApp.Services.Base;
-using System.Net.Http.Headers;
 
 namespace SimpleBank.BlazorServerApp.Services
 {
     public class AccountService : BaseService, IAccountService
     {
-        private readonly string _requestUri = "/api/accounts/";
-
-        public AccountService(HttpClient httpClient, IUserStorage userStorage) : base(httpClient, userStorage)
+        private string _requestUri;
+        public AccountService(HttpClient httpClient, IUserStorage userStorage, IConfiguration configuration) : base(httpClient, userStorage, configuration)
         {
+            _requestUri = Configuration["SbApiEndPointsAddresses:Accounts"];
         }
 
-
-        public async Task<IEnumerable<AccountResponse>?> GetAllAccounts(string accessToken)
+        #region old - first api calls
+        public async Task<IEnumerable<AccountResponse>?> OldGetAllAccounts(string accessToken)
         {
             var httpRsp = await GetAsync(_requestUri, true);
             if(httpRsp == null) { return null; }
@@ -27,7 +26,7 @@ namespace SimpleBank.BlazorServerApp.Services
             return null;
         }
 
-        public async Task<AccountMovims?> GetAccount(Guid accountId, string accessToken)
+        public async Task<AccountMovims?> OldGetAccount(Guid accountId, string accessToken)
         {
             var httpRsp = await GetAsync(_requestUri + accountId.ToString(), true);
             if (httpRsp == null) { return null; }
@@ -39,7 +38,7 @@ namespace SimpleBank.BlazorServerApp.Services
             return null;
         }
 
-        public async Task<AccountResponse?> CreateAccount(CreateAccountRequest accountRequest, string accessToken)
+        public async Task<AccountResponse?> OldCreateAccount(CreateAccountRequest accountRequest, string accessToken)
         {
             var httpRsp = await PostAsync(_requestUri, accountRequest, true);
             if (httpRsp == null) { return null; }
@@ -50,7 +49,44 @@ namespace SimpleBank.BlazorServerApp.Services
             }
             return null;
         }
+        #endregion
 
+
+        public async Task<IEnumerable<AccountResponse>?> GetAllAccounts()
+        {
+            var httpRsp = await GetAsync(_requestUri, true);
+            if (httpRsp == null) { return null; }
+
+            if (httpRsp.IsSuccessStatusCode)
+            {
+                return await httpRsp.Content.ReadFromJsonAsync(typeof(IEnumerable<AccountResponse>)) as IEnumerable<AccountResponse>;
+            }
+            return null;
+        }
+
+        public async Task<AccountMovims?> GetAccount(Guid accountId)
+        {
+            var httpRsp = await GetAsync(_requestUri + accountId.ToString(), true);
+            if (httpRsp == null) { return null; }
+
+            if (httpRsp.IsSuccessStatusCode)
+            {
+                return await httpRsp.Content.ReadFromJsonAsync(typeof(AccountMovims)) as AccountMovims;
+            }
+            return null;
+        }
+
+        public async Task<AccountResponse?> CreateAccount(CreateAccountRequest accountRequest)
+        {
+            var httpRsp = await PostAsync(_requestUri, accountRequest, true);
+            if (httpRsp == null) { return null; }
+
+            if (httpRsp.IsSuccessStatusCode)
+            {
+                return await httpRsp.Content.ReadFromJsonAsync(typeof(AccountResponse)) as AccountResponse;
+            }
+            return null;
+        }
 
 
     }

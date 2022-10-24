@@ -1,0 +1,122 @@
+﻿@page "/userspage"
+@using SimpleBank.BlazorServerApp.Contracts
+@using SimpleBank.BlazorServerApp.Data.Requests
+@using SimpleBank.BlazorServerApp.Data.Responses
+
+@inject IUserService userService
+
+<PageTitle>Users page</PageTitle>
+
+<h1>Users page</h1>
+
+
+
+@if (!userLogged)
+{
+    <h3>UserCreate</h3>
+    <EditForm Model="@createUserRequest" OnSubmit="CallAPIToCreateUser">
+        <DataAnnotationsValidator />
+        @*<ValidationSummary />*@
+        <div>
+            <label> Fullname:</label>
+            <InputText @bind-Value="createUserRequest.Fullname" />
+            <ValidationMessage For="@(() => createUserRequest.Fullname)"></ValidationMessage>
+        </div>
+        <div>
+            <label> Username:</label>
+            <InputText @bind-Value="createUserRequest.Username" />
+            <ValidationMessage For="@(() => createUserRequest.Username)"></ValidationMessage>
+        </div>
+        <div>
+            <label> Email: </label>
+            <InputText @bind-Value="createUserRequest.Email" />
+            <ValidationMessage For="@(() => createUserRequest.Email)"></ValidationMessage>
+        </div>
+        <div>
+            <label> Password:</label>
+            <InputText @bind-Value="createUserRequest.Password" />
+            <ValidationMessage For="@(() => createUserRequest.Password)"></ValidationMessage>
+        </div>
+        <button type="submit">Create</button>
+    </EditForm>
+
+    @if (createUserResponse != null)
+    {
+        <p> User successfully created!</p>
+    }
+    <hr />
+    <br />
+
+    <h3>UserLogin</h3>
+    <EditForm Model="@loginUserRequest" OnSubmit="CallAPIToLogin">
+        <DataAnnotationsValidator />
+        @*<ValidationSummary />*@
+        <div>
+            <label> Username: </label>
+            <InputText @bind-Value="loginUserRequest.Username" />
+            <ValidationMessage For="@(() => loginUserRequest.Username)"></ValidationMessage>
+        </div>
+        <div>
+            <label> Password:</label>
+            <InputText @bind-Value="loginUserRequest.Password" />
+            <ValidationMessage For="@(() => loginUserRequest.Password)"></ValidationMessage>
+        </div>
+        <button type="submit">Login</button>
+    </EditForm>
+    <hr />
+    <br />
+}
+else
+{
+    <button @onclick="CallAPIToLogout">Logout</button>
+    <hr />
+    <br />
+}
+
+
+
+
+@code {
+    //DISPLAY
+    private bool userLogged;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            userLogged = await userService.CheckIfUserIsLogged();
+            StateHasChanged();
+        }
+    }
+
+    //CREATE
+    private CreateUserRequest createUserRequest = new();
+    private CreateUserResponse? createUserResponse;
+
+    private async Task CallAPIToCreateUser()
+    {
+        createUserResponse = await userService.Create(createUserRequest);
+    }
+
+
+    //LOGIN
+    private LoginUserRequest loginUserRequest = new();
+
+    private async Task CallAPIToLogin()
+    {
+        userLogged = await userService.Login(loginUserRequest);
+    }
+
+    //LOGOUT
+    private async Task CallAPIToLogout()
+    {
+        if (await userService.Logout())
+        {
+            userLogged = false;
+        }
+    }
+
+
+}
+
+

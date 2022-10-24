@@ -10,24 +10,26 @@ namespace SimpleBank.BlazorServerApp.Services.Base
     {
         private readonly HttpClient _httpClient;
         private readonly IUserStorage _userStorage;
-
+        
+        protected readonly IConfiguration Configuration;
 
         public BaseService(
             HttpClient httpClient,
-            IUserStorage userStorage)
+            IUserStorage userStorage,
+            IConfiguration configuration)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             _userStorage = userStorage ?? throw new ArgumentNullException(nameof(userStorage));
+            Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
 
 
-
-
+        #region API calls
         public async Task<HttpResponseMessage?> GetAsync(string? requestUri, bool auth = false)
         {
             if (auth)
             {
-                if (!await ResolveAuthAsync()) { return null; }
+                if (!await ResolveAuthForRequestAsync()) { return null; }
             }
 
             return await _httpClient.GetAsync(requestUri);
@@ -36,19 +38,21 @@ namespace SimpleBank.BlazorServerApp.Services.Base
         {
             if(auth)
             {
-                if(!await ResolveAuthAsync()) { return null; }
+                if(!await ResolveAuthForRequestAsync()) { return null; }
             }
 
             return await _httpClient.PostAsJsonAsync(requestUri, value);
         }
+        #endregion
 
 
-
-
-
+        #region Login/Logout
+        //TODO : this two methods should be reserved for ClientService only! not for all the services...
         public async Task<bool> RegisterLogin(LoginUserRequest loginUserRequest)
         {
-            var httpRsp = await PostAsync("/api/users/login", loginUserRequest);
+            if(await CheckIfUserIsLogged()) { return true; }
+
+            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Users"] + "login", loginUserRequest);
             if (httpRsp == null) { return false; }
 
             if (httpRsp.IsSuccessStatusCode)
@@ -61,9 +65,10 @@ namespace SimpleBank.BlazorServerApp.Services.Base
             }
             return false;
         }
+
         public async Task<bool> RegisterLogout()
         {
-            if (!await ResolveAuthAsync()) { return false; }
+            if (!await ResolveAuthForRequestAsync()) { return false; }
 
             var storageTokenId = await _userStorage.GetUserTokenId();
             if (storageTokenId == null) { return false; }
@@ -71,7 +76,7 @@ namespace SimpleBank.BlazorServerApp.Services.Base
             var logoutUserRequest = new LogoutUserRequest() { UserTokenId = Guid.Parse(storageTokenId) };
             await _userStorage.DeleteUserInfo();
 
-            var httpRsp = await _httpClient.PostAsJsonAsync("logout", logoutUserRequest);
+            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Users"] + "logout", logoutUserRequest);
             if (httpRsp.IsSuccessStatusCode)
             {
                 await _userStorage.DeleteUserInfo();
@@ -81,10 +86,26 @@ namespace SimpleBank.BlazorServerApp.Services.Base
 
             return true;
         }
+        #endregion
 
 
-        #region Auth handeling
-        private async Task<bool> ResolveAuthAsync()
+        
+        public async Task<bool> CheckIfUserIsLogged()
+        {
+            var (accVal, rfhVal) = await CheckConnectionAsync();
+
+            if (!accVal && !rfhVal) { return false; }  
+            if (accVal && rfhVal) { return true; }  
+            
+            if (!accVal && rfhVal)
+            {
+                if (await RefreshTheConnectionAsync()) { return true; }
+            }  
+
+            return false;
+        }
+        
+        private async Task<bool> ResolveAuthForRequestAsync()
         {
             var (accVal, rfhVal) = await CheckConnectionAsync();
 
@@ -139,7 +160,7 @@ namespace SimpleBank.BlazorServerApp.Services.Base
             if (refreshToken == null) { return false; }
             
             var renewRequest = new RenewRequest() { RefreshToken = refreshToken };
-            var httpRsp = await _httpClient.PostAsJsonAsync("/api/users/renew", renewRequest);
+            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["Users:Refresh"], renewRequest);
 
             if (httpRsp.IsSuccessStatusCode)
             {
@@ -149,7 +170,10 @@ namespace SimpleBank.BlazorServerApp.Services.Base
             }
             return false;
         }
-        #endregion
+        
+
+
+
 
 
 
@@ -169,5 +193,5 @@ namespace SimpleBank.BlazorServerApp.Services.Base
         //        requestUri: requestUri
         //    );
 
-        }
+    }
     }
