@@ -51,12 +51,12 @@ namespace SimpleBank.AcctManage.API.Controllers
                 Email = createUserRequest.Email,
                 Fullname = createUserRequest.Fullname };
 
-            var newUser = await _userBusiness.CreateUser(user, createUserRequest.Password);
+            var newUser = await _userBusiness.CreateUserAsync(user, createUserRequest.Password);
             if (newUser == null) { return BadRequest("Error on creating. Username or email already in use."); }
 
             var userResponse = _entityMapper.MapUserToResponse(newUser);
 
-            return Created("", userResponse);
+            return Created(nameof(GetUserInfo), userResponse);
         }
 
 
@@ -144,6 +144,47 @@ namespace SimpleBank.AcctManage.API.Controllers
         }
 
 
+
+        /// <summary>
+        /// Gets the user info (as CreateUserResponse).
+        /// </summary>
+        /// <returns>User info.</returns>
+        [HttpGet("Profile")]
+        [ProducesResponseType(typeof(CreateUserResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<CreateUserResponse>> GetUserInfo()
+        {
+            var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
+            var user = await _userBusiness.GetUserAsync(userId);
+            if (user == null) { return BadRequest("Error on getting info."); }
+
+            var userResponse = _entityMapper.MapUserToResponse(user);
+
+            return Ok(userResponse);
+        }
+
+        /// <summary>
+        /// Gets the user token (as LoginUserResponse).
+        /// </summary>
+        /// <returns>User token.</returns>
+        [AllowAnonymous]
+        [HttpPost("GetTokenAgain")]
+        [ProducesResponseType(typeof(CreateUserResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<LoginUserResponse>> GetUserToken(LoginUserRequest loginUserRequest)
+        {
+            if (!_userBusiness.VerifyUserCredentials(loginUserRequest.Password, loginUserRequest.Username, out Guid userId))
+                { return Unauthorized("User credentials are incorrect."); }
+
+            var userToken = await _authenthicationProvider.GetUserTokenAsync(userId);
+            if (userToken == null) { return BadRequest("Error on getting token."); }
+
+            var loginResponse = _entityMapper.MapUserTokenToLoginResponse(userToken);
+
+            return Ok(loginResponse);
+        }
 
     }
 }

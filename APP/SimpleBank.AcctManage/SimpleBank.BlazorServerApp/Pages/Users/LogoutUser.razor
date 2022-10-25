@@ -1,0 +1,38 @@
+﻿@using SimpleBank.BlazorServerApp.Contracts
+@inject IUserService userService
+
+<div class="container-sm mx-auto monoBox dropshadow">
+
+    <button class="btn-sm btn-outline-dark w-100 mx-auto" @onclick="CallAPIToLogout">Logout</button>
+
+    @if (errorOnLogout)
+    {
+        <hr /><br />
+        <p style="color:red">Something went wrong.</p>
+    }
+
+</div>
+
+@code {
+
+    [Parameter]
+    public EventCallback<bool> OnUserLogginOut { get; set; }
+
+    private bool errorOnLogout;
+    
+
+    private async Task CallAPIToLogout()
+    {
+        errorOnLogout = false;
+        if (await userService.Logout())
+        {
+            await OnUserLogginOut.InvokeAsync(true);
+        }
+        else
+        {
+            errorOnLogout = true;
+        }
+    }
+
+
+}

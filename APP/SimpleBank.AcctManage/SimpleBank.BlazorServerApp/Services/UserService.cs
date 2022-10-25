@@ -30,13 +30,21 @@ namespace SimpleBank.BlazorServerApp.Services
         public async Task<bool> Login(LoginUserRequest loginUserRequest) =>
             await RegisterLogin(loginUserRequest);
         public async Task<bool> Logout() =>
-            await RegisterLogout();
+            await RegisterLogoutAsync();
 
-        private ComponentEndpointConventionBuilder componentEndpointConventionBuilder;
-        private void bla()
+
+
+
+        public async Task<CreateUserResponse?> GetUser()
         {
-            //NavigationManager
-            //ComponentBase bla = new ComponentBase();
+            var httpRsp = await GetAsync(_requestUri + "profile", true);
+            if (httpRsp == null) { return null; }
+
+            if (httpRsp.IsSuccessStatusCode)
+            {
+                return await httpRsp.Content.ReadFromJsonAsync(typeof(CreateUserResponse)) as CreateUserResponse;
+            }
+            return null;
         }
 
     }
@@ -44,12 +52,3 @@ namespace SimpleBank.BlazorServerApp.Services
 
 
 
-
-//httpRsp.RequestMessage
-//httpRsp.Content.Headers
-
-//var custome‌​rJsonString = await httpRsp.Content.ReadAsStringAsync()
-//JsonConvert.DeserializeObject<Customer>(custome‌​rJsonString)
-
-//_httpClient.PostAsync()
-//_httpClient.GetAsync()

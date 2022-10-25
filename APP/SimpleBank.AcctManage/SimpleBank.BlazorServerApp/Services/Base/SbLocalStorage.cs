@@ -44,7 +44,7 @@ namespace SimpleBank.BlazorServerApp.Services.Base
 
             foreach (PropertyInfo prop in objProps)
             {
-                await _protectedLocalStorage.DeleteAsync(nameof(prop));
+                await _protectedLocalStorage.DeleteAsync(prop.Name);
             }
         }
 

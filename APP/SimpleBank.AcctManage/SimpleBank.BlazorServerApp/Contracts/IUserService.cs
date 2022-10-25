@@ -8,7 +8,8 @@ namespace SimpleBank.BlazorServerApp.Contracts
         Task<CreateUserResponse?> Create(CreateUserRequest createUserRequest);
         Task<bool> Login(LoginUserRequest loginUserRequest);
         Task<bool> Logout();
+        Task<CreateUserResponse?> GetUser();
 
-        Task<bool> CheckIfUserIsLogged();
+        Task<bool> CheckLocallyIfUserIsLoggedAsync();
     }
 }

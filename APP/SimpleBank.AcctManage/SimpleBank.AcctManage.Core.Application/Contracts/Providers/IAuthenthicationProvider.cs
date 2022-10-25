@@ -7,6 +7,7 @@ namespace SimpleBank.AcctManage.Core.Application.Contracts.Providers
         Task<(UserToken?, string?)> ProcessLoginAsync(Guid userId);
         Task<(UserToken?, string?)> ProcessRenewToken(string refreshToken);
         Task<bool?> ProcessLogout(Guid userTokenId);
+        Task<UserToken?> GetUserTokenAsync(Guid userId);
 
     }
 }

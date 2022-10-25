@@ -23,6 +23,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Auth
         }
 
 
+        public async Task<UserToken?> GetUserTokenAsync(Guid userId)
+            => await _unitOfWork.UserTokens.GetUserTokenAsync(userId);
 
         public async Task<(UserToken?, string?)> ProcessLoginAsync(Guid userId)
         {
@@ -50,7 +52,6 @@ namespace SimpleBank.AcctManage.Infrastructure.Auth
 
             return (newUserToken, null);
         }
-
 
         public async Task<(UserToken?, string?)> ProcessRenewToken(string refreshToken)
         {

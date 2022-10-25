@@ -7,6 +7,6 @@ namespace SimpleBank.BlazorServerApp.Contracts
     {
         Task<TransferResponse?> MakeTransfer(TransferRequest transferRequest);
 
-        Task<bool> CheckIfUserIsLogged();
+        Task<bool> CheckLocallyIfUserIsLoggedAsync();
     }
 }

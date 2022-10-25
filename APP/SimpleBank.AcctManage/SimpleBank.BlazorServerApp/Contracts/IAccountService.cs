@@ -9,6 +9,6 @@ namespace SimpleBank.BlazorServerApp.Contracts
         Task<AccountMovims?> GetAccount(Guid accountId);
         Task<IEnumerable<AccountResponse>?> GetAllAccounts();
 
-        Task<bool> CheckIfUserIsLogged();
+        Task<bool> CheckLocallyIfUserIsLoggedAsync();
     }
 }

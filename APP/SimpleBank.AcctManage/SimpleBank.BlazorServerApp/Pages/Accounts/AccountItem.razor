@@ -5,50 +5,55 @@
 @inject IAccountService accountService
 @inject ITransferService transferService
 
+@*ACCOUNT*@
 <tr>
     <td>@Account.AccountId</td>
     <td>@Account.Balance</td>
     <td>@Account.Currency</td>
-    <td>
-        <button class="btn-sm float-right" @onclick="() => AccountDetails(Account.AccountId)">
-            Details
-        </button>
-    </td>
-    <td>
-        <button class="btn-sm float-right" @onclick="TransferDetails">
-            Transfer
-        </button>
-    </td>
+    <td> <button type="button" data-toggle="button" aria-pressed="false" autocomplete="off" class="btn btn-dark btn-sm float-right" @onclick="() => MovimDetails(Account.AccountId)"> Movims </button> </td>
+    <td> <button type="button" data-toggle="button" aria-pressed="false" autocomplete="off" class="btn btn-secondary btn-sm" @onclick="TransferDetails"> Transfer </button> </td>
 </tr>
 
-@if (displayDetails)
+@*ACCOUNT DETAILS*@
+@if (displayMovims)
 {
-    <tr>
-        <th></th>
-        <th>Movims:</th>
-        <th>CreatedAt</th>
-        <th>Amount</th>
-        <th></th>
-    </tr>
-
-    @foreach (var movim in movimsList)
+    if (hasMovims)
     {
-        <MovimItem Movim="@movim"  />
+        <tr>
+            <th scope="col">Movims:</th>
+            <th scope="col">CreatedAt</th>
+            <th scope="col">Amount</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+
+        @foreach (var movim in movimsList)
+        {
+            <MovimItem Movim="@movim"  />
+        }
+    }
+    else
+    {
+        <tr>
+            <td>No movims to show</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
     }
 }
 
+
+@*TRANSFER DETAILS*@
 @if (displayTransfer)
 {
     <tr>
-        <td></td>
+        <td>Account Id to transfer to:</td>
         <td><input placeholder="To Account Id" @bind="toAccountId" /></td>
-        <td><input placeholder="To Account Id" @bind="amount" /></td>
-        <td>
-            <button class="btn-sm float-right" @onclick="() => MakeTransfer(Account.AccountId)">
-                Send
-            </button>
-        </td>
-        <td><p>@msg</p></td>
+        <td><input placeholder="Amount" @bind="amount" /></td>
+        <td> <button class="btn-sm btn-outline-dark float-right" @onclick="() => MakeTransfer(Account.AccountId)"> Send </button> </td>
+        <td><p style="color:@color">@msg</p></td>
     </tr>
 }
 
@@ -58,16 +63,21 @@
     [Parameter]
     public AccountResponse Account { get; set; }
 
+    [Parameter]
+    public EventCallback<TransferResponse> OnTransferUpdateBalance { get; set; }
+
     private List<Movim> movimsList = new();
-    private bool displayDetails = false;
+    private bool displayMovims = false;
+    private bool hasMovims = false;
     private bool displayTransfer = false;
 
     private Guid toAccountId = Guid.Empty;
     private decimal amount = 0;
     private string? msg = "";
+    private string? color = "";
 
 
-    private async Task AccountDetails(Guid accountId)
+    private async Task MovimDetails(Guid accountId)
     {
         displayTransfer = false;
         var accountsLoad = await accountService.GetAccount(accountId);
@@ -75,19 +85,19 @@
         if (accountsLoad != null && accountsLoad.Movims != null && accountsLoad?.Movims.Count != 0)
         {
             movimsList = new();
-            displayDetails = displayDetails ? false : true;
-
             foreach (var movim in accountsLoad.Movims)
             {
                 movimsList.Add(movim);
             }
+            hasMovims = true;
         }
-
+        displayMovims = displayMovims ? false : true;
     }
 
     private void TransferDetails()
     {
-        displayDetails = false;
+        displayMovims = false;
+        hasMovims = false;
         msg = "";
         displayTransfer = displayTransfer ? false : true;
     }
@@ -107,19 +117,22 @@
 
             if (response != null)
             {
-                Account.Balance += amount;
                 msg = "Success!";
+                color = "green";
                 toAccountId = Guid.Empty;
                 amount = 0;
+                await OnTransferUpdateBalance.InvokeAsync(response);
             }
             else
             {
-                msg = "Invalid.";
+                msg = "Invalid";
+                color = "red";
             }
         }
         else
         {
             msg = "Incorrect.";
+            color = "red";
         }
 
     }

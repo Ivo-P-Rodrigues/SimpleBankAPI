@@ -17,7 +17,7 @@ namespace SimpleBank.AcctManage.Core.Application.Business
 
 
         //CREATE
-        public async Task<User?> CreateUser(User user, string password)
+        public async Task<User?> CreateUserAsync(User user, string password)
         {
             CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
             user.Salt = passwordSalt;
@@ -42,8 +42,6 @@ namespace SimpleBank.AcctManage.Core.Application.Business
             userId = user.Id;
             return true;
         }
-
-
 
         public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
@@ -77,5 +75,11 @@ namespace SimpleBank.AcctManage.Core.Application.Business
         }
 
 
+        //get
+        public async Task<User?> GetUserAsync(Guid userId) =>
+            await _unitOfWork.Users.GetAsync(userId);
+
+
+        
     }
 }

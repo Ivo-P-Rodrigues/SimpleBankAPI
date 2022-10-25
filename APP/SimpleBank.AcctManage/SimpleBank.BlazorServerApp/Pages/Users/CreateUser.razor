@@ -1,0 +1,60 @@
+﻿@using SimpleBank.BlazorServerApp.Contracts
+@using SimpleBank.BlazorServerApp.Data.Requests
+@using SimpleBank.BlazorServerApp.Data.Responses
+@inject IUserService userService
+
+<div class="container-sm mx-auto rounded dualBox dropshadow">
+
+    <h3>New User</h3>
+
+    <EditForm Model="@createUserRequest" OnSubmit="CallAPIToCreateUser">
+        <DataAnnotationsValidator />
+
+        <div class="form-group">
+            <label for="inputFullname1">Fullname</label>
+            <InputText class="form-control" id="inputFullname1" placeholder="Fullname" @bind-Value="createUserRequest.Fullname" />
+            <ValidationMessage For="@(() => createUserRequest.Fullname)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            <label for="inputUsername1">Username</label>
+            <InputText class="form-control" id="inputUsername1" placeholder="Enter username" @bind-Value="createUserRequest.Username" />
+            <ValidationMessage For="@(() => createUserRequest.Username)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword1">Password</label>
+            <InputText type="password" class="form-control" id="inputPassword1" placeholder="Password" @bind-Value="createUserRequest.Password" />
+            <ValidationMessage For="@(() => createUserRequest.Password)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail1">Email</label>
+            <InputText type="email" class="form-control" id="inputEmail1" placeholder="Email" @bind-Value="createUserRequest.Email" />
+            <ValidationMessage For="@(() => createUserRequest.Email)"></ValidationMessage>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Login</button>
+    </EditForm>
+
+    @if (createUserResponse != null)
+    {
+        <hr /><br />
+        <p> User successfully created!</p>
+    }
+
+</div>
+
+@code {
+
+    //CREATE
+    private CreateUserRequest createUserRequest = new();
+    private CreateUserResponse? createUserResponse;
+
+    private async Task CallAPIToCreateUser() =>
+        createUserResponse = await userService.Create(createUserRequest);
+
+
+
+
+
+
+}
+

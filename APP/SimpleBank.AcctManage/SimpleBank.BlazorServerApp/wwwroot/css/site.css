@@ -17,9 +17,18 @@ html, body {
 }
 
 
-.displayOn {
-    display: block;
+.dropshadow {
+    box-shadow: 20px 20px 30px #442211;
 }
-.displayOff {
-    display: none;
+
+.dualBox {
+    width: 20em;
+    background-color: #ffffff;
+    padding: 2em;
+}
+
+.monoBox {
+    width: 50%;
+    background-color: #ffffff;
+    padding: 2em;
 }

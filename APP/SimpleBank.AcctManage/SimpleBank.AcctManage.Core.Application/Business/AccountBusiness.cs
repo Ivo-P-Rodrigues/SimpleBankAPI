@@ -23,7 +23,6 @@ namespace SimpleBank.AcctManage.Core.Application.Business
         }
 
 
-
         //get account of user with movims
         public async Task<(bool, Account?, IEnumerable<Movement>?)> GetAccountWithMovements(Guid accountId, Guid userId)
         {
@@ -46,7 +45,7 @@ namespace SimpleBank.AcctManage.Core.Application.Business
         }
 
 
-
+ 
 
 
     }

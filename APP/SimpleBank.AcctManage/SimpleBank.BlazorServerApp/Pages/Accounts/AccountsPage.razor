@@ -7,60 +7,44 @@
 @inject IAccountService accountService
 @inject NavigationManager navManager
 
-<PageTitle>Accounts Page</PageTitle>
+<PageTitle>Your Accounts</PageTitle>
 
-<h3>Accounts Page</h3>
+<h3>Your Accounts</h3>
 <hr />
 <br />
 
-<table class="table table-sm">
-    <tr>
-        <th><strong>AccountId</strong></th>
-        <th><strong>Balance</strong></th>
-        <th><strong>Currency</strong></th>
-        <th></th>
-        <th></th>
-    </tr>
+<table class="table table-bordered table-striped table-hover table-responsive-lg">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col"><strong>AccountId</strong></th>
+            <th scope="col"><strong>Balance</strong></th>
+            <th scope="col"><strong>Currency</strong></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
     @foreach (var account in accountsList)
     {
-        <AccountItem Account="@account" />
+        <AccountItem Account="@account" OnTransferUpdateBalance="@OnTransferUpdateBalance" />
     }
 </table>
 <hr /><br /><br />
 
-<h4>Create account</h4>
-<hr /><br />
-<EditForm Model="@createAccountRequest" OnSubmit="CallAPIToCreateAccount">
-    <DataAnnotationsValidator />
-    @*<ValidationSummary />*@
-
-    <div>
-        <label> Amount </label>
-        <InputNumber @bind-Value="createAccountRequest.Amount" />
-        <ValidationMessage For="@(() => createAccountRequest.Amount)"></ValidationMessage>
-    </div>
-    <div>
-        <label> Currency: </label>
-        <InputText @bind-Value="createAccountRequest.Currency" />
-        <ValidationMessage For="@(() => createAccountRequest.Currency)"></ValidationMessage>
-    </div>
-    <button type="submit">Create</button>
-
-</EditForm>
-<hr /><br /><br />
+<CreateAccount OnAccountCreation="@OnAccountCreation"></CreateAccount>
+<br /><br /><br />
 
 
 
 @code {
     private AccountResponse account = new();
-    private List<AccountResponse> accountsList = new(); //start empty
+    private List<AccountResponse> accountsList = new(); 
 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            var userLogged = await accountService.CheckIfUserIsLogged();
+            var userLogged = await accountService.CheckLocallyIfUserIsLoggedAsync();
             if (!userLogged) { navManager.NavigateTo("/", true); return; }
 
             var accountsLoad = await accountService.GetAllAccounts();
@@ -73,17 +57,22 @@
     }
 
 
-    private CreateAccountRequest createAccountRequest = new(); //start empty
-
-    private async Task CallAPIToCreateAccount()
+    public void OnTransferUpdateBalance(TransferResponse transferResponse)
     {
-        var newAccount = await accountService.CreateAccount(createAccountRequest);
-        if (newAccount != null)
-        {
-            account = newAccount;
-            accountsList.Add(account);
-        }
+        var accountTo = accountsList.FirstOrDefault(a => a.AccountId == transferResponse.ToAccountId);
+        var accountFrom = accountsList.FirstOrDefault(a => a.AccountId == transferResponse.FromAccountId);
+        //no check if null here...
+        accountTo!.Balance += transferResponse.Amount;
+        accountFrom!.Balance -= transferResponse.Amount;
+
     }
+    public void OnAccountCreation(AccountResponse newAccount)
+    {
+        accountsList.Add(newAccount);
+    }
+
+
+
 
 }
 

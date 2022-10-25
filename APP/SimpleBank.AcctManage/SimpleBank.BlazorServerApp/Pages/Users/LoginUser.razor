@@ -1,0 +1,68 @@
+﻿@using SimpleBank.BlazorServerApp.Contracts
+@using SimpleBank.BlazorServerApp.Data.Requests
+@inject IUserService userService
+
+<div class="container-sm mx-auto dualBox dropshadow">
+
+    <h3>Login</h3>
+
+    <EditForm Model="@loginUserRequest" OnSubmit="CallAPIToLogin">
+        <DataAnnotationsValidator />
+
+        <div class="form-group">
+            <label for="inputUsername1">Username address</label>
+            <InputText class="form-control" id="inputUsername1" aria-describedby="usernameHelp" placeholder="Enter username" @bind-Value="loginUserRequest.Username" />
+            <ValidationMessage For="@(() => loginUserRequest.Username)"></ValidationMessage>
+            <small id="usernameHelp" class="form-text text-muted">Insert your username.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword1">Password</label>
+            <InputText type="password" class="form-control" id="inputPassword1" placeholder="Password" @bind-Value="loginUserRequest.Password" />
+            <ValidationMessage For="@(() => loginUserRequest.Password)"></ValidationMessage>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Login</button>
+        <button class="btn-sm btn-outline-dark float-right" @onclick="@AutoFill">Auto Fill</button>
+    </EditForm>
+   
+    @if (errorOnLogin)
+    {
+        <hr /><br />
+        <p style="color:red">Something went wrong. Please confirm your credentials.</p>
+    }
+
+</div>
+
+
+
+
+
+
+@code {
+
+    [Parameter]
+    public EventCallback<bool> OnUserLogginIn { get; set; }
+
+    private bool errorOnLogin;
+    private LoginUserRequest loginUserRequest = new();
+
+    private async Task CallAPIToLogin()
+    {
+        errorOnLogin = false;
+        var userLogged = await userService.Login(loginUserRequest);
+
+        if (!userLogged) { errorOnLogin = true; }
+        else { await OnUserLogginIn.InvokeAsync(true); }
+        //NavigationManager.NavigateTo("/", true);
+    }
+
+    private void AutoFill()
+    {
+        loginUserRequest.Username = "Dummytester2";
+        loginUserRequest.Password = "123456789";
+    }
+
+
+
+}
