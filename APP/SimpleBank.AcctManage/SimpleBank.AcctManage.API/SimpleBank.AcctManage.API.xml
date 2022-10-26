@@ -67,6 +67,18 @@
             <param name="logoutUserRequest">Request to logout.</param>
             <returns>A response.</returns>
         </member>
+        <member name="M:SimpleBank.AcctManage.API.Controllers.UsersController.GetUserInfo">
+            <summary>
+            Gets the user info (as CreateUserResponse).
+            </summary>
+            <returns>User info.</returns>
+        </member>
+        <member name="M:SimpleBank.AcctManage.API.Controllers.UsersController.GetUserToken(SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest)">
+            <summary>
+            Gets the user token (as LoginUserResponse).
+            </summary>
+            <returns>User token.</returns>
+        </member>
         <member name="T:SimpleBank.AcctManage.API.DTModels.Requests.CreateAccountRequest">
             <summary>
             CreateAccountRequest - obj. with needed details for a new Account.
