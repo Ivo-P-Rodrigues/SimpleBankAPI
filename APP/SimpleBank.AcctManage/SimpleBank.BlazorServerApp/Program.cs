@@ -8,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
+builder.Services.AddLocalization();
+builder.Services.AddControllers();
+
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IAccountService, AccountService>();
 builder.Services.AddTransient<ITransferService, TransferService>();
@@ -15,17 +18,6 @@ builder.Services.AddTransient<ISbLocalStorage, SbLocalStorage>();
 builder.Services.AddTransient<IUserStorage, UserStorage>();
 builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7074/api/") });
 builder.Services.AddScoped<ProtectedLocalStorage>();
-
-
-//builder.Services.AddHttpClient("API", client => //https://stackoverflow.com/questions/63076954/automatically-attaching-access-token-to-http-client-in-blazor-wasm
-//{
-//    client.BaseAddress = new Uri("https://localhost:7074/api/");
-//    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-//    //client.DefaultRequestHeaders.Authorization
-//});//.AddHttpMessageHandler<CustomAuthorizationMessageHandler>();
-
-
-
 
 
 var app = builder.Build();
@@ -42,6 +34,16 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
+var supportedCultures = new[] { "en-US", "pt-PT" };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
+
+app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 

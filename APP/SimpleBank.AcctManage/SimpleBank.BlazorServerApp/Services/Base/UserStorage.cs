@@ -1,5 +1,6 @@
 ﻿using SimpleBank.BlazorServerApp.Contracts;
 using SimpleBank.BlazorServerApp.Data.Responses;
+using System.Globalization;
 
 namespace SimpleBank.BlazorServerApp.Services.Base
 {
@@ -11,8 +12,6 @@ namespace SimpleBank.BlazorServerApp.Services.Base
             _sbLocalStorage = sbLocalStorage ?? throw new ArgumentNullException(nameof(sbLocalStorage));
 
 
-
-
         public async Task SetUserInfo(LoginUserResponse loginUserResponse) =>
             await _sbLocalStorage.SetAsync(loginUserResponse);
         public async Task DeleteUserInfo() =>
@@ -22,7 +21,11 @@ namespace SimpleBank.BlazorServerApp.Services.Base
             var storageAccTokenDate = await _sbLocalStorage.GetAsync("AccessTokenExpiresAt");
             if (storageAccTokenDate == null) { return (false, false); }
 
-            if (!DateTime.TryParse(storageAccTokenDate, out var accTokenDate)) { return (false, false); }
+            var format = new CultureInfo("pt-PT").DateTimeFormat;
+            //var format = (IFormatProvider)CultureInfo.CurrentUICulture.DateTimeFormat;
+            var style = DateTimeStyles.AssumeLocal;
+
+            if (!DateTime.TryParse(storageAccTokenDate, format, style, out var accTokenDate)) { return (false, false); }
             return (true, accTokenDate > DateTime.Now);
         }
         public async Task<(bool, bool)> CheckRefreshValidity()
@@ -30,7 +33,10 @@ namespace SimpleBank.BlazorServerApp.Services.Base
             var storageRfhTokenDate = await _sbLocalStorage.GetAsync("RefreshTokenExpiresAt");
             if (storageRfhTokenDate == null) { return (false, false); }
 
-            if (!DateTime.TryParse(storageRfhTokenDate, out var rfhTokenDate)) { return (false, false); }
+            var format = new CultureInfo("pt-PT").DateTimeFormat;
+            var style = DateTimeStyles.AssumeLocal;
+
+            if (!DateTime.TryParse(storageRfhTokenDate, format, style, out var rfhTokenDate)) { return (false, false); }
             return (true, rfhTokenDate > DateTime.Now);
         }
         public async Task<string?> GetAccessToken() =>

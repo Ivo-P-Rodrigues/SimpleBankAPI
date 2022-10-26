@@ -2,23 +2,26 @@
 @using SimpleBank.BlazorServerApp.Contracts
 @using SimpleBank.BlazorServerApp.Data.Requests
 @using SimpleBank.BlazorServerApp.Data.Responses
+@using SimpleBank.BlazorServerApp.Pages.Accounts.components
 @using SimpleBank.BlazorServerApp.Services
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<AccountsPage> Loc
 
 @inject IAccountService accountService
 @inject NavigationManager navManager
 
-<PageTitle>Your Accounts</PageTitle>
+<PageTitle>@Loc["Title"]</PageTitle>
 
-<h3>Your Accounts</h3>
+<h3>@Loc["Title"]</h3>
 <hr />
 <br />
 
 <table class="table table-bordered table-striped table-hover table-responsive-lg">
     <thead class="thead-dark">
         <tr>
-            <th scope="col"><strong>AccountId</strong></th>
-            <th scope="col"><strong>Balance</strong></th>
-            <th scope="col"><strong>Currency</strong></th>
+            <th scope="col"><strong>@Loc["AccountId"]</strong></th>
+            <th scope="col"><strong>@Loc["Balance"]</strong></th>
+            <th scope="col"><strong>@Loc["Currency"]</strong></th>
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>

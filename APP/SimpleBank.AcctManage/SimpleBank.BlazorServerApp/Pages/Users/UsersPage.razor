@@ -2,22 +2,24 @@
 @using SimpleBank.BlazorServerApp.Contracts
 @using SimpleBank.BlazorServerApp.Data.Requests
 @using SimpleBank.BlazorServerApp.Data.Responses
-
+@using SimpleBank.BlazorServerApp.Pages.Users.components
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<UsersPage> Loc
 @inject IUserService userService
 
-<PageTitle>Users page</PageTitle>
+<PageTitle>@Loc["Title"]</PageTitle>
 
-<h1>Users page</h1>
+<h2>@Loc["Title"]</h2>
 <hr />
 
 @if (!userLogged)
 {
-    <div class="d-flex flex-row justify-content-center">
-        <div>
+    <div class="d-flex flex-wrap justify-content-center">
+        <div class="px-2">
             <CreateUser></CreateUser>
         </div>
-        <div class="p-2"></div>
-        <div>
+        <div class="px-2"></div>
+        <div class="px-2 sm-media_margin-top">
             <LoginUser OnUserLogginIn="@OnUserLogginIn"></LoginUser>
         </div>
     </div>

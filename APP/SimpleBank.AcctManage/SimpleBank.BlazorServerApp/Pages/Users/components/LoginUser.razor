@@ -1,29 +1,31 @@
 ﻿@using SimpleBank.BlazorServerApp.Contracts
 @using SimpleBank.BlazorServerApp.Data.Requests
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<UsersPage> Loc
 @inject IUserService userService
 
 <div class="container-sm mx-auto dualBox dropshadow">
 
-    <h3>Login</h3>
+    <h4>@Loc["Login"]</h4>
 
     <EditForm Model="@loginUserRequest" OnSubmit="CallAPIToLogin">
         <DataAnnotationsValidator />
 
         <div class="form-group">
-            <label for="inputUsername1">Username address</label>
-            <InputText class="form-control" id="inputUsername1" aria-describedby="usernameHelp" placeholder="Enter username" @bind-Value="loginUserRequest.Username" />
+            <label for="inputUsername1">@Loc["Username"]</label>
+            <InputText class="form-control" id="inputUsername1" aria-describedby="usernameHelp" placeholder="@Loc["Username"]" @bind-Value="loginUserRequest.Username" />
             <ValidationMessage For="@(() => loginUserRequest.Username)"></ValidationMessage>
             <small id="usernameHelp" class="form-text text-muted">Insert your username.</small>
         </div>
 
         <div class="form-group">
-            <label for="inputPassword1">Password</label>
-            <InputText type="password" class="form-control" id="inputPassword1" placeholder="Password" @bind-Value="loginUserRequest.Password" />
+            <label for="inputPassword1">@Loc["Password"]</label>
+            <InputText type="password" class="form-control" id="inputPassword1" placeholder="@Loc["Password"]" @bind-Value="loginUserRequest.Password" />
             <ValidationMessage For="@(() => loginUserRequest.Password)"></ValidationMessage>
         </div>
 
-        <button type="submit" class="btn btn-dark">Login</button>
-        <button class="btn-sm btn-outline-dark float-right" @onclick="@AutoFill">Auto Fill</button>
+        <button type="submit" class="btn btn-dark">@Loc["Login"]</button>
+        <button class="btn-sm btn-outline-dark float-right" @onclick="@AutoFill">@Loc["AutoFill"]</button>
     </EditForm>
    
     @if (errorOnLogin)

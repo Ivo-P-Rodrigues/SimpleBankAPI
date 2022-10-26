@@ -1,7 +1,8 @@
 ﻿@using SimpleBank.BlazorServerApp.Contracts
 @using SimpleBank.BlazorServerApp.Data.Responses
 @using SimpleBank.BlazorServerApp.Data.Requests
-
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<AccountsPage> Loc
 @inject IAccountService accountService
 @inject ITransferService transferService
 
@@ -10,8 +11,8 @@
     <td>@Account.AccountId</td>
     <td>@Account.Balance</td>
     <td>@Account.Currency</td>
-    <td> <button type="button" data-toggle="button" aria-pressed="false" autocomplete="off" class="btn btn-dark btn-sm float-right" @onclick="() => MovimDetails(Account.AccountId)"> Movims </button> </td>
-    <td> <button type="button" data-toggle="button" aria-pressed="false" autocomplete="off" class="btn btn-secondary btn-sm" @onclick="TransferDetails"> Transfer </button> </td>
+    <td> <button type="button" data-toggle="button" aria-pressed="false" autocomplete="off" class="btn btn-dark btn-sm float-right" @onclick="() => MovimDetails(Account.AccountId)"> @Loc["Movims"] </button> </td>
+    <td> <button type="button" data-toggle="button" aria-pressed="false" autocomplete="off" class="btn btn-secondary btn-sm" @onclick="TransferDetails"> @Loc["Transfer"] </button> </td>
 </tr>
 
 @*ACCOUNT DETAILS*@
@@ -20,9 +21,9 @@
     if (hasMovims)
     {
         <tr>
-            <th scope="col">Movims:</th>
-            <th scope="col">CreatedAt</th>
-            <th scope="col">Amount</th>
+            <th scope="col">@Loc["Movims"]:</th>
+            <th scope="col">@Loc["CreatedAt"]:</th>
+            <th scope="col">@Loc["Amount"]:</th>
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>

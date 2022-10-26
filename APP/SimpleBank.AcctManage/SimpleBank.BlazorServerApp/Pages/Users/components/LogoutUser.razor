@@ -1,14 +1,16 @@
 ﻿@using SimpleBank.BlazorServerApp.Contracts
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<UsersPage> Loc
 @inject IUserService userService
 
 <div class="container-sm mx-auto monoBox dropshadow">
 
-    <button class="btn-sm btn-outline-dark w-100 mx-auto" @onclick="CallAPIToLogout">Logout</button>
+    <button class="btn-sm btn-outline-dark w-100 mx-auto" @onclick="CallAPIToLogout">@Loc["Logout"]</button>
 
     @if (errorOnLogout)
     {
         <hr /><br />
-        <p style="color:red">Something went wrong.</p>
+        <p style="color:red">@Loc["LogoutError"]</p>
     }
 
 </div>

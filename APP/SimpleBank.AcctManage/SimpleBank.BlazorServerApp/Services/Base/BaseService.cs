@@ -66,7 +66,7 @@ namespace SimpleBank.BlazorServerApp.Services.Base
             else if(httpRsp.StatusCode == System.Net.HttpStatusCode.BadRequest) // or: httpRsp.ReasonPhrase == "BadRequest"
             {
                 if(await RefreshTheConnectionAsync()) { return true; }
-                if(await ResetTheConnectionAsync(loginUserRequest))
+                if(await ReGetTokenFromApiAsync(loginUserRequest))
                 {
                     if (await RefreshTheConnectionAsync()) { return true; }
                 }
@@ -178,7 +178,7 @@ namespace SimpleBank.BlazorServerApp.Services.Base
             }
             return false;
         }
-        private async Task<bool> ResetTheConnectionAsync(LoginUserRequest loginUserRequest)
+        private async Task<bool> ReGetTokenFromApiAsync(LoginUserRequest loginUserRequest)
         {   //does not refresh the token
             var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Users"] + "GetTokenAgain", loginUserRequest);
            
@@ -195,4 +195,4 @@ namespace SimpleBank.BlazorServerApp.Services.Base
 
 
     }
-    }
+}
