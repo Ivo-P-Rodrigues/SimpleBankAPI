@@ -100,7 +100,7 @@ namespace SimpleBank.AcctManage.API.Profile
                 AccessTokenExpiresAt = userToken.AccessTokenExpiresAt.ToString(),
                 RefreshToken = userToken.RefreshToken,
                 RefreshTokenExpiresAt = userToken.RefreshTokenExpiresAt.ToString(),
-                SessionId = userToken.Id,
+                UserTokenId = userToken.Id,
                 UserId = userToken.UserId
             };
 

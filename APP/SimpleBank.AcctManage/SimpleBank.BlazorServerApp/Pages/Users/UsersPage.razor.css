@@ -1,0 +1,13 @@
+﻿
+.sm-media_margin-top {
+    margin-top: 3em;
+}
+
+@media (min-width: 700px) {
+
+    .sm-media_margin-top {
+        margin-top: 0em;
+    }
+
+
+}

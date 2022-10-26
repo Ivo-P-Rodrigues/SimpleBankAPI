@@ -1,0 +1,35 @@
+﻿@using SimpleBank.BlazorServerApp.Data.Responses
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<UsersPage> Loc
+
+<div class="container-sm mx-auto rounded monoBox dropshadow">
+
+    <h3>@Loc["Profile"]</h3>
+
+    <table class="table table-bordered table-hover table-responsive-lg">
+        <tr>
+            <th scope="row" class="thead-dark">@Loc["UserId"]:</th>
+            <td>@CreateUserResponse?.UserId</td>
+        </tr>
+        <tr>
+            <th scope="row" class="thead-dark">@Loc["Username"]:</th>
+            <td>@CreateUserResponse?.Username</td>
+        </tr>
+        <tr>
+            <th scope="row" class="thead-dark">@Loc["Email"]:</th>
+            <td>@CreateUserResponse?.Email</td>
+        </tr>
+        <tr>
+            <th scope="row" class="thead-dark">@Loc["CreatedAt"]:</th>
+            <td>@CreateUserResponse?.CreatedAt</td>
+        </tr>
+    </table>
+    
+</div>
+<br /><br /><br />
+
+@code {
+    [Parameter]
+    public CreateUserResponse? CreateUserResponse { get; set; }
+
+}
