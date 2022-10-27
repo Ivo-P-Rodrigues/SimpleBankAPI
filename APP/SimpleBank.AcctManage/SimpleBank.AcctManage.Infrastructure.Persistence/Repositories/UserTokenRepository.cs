@@ -11,8 +11,6 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Repositories
         {
         }
 
-        public async Task<UserToken?> GetUserTokenAsync(Guid id) =>
-            await GetWhereAsync(t => t.UserId == id);
         
 
 

@@ -13,7 +13,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\SimpleBank.AcctManage.Core.Application\SimpleBank.AcctManage.Core.Application.csproj" />
-	  <ProjectReference Include="..\SimpleBank.AcctManage.Infrastructure.Persistence\SimpleBank.AcctManage.Infrastructure.Persistence.csproj" />
 	</ItemGroup>
 
 </Project>
