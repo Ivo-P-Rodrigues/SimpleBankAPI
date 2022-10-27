@@ -1,0 +1,27 @@
+﻿@*
+@page "/"
+@namespace SimpleBank.BlazorServerApp.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+<component type="typeof(App)" render-mode="ServerPrerendered" />
+*@
+
+@page "/"
+@namespace SimpleBank.AccountManage.UI.Blazor.Server.v1.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using System.Globalization
+@using Microsoft.AspNetCore.Localization
+@{
+    Layout = "_Layout";
+    this.HttpContext.Response.Cookies.Append(
+        CookieRequestCultureProvider.DefaultCookieName,
+        CookieRequestCultureProvider.MakeCookieValue(
+            new RequestCulture(
+                CultureInfo.CurrentCulture,
+                CultureInfo.CurrentUICulture)));
+}
+
+<component type="typeof(App)" render-mode="ServerPrerendered" />

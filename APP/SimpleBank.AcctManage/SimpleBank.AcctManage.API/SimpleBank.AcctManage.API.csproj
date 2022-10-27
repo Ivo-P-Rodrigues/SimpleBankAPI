@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
@@ -22,6 +24,10 @@
     <ProjectReference Include="..\SimpleBank.AcctManage.Infrastructure.Auth\SimpleBank.AcctManage.Infrastructure.Auth.csproj" />
     <ProjectReference Include="..\SimpleBank.AcctManage.Infrastructure.Persistence\SimpleBank.AcctManage.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\SimpleBank.AcctManage.Infrastructure.Providers\SimpleBank.AcctManage.Infrastructure.Providers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="_Logs\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,52 @@
+﻿@using Microsoft.Extensions.Localization
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Contracts
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Data.Requests
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Data.Responses
+@inject IStringLocalizer<AccountsPage> Loc
+@inject IAccountService accountService
+
+<div class="container-sm mx-auto rounded monoBox dropshadow">
+
+    <h4>@Loc["CreateAccount"]</h4>
+    <hr />
+
+    <EditForm Model="@createAccountRequest" OnSubmit="CallAPIToCreateAccount">
+        <DataAnnotationsValidator />
+        @*<ValidationSummary />*@
+
+        <div class="form-group">
+            <label for="inputAmount1">@Loc["Amount"]:</label>
+            <InputNumber class="form-control" id="inputAmount1" @bind-Value="createAccountRequest.Amount" />
+            <ValidationMessage For="@(() => createAccountRequest.Amount)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            <label for="inputCurrency1">@Loc["Currency"]:</label>
+            <InputText class="form-control" id="inputCurrency1" placeholder="@Loc["Currency"]" @bind-Value="createAccountRequest.Currency" />
+            <ValidationMessage For="@(() => createAccountRequest.Currency)"></ValidationMessage>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-dark">@Loc["Create"]</button>
+
+    </EditForm>
+</div>
+
+
+
+@code {
+    [Parameter]
+    public EventCallback<AccountResponse> OnAccountCreation { get; set; }
+
+    private CreateAccountRequest createAccountRequest = new();
+    private AccountResponse account = new();
+
+    private async Task CallAPIToCreateAccount()
+    {
+        var newAccount = await accountService.CreateAccount(createAccountRequest);
+        if (newAccount != null)
+        {
+            account = newAccount;
+            await OnAccountCreation.InvokeAsync(newAccount);
+            //accountsList.Add(account);
+        }
+    }
+}

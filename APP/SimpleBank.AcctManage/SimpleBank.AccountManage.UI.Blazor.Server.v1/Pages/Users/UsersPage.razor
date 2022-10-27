@@ -1,0 +1,71 @@
+﻿@page "/userspage"
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Contracts
+@using Microsoft.Extensions.Localization
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Data.Responses
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Pages.Users.Components
+@inject IStringLocalizer<UsersPage> Loc
+@inject IUserService userService
+
+<PageTitle>@Loc["Title"]</PageTitle>
+
+<h2>@Loc["Title"]</h2>
+<hr />
+
+@if (renderAwait)
+{
+    <Loading></Loading>
+}
+else
+{
+    @if (createUserResponse is null)
+    {
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="px-2">
+                <CreateUser></CreateUser>
+            </div>
+            <div class="px-2"></div>
+            <div class="px-2 sm-media_margin-top">
+                <LoginUser OnUserLogginIn="@OnUserLogginIn"></LoginUser>
+            </div>
+        </div>
+    }
+    else
+    {
+        <ProfileUser CreateUserResponse="@createUserResponse"></ProfileUser>
+        <LogoutUser OnUserLogginOut="@OnUserLogginOut"></LogoutUser>
+    }
+}
+<br /><br />
+
+
+
+@code {
+    private bool renderAwait = true;
+    private CreateUserResponse? createUserResponse;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            createUserResponse = await userService.GetUser();
+            renderAwait = false;
+            StateHasChanged();
+        }
+    }
+
+
+    public async void OnUserLogginIn(bool logged)
+    {
+        createUserResponse = await userService.GetUser();
+        StateHasChanged();
+    }
+
+    public void OnUserLogginOut(bool logged) =>
+        createUserResponse = null;
+
+
+
+
+
+}
+

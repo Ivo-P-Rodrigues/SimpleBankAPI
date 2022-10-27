@@ -1,0 +1,34 @@
+@import url('site-from_template.css');
+@import url('site-colors.css');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+    
+}
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+
+.dropshadow {
+    box-shadow: 20px 20px 30px #442211;
+}
+
+.dualBox {
+    width: 20em;
+    background-color: #ffffff;
+    padding: 2em;
+}
+
+.monoBox {
+    width: 50%;
+    background-color: #ffffff;
+    padding: 2em;
+}

@@ -20,8 +20,8 @@ namespace SimpleBank.AcctManage.Core.Domain
         public string RefreshToken { get; set; }
         public DateTime RefreshTokenExpiresAt { get; set; }
 
-        public bool Active => AccessTokenExpiresAt > DateTime.Now;
-        public bool Refresh => RefreshTokenExpiresAt > DateTime.Now;
+        public bool Active => AccessTokenExpiresAt > DateTime.UtcNow;
+        public bool Refresh => RefreshTokenExpiresAt > DateTime.UtcNow;
 
 
     }

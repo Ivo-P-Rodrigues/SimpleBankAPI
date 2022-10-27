@@ -87,13 +87,13 @@ namespace SimpleBank.AcctManage.Core.Application.Business
             {
                 AccountId = transfer.FromAccountId,
                 Amount = -transfer.Amount,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
             movementTo = new Movement()
             {
                 AccountId = transfer.ToAccountId,
                 Amount = transfer.Amount,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
         }
 

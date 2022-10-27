@@ -15,22 +15,22 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
                 .HasDefaultValueSql("uuid_generate_v4()");
 
             builder.Property(e => e.CreatedAt)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("created_at")
-                .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                .HasDefaultValueSql("clock_timestamp()");
 
             builder.Property(e => e.AccessToken)
                 .HasColumnName("access_token");
 
             builder.Property(e => e.AccessTokenExpiresAt)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("access_token_expires_at");
 
             builder.Property(e => e.RefreshToken)
                 .HasColumnName("refresh_token");
 
             builder.Property(e => e.RefreshTokenExpiresAt)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("refresh_token_expires_at");
 
             builder.Ignore(i => i.Active);

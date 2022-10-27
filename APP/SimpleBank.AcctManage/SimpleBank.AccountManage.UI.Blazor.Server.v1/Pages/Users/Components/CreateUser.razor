@@ -1,0 +1,60 @@
+﻿@using Microsoft.Extensions.Localization
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Contracts
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Data.Requests
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Data.Responses
+@inject IStringLocalizer<UsersPage> Loc
+@inject IUserService userService
+
+<div class="container-md mx-auto rounded dualBox dropshadow">
+
+    <h4>@Loc["NewUser"]</h4>
+
+    <EditForm Model="@createUserRequest" OnSubmit="CallAPIToCreateUser">
+        <DataAnnotationsValidator />
+
+        <div class="form-group">
+            @*<label for="inputFullname1">@Loc["Fullname"]</label>*@
+            <InputText class="form-control" id="inputFullname1" placeholder="@Loc["Fullname"]" @bind-Value="createUserRequest.Fullname" />
+            <ValidationMessage For="@(() => createUserRequest.Fullname)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            @*<label for="inputEmail1">@Loc["Email"]</label>*@
+            <InputText type="email" class="form-control" id="inputEmail1" placeholder="@Loc["Email"]" @bind-Value="createUserRequest.Email" />
+            <ValidationMessage For="@(() => createUserRequest.Email)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            @*<label for="inputUsername1">@Loc["Username"]</label>*@
+            <InputText class="form-control" id="inputUsername1" placeholder="@Loc["Username"]" @bind-Value="createUserRequest.Username" />
+            <ValidationMessage For="@(() => createUserRequest.Username)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            @*<label for="inputPassword1">@Loc["Password"]</label>*@
+            <InputText type="password" class="form-control" id="inputPassword1" placeholder="@Loc["Password"]" @bind-Value="createUserRequest.Password" />
+            <ValidationMessage For="@(() => createUserRequest.Password)"></ValidationMessage>
+        </div>
+
+        <button type="submit" class="btn btn-dark">@Loc["Create"]</button>
+    </EditForm>
+
+    @if (createUserResponse != null)
+    {
+        <hr /><br />
+        <p>@Loc["msgSuccess"]</p>
+    }
+
+</div>
+
+@code {
+
+    //CREATE
+    private CreateUserRequest createUserRequest = new();
+    private CreateUserResponse? createUserResponse;
+
+    private async Task CallAPIToCreateUser() =>
+        createUserResponse = await userService.Create(createUserRequest);
+
+
+
+
+}
+
