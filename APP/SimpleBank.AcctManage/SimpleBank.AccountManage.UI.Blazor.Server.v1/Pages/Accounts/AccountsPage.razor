@@ -1,0 +1,88 @@
+﻿@page "/accountspage"
+@using Microsoft.Extensions.Localization
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Contracts
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Data.Responses
+@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Pages.Accounts.Components
+@inject IStringLocalizer<AccountsPage> Loc
+
+@inject IAccountService accountService
+@inject NavigationManager navManager
+
+<PageTitle>@Loc["Title"]</PageTitle>
+
+<h3>@Loc["Title"]</h3>
+<hr />
+<br />
+
+@if (renderAwait)
+{
+    <Loading></Loading>
+}
+else
+{
+    <table class="table table-bordered table-striped table-responsive-lg">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"><strong>@Loc["AccountId"]</strong></th>
+                <th scope="col"><strong>@Loc["Balance"]</strong></th>
+                <th scope="col"><strong>@Loc["Currency"]</strong></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        @foreach (var account in accountsList)
+        {
+            <AccountItem Account="@account" OnTransferUpdateBalance="@OnTransferUpdateBalance"
+                DisplayMovims="@displayMovims" OnToggleMovims="@OnToggleMovims"
+                     DisplayTransfer="@displayTransfer" OnToggleTransfer="@OnToggleTransfer" />
+        }
+    </table>
+    <hr /><br /><br />
+
+    <CreateAccount OnAccountCreation="@OnAccountCreation"></CreateAccount>
+    <br /><br />
+}
+
+
+@code {
+    private bool renderAwait = true;
+
+    private AccountResponse account = new();
+    private List<AccountResponse> accountsList = new();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var userLogged = await accountService.CheckLocallyIfUserIsLoggedAsync();
+            if (!userLogged) { navManager.NavigateTo("/", true); return; }
+
+            var accountsLoad = await accountService.GetAllAccounts();
+            if (accountsLoad != null)
+            {
+                accountsList = accountsLoad.ToList();
+                renderAwait = false;
+                StateHasChanged();
+            }
+        }
+    }
+
+    private bool displayMovims = false;
+    public void OnToggleMovims(bool toggle) => displayMovims = toggle;
+
+    private bool displayTransfer = false;
+    public void OnToggleTransfer(bool toggle) => displayTransfer = toggle;
+
+    public void OnTransferUpdateBalance(TransferResponse transferResponse)
+    {
+        var accountTo = accountsList.FirstOrDefault(a => a.AccountId == transferResponse.ToAccountId);
+        var accountFrom = accountsList.FirstOrDefault(a => a.AccountId == transferResponse.FromAccountId);
+        //no check if null here...
+        accountTo!.Balance += transferResponse.Amount;
+        accountFrom!.Balance -= transferResponse.Amount;
+    }
+    public void OnAccountCreation(AccountResponse newAccount) =>
+        accountsList.Add(newAccount);
+
+
+}

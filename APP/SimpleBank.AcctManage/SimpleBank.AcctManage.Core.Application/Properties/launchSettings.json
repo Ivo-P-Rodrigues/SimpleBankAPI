@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "SimpleBank.AcctManage.Core.Application": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58727;http://localhost:58728"
+    }
+  }
+}

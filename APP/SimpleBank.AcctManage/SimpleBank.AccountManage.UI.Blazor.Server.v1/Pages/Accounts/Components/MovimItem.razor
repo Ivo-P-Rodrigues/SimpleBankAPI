@@ -1,0 +1,16 @@
+﻿@using SimpleBank.AccountManage.UI.Blazor.Server.v1.Data.Responses
+
+<tr class="bg_gray2">
+    <td></td>
+    <td></td>
+    <td>@Movim.CreatedAt</td>
+    <td>@Movim.Amount</td>
+    <td></td>
+</tr>
+
+
+@code {
+    [Parameter]
+    public Movim Movim { get; set; }
+
+}
