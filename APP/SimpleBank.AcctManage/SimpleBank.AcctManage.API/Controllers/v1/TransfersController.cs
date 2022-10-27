@@ -2,15 +2,15 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using SimpleBank.AcctManage.API.Profile;
-using SimpleBank.AcctManage.API.DTModels.Responses;
-using SimpleBank.AcctManage.API.DTModels.Requests;
 using SimpleBank.AcctManage.Core.Domain;
 using SimpleBank.AcctManage.Core.Application.Contracts.Business;
+using SimpleBank.AcctManage.API.DTModels.v1.Requests;
+using SimpleBank.AcctManage.API.DTModels.v1.Responses;
 
-namespace SimpleBank.AcctManage.API.Controllers
+namespace SimpleBank.AcctManage.API.Controllers.v1
 {
-    [ApiController]
-    [Route("api/[controller]")]
+    [ApiController, ApiVersion("1.0", Deprecated = false)]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class TransfersController : ControllerBase
     {
@@ -31,6 +31,7 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// <param name="transferRequest">Transfer Request obj.</param>
         /// <returns>A TranferResponse obj. with transfer details.</returns>
         [HttpPost]
+        [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(TransferResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
@@ -49,7 +50,7 @@ namespace SimpleBank.AcctManage.API.Controllers
 
             //respond
             var transferResponse = _entityMapper.MapTransferToResponse(transferSaved);
-            return Created("", transferResponse); 
+            return Created("", transferResponse);
         }
 
 

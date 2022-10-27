@@ -16,9 +16,8 @@ builder.Services.AddTransient<IAccountService, AccountService>();
 builder.Services.AddTransient<ITransferService, TransferService>();
 builder.Services.AddTransient<ISbLocalStorage, SbLocalStorage>();
 builder.Services.AddTransient<IUserStorage, UserStorage>();
-builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7074/api/") });
+builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7074") });
 builder.Services.AddScoped<ProtectedLocalStorage>();
-
 
 var app = builder.Build();
 
@@ -29,11 +28,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
-
 app.UseRouting();
-
 
 var supportedCultures = new[] { "en-US", "pt-PT" };
 var localizationOptions = new RequestLocalizationOptions()

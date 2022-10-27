@@ -1,4 +1,4 @@
-﻿namespace SimpleBank.AcctManage.API.DTModels.Requests
+﻿namespace SimpleBank.AcctManage.API.DTModels.v1.Requests
 {
     /// <summary>
     /// LoginUserRequest - Username and Password to authenthicate.

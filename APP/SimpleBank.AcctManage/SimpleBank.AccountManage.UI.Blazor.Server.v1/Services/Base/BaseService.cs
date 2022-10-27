@@ -50,7 +50,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v1.Services.Base
         public async Task<bool> RegisterLogin(LoginUserRequest loginUserRequest)
         {
             if (await CheckLocallyIfUserIsLoggedAsync()) { return true; }
-
+            var bla = Configuration["SbApiEndPointsAddresses:Users"] + "login";
             var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Users"] + "login", loginUserRequest);
             if (httpRsp == null) { return false; }
 

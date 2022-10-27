@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using SimpleBank.AcctManage.API.DTModels.Requests;
-using SimpleBank.AcctManage.API.DTModels.Responses;
 using SimpleBank.AcctManage.Core.Domain;
 using SimpleBank.AcctManage.API.Profile;
 using SimpleBank.AcctManage.Core.Application.Contracts.Business;
+using SimpleBank.AcctManage.API.DTModels.v1.Requests;
+using SimpleBank.AcctManage.API.DTModels.v1.Responses;
 
-namespace SimpleBank.AcctManage.API.Controllers
+namespace SimpleBank.AcctManage.API.Controllers.v1
 {
-    [ApiController]
-    [Route("api/[controller]")]
+    [ApiController, ApiVersion("1.0", Deprecated = false)]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class AccountsController : ControllerBase
     {
@@ -34,6 +34,7 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// <response code="200">Ok - Returns all Accounts of logged user.</response>
         /// <response code="204">NoContent - Logged user has no Accounts.</response>
         [HttpGet]
+        [MapToApiVersion("1.0")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [ProducesResponseType(typeof(IEnumerable<AccountResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
@@ -42,6 +43,7 @@ namespace SimpleBank.AcctManage.API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<AccountResponse>>> GetAllAccounts()
         {
+            await Task.Delay(1); //cheating to make the method async... why? 
             var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
             var accounts = _accountBusiness.GetAllUserAccounts(userId);
             if (accounts == null || accounts.Count() == 0) { return NotFound(); }
@@ -58,6 +60,7 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// <returns>Account with all its Movims of logged user.</returns>
         /// <response code="200">Ok - Returns requested Account.</response>
         [HttpGet("{accountId}")]
+        [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(AccountMovims), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -86,6 +89,7 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// <returns>Created account.</returns>
         /// <response code="201">Returns the newly created Account.</response>
         [HttpPost]
+        [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(AccountResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]

@@ -132,6 +132,9 @@
   <data name="Login" xml:space="preserve">
     <value>Entrar</value>
   </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Erro. Por favor confirme as suas credenciais.</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>Encerrar</value>
   </data>

@@ -3,19 +3,19 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using SimpleBank.AcctManage.API.Profile;
 using SimpleBank.AcctManage.Core.Application.Business;
-using SimpleBank.AcctManage.API.DTModels.Responses;
-using SimpleBank.AcctManage.API.DTModels.Requests;
 using SimpleBank.AcctManage.Core.Domain;
 using SimpleBank.AcctManage.Core.Application.Contracts.Business;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers;
+using SimpleBank.AcctManage.API.DTModels.v1.Requests;
+using SimpleBank.AcctManage.API.DTModels.v1.Responses;
 
-namespace SimpleBank.AcctManage.API.Controllers
+namespace SimpleBank.AcctManage.API.Controllers.v1
 {
     /// <summary>
     /// User related API actions.
     /// </summary>
-    [ApiController]
-    [Route("api/[controller]")]
+    [ApiController, ApiVersion("1.0", Deprecated = false)]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class UsersController : ControllerBase
     {
@@ -41,15 +41,18 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// <returns>The newly created user.</returns>
         [AllowAnonymous]
         [HttpPost]
+        [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(CreateUserResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<CreateUserResponse>> Create(CreateUserRequest createUserRequest)
         {
-            User user = new() {
+            User user = new()
+            {
                 Username = createUserRequest.Username,
                 Email = createUserRequest.Email,
-                Fullname = createUserRequest.Fullname };
+                Fullname = createUserRequest.Fullname
+            };
 
             var newUser = await _userBusiness.CreateUserAsync(user, createUserRequest.Password);
             if (newUser == null) { return BadRequest("Error on creating. Username or email already in use."); }
@@ -67,6 +70,7 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// <returns>A Token</returns>
         [AllowAnonymous]
         [HttpPost("Login")]
+        [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
@@ -74,11 +78,11 @@ namespace SimpleBank.AcctManage.API.Controllers
         public async Task<ActionResult<LoginUserResponse>> Login(LoginUserRequest loginUserRequest)
         {
             if (!_userBusiness.VerifyUserCredentials(loginUserRequest.Password, loginUserRequest.Username, out Guid userId))
-                { return Unauthorized("User credentials are incorrect."); }
+            { return Unauthorized("User credentials are incorrect."); }
 
             var (userToken, possibleError) = await _authenthicationProvider.ProcessLoginAsync(userId);
 
-            if(userToken == null)
+            if (userToken == null)
             {
                 return possibleError == null ?
                     StatusCode(StatusCodes.Status500InternalServerError, "Error on login, please contact our customer support.") :
@@ -96,6 +100,7 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// <returns>Refreshed token.</returns>
         [AllowAnonymous]
         [HttpPost("Renew", Name = "Renew")]
+        [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
@@ -122,6 +127,7 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// <param name="logoutUserRequest">Request to logout.</param>
         /// <returns>A response.</returns>
         [HttpPost("Logout")]
+        [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
@@ -150,6 +156,7 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// </summary>
         /// <returns>User info.</returns>
         [HttpGet("Profile")]
+        [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(CreateUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
@@ -170,13 +177,14 @@ namespace SimpleBank.AcctManage.API.Controllers
         /// <returns>User token.</returns>
         [AllowAnonymous]
         [HttpPost("GetTokenAgain")]
+        [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(CreateUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<LoginUserResponse>> GetUserToken(LoginUserRequest loginUserRequest)
         {
             if (!_userBusiness.VerifyUserCredentials(loginUserRequest.Password, loginUserRequest.Username, out Guid userId))
-                { return Unauthorized("User credentials are incorrect."); }
+            { return Unauthorized("User credentials are incorrect."); }
 
             var userToken = await _authenthicationProvider.GetUserTokenAsync(userId);
             if (userToken == null) { return BadRequest("Error on getting token."); }

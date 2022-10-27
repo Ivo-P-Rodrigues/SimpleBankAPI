@@ -1,5 +1,5 @@
-﻿using SimpleBank.AcctManage.API.DTModels.Requests;
-using SimpleBank.AcctManage.API.DTModels.Responses;
+﻿using SimpleBank.AcctManage.API.DTModels.v1.Requests;
+using SimpleBank.AcctManage.API.DTModels.v1.Responses;
 using SimpleBank.AcctManage.Core.Domain;
 
 namespace SimpleBank.AcctManage.API.Profile

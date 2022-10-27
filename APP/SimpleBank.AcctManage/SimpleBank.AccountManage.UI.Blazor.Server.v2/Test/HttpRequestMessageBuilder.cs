@@ -24,7 +24,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v2.Test
 
         public HttpRequestMessage AddBodyJson<T>(string bodyJsonString)
         {
-            JsonSerializerOptions? options;
+            //JsonSerializerOptions? options;
 
             _request.Content = JsonContent.Create(bodyJsonString, typeof(T));
             return _request;
@@ -39,7 +39,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v2.Test
 
         public HttpRequestMessage AddQuery(string query)
         {
-            _request.RequestUri = new Uri(_request.RequestUri!.ToString() + "?" + query);
+            _request.RequestUri = new Uri(_request.RequestUri!.ToString() + "?" + query); //improve this using proper Uri ctor n props
             return _request;
         }
 

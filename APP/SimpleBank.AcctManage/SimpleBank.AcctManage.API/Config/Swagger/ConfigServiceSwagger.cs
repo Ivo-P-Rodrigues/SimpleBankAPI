@@ -1,16 +1,15 @@
-﻿using Confluent.Kafka;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
-using System.Text;
 
-namespace SimpleBank.AcctManage.API.Config.Services
+namespace SimpleBank.AcctManage.API.Config.Swagger
 {
     public static class ConfigServiceSwagger
     {
-        public static void ConfigureSwaggerService(this IServiceCollection collection)
+        public static void ConfigureSwaggerService(this IServiceCollection services)
         {
-            collection.AddSwaggerGen(options =>
+            services.AddSwaggerGen(options =>
             {
                 //xml documentation
                 var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -36,7 +35,12 @@ namespace SimpleBank.AcctManage.API.Config.Services
                                 Id = "SimpleBankAPIBearerAuth" }
                     }, new List<string>() }
                  });
+
+                //versioning
+                options.OperationFilter<SwaggerDefaultValues>();
             });
+
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerGenOptions>();
         }
 
 

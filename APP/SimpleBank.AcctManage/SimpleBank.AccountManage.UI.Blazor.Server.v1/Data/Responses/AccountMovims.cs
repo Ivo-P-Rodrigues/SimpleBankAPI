@@ -5,7 +5,7 @@
         public AccountMovims(AccountResponse account, ICollection<Movim>? movims)
         {
             Account = account;
-            Movims = movims ?? null;
+            Movims = movims;
         }
 
         public AccountResponse Account { get; set; }

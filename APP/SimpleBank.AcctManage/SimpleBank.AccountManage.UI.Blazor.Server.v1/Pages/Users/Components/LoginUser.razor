@@ -31,14 +31,10 @@
     @if (errorOnLogin)
     {
         <hr /><br />
-        <p style="color:red">Something went wrong. Please confirm your credentials.</p>
+        <p style="color:red">@Loc["LoginError"]</p>
     }
 
 </div>
-
-
-
-
 
 
 @code {
@@ -46,17 +42,14 @@
     [Parameter]
     public EventCallback<bool> OnUserLogginIn { get; set; }
 
-    private bool errorOnLogin;
+    private bool errorOnLogin = false;
     private LoginUserRequest loginUserRequest = new();
 
     private async Task CallAPIToLogin()
     {
-        errorOnLogin = false;
         var userLogged = await userService.Login(loginUserRequest);
-
         if (!userLogged) { errorOnLogin = true; }
         else { await OnUserLogginIn.InvokeAsync(true); }
-        //NavigationManager.NavigateTo("/", true);
     }
 
     private void AutoFill()
@@ -64,7 +57,5 @@
         loginUserRequest.Username = "Dummytester2";
         loginUserRequest.Password = "123456789";
     }
-
-
 
 }

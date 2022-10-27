@@ -4,7 +4,7 @@
         <name>SimpleBank.AcctManage.API</name>
     </assembly>
     <members>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.AccountsController.GetAllAccounts">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AccountsController.GetAllAccounts">
             <summary>
             Get all logged user Accounts.
             </summary>
@@ -12,7 +12,7 @@
             <response code="200">Ok - Returns all Accounts of logged user.</response>
             <response code="204">NoContent - Logged user has no Accounts.</response>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.AccountsController.GetAccount(System.Guid)">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AccountsController.GetAccount(System.Guid)">
             <summary>
             Get Account with all its Movims of logged user.
             </summary>
@@ -20,7 +20,7 @@
             <returns>Account with all its Movims of logged user.</returns>
             <response code="200">Ok - Returns requested Account.</response>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.AccountsController.CreateAccount(SimpleBank.AcctManage.API.DTModels.Requests.CreateAccountRequest)">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AccountsController.CreateAccount(SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateAccountRequest)">
             <summary>
             Create account for logged user.
             </summary>
@@ -28,108 +28,117 @@
             <returns>Created account.</returns>
             <response code="201">Returns the newly created Account.</response>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.TransfersController.MakeTransfer(SimpleBank.AcctManage.API.DTModels.Requests.TransferRequest)">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.TransfersController.MakeTransfer(SimpleBank.AcctManage.API.DTModels.v1.Requests.TransferRequest)">
             <summary>
             Make a transfer between two accounts.
             </summary>
             <param name="transferRequest">Transfer Request obj.</param>
             <returns>A TranferResponse obj. with transfer details.</returns>
         </member>
-        <member name="T:SimpleBank.AcctManage.API.Controllers.UsersController">
+        <member name="T:SimpleBank.AcctManage.API.Controllers.v1.UsersController">
             <summary>
             User related API actions.
             </summary>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.UsersController.Create(SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest)">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.Create(SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateUserRequest)">
             <summary>
             Create a new user.
             </summary>
             <param name="createUserRequest">All new user details.</param>
             <returns>The newly created user.</returns>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.UsersController.Login(SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest)">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.Login(SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest)">
             <summary>
             Login to be granted access to the API.
             </summary>
             <param name="loginUserRequest">User's param to Login</param>
             <returns>A Token</returns>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.UsersController.RenewToken(SimpleBank.AcctManage.API.DTModels.Requests.RenewRequest)">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.RenewToken(SimpleBank.AcctManage.API.DTModels.v1.Requests.RenewRequest)">
             <summary>
             Renews the refresh token.
             </summary>
             <returns>Refreshed token.</returns>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.UsersController.Logout(SimpleBank.AcctManage.API.DTModels.Requests.LogoutUserRequest)">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.Logout(SimpleBank.AcctManage.API.DTModels.v1.Requests.LogoutUserRequest)">
             <summary>
             Logout.
             </summary>
             <param name="logoutUserRequest">Request to logout.</param>
             <returns>A response.</returns>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.UsersController.GetUserInfo">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.GetUserInfo">
             <summary>
             Gets the user info (as CreateUserResponse).
             </summary>
             <returns>User info.</returns>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.UsersController.GetUserToken(SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest)">
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.GetUserToken(SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest)">
             <summary>
             Gets the user token (as LoginUserResponse).
             </summary>
             <returns>User token.</returns>
         </member>
-        <member name="T:SimpleBank.AcctManage.API.DTModels.Requests.CreateAccountRequest">
+        <member name="T:SimpleBank.AcctManage.API.Controllers.v2.UsersController">
+            <summary> v2 placeholder </summary>
+        </member>
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v2.UsersController.#ctor">
+            <summary> Test. </summary>
+        </member>
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v2.UsersController.ReturnOk">
+            <summary> Test. </summary>
+        </member>
+        <member name="T:SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateAccountRequest">
             <summary>
             CreateAccountRequest - obj. with needed details for a new Account.
             </summary>
         </member>
-        <member name="P:SimpleBank.AcctManage.API.DTModels.Requests.CreateAccountRequest.Amount">
+        <member name="P:SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateAccountRequest.Amount">
             <summary>
             The Amount of money the Account starts with. 
             </summary>
         </member>
-        <member name="P:SimpleBank.AcctManage.API.DTModels.Requests.CreateAccountRequest.Currency">
+        <member name="P:SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateAccountRequest.Currency">
             <summary>
             The Currency of the money in the Account.
             </summary>
         </member>
-        <member name="T:SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest">
+        <member name="T:SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateUserRequest">
             <summary>
             CreateUserRequest - obj. with needed details for a new User.
             </summary>
         </member>
-        <member name="P:SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest.Email">
+        <member name="P:SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateUserRequest.Email">
             <summary>
             Email adress.
             </summary>
         </member>
-        <member name="P:SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest.Fullname">
+        <member name="P:SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateUserRequest.Fullname">
             <summary>
             User full name.
             </summary>
         </member>
-        <member name="P:SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest.Password">
+        <member name="P:SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateUserRequest.Password">
             <summary>
             User new password.
             </summary>
         </member>
-        <member name="P:SimpleBank.AcctManage.API.DTModels.Requests.CreateUserRequest.Username">
+        <member name="P:SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateUserRequest.Username">
             <summary>
             Choose a Username.
             </summary>
         </member>
-        <member name="T:SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest">
+        <member name="T:SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest">
             <summary>
             LoginUserRequest - Username and Password to authenthicate.
             </summary>
         </member>
-        <member name="P:SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest.Password">
+        <member name="P:SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest.Password">
             <summary>
             Your personal password. 
             </summary>
         </member>
-        <member name="P:SimpleBank.AcctManage.API.DTModels.Requests.LoginUserRequest.Username">
+        <member name="P:SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest.Username">
             <summary>
             Your username.
             </summary>

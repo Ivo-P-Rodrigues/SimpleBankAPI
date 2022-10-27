@@ -1,4 +1,4 @@
-﻿namespace SimpleBank.AcctManage.API.DTModels.Requests
+﻿namespace SimpleBank.AcctManage.API.DTModels.v1.Requests
 {
     /// <summary>
     /// CreateUserRequest - obj. with needed details for a new User.

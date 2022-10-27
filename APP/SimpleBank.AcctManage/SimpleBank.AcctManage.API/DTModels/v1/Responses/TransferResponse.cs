@@ -1,5 +1,4 @@
-﻿
-namespace SimpleBank.AcctManage.API.DTModels.Responses
+﻿namespace SimpleBank.AcctManage.API.DTModels.v1.Responses
 {
     public class TransferResponse
     {
