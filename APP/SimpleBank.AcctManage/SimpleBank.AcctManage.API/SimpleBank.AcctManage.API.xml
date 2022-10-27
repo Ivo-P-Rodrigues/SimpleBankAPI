@@ -28,6 +28,35 @@
             <returns>Created account.</returns>
             <response code="201">Returns the newly created Account.</response>
         </member>
+        <member name="T:SimpleBank.AcctManage.API.Controllers.v1.AuthController">
+            <summary> Auth related API actions. </summary>
+        </member>
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AuthController.Login(SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest)">
+            <summary>
+            Login to be granted access to the API.
+            </summary>
+            <param name="loginUserRequest">User's param to Login</param>
+            <returns>A Token</returns>
+        </member>
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AuthController.RenewToken(SimpleBank.AcctManage.API.DTModels.v1.Requests.RenewRequest)">
+            <summary>
+            Renews the refresh token.
+            </summary>
+            <returns>Refreshed token.</returns>
+        </member>
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AuthController.Logout(SimpleBank.AcctManage.API.DTModels.v1.Requests.LogoutUserRequest)">
+            <summary>
+            Logout.
+            </summary>
+            <param name="logoutUserRequest">Request to logout.</param>
+            <returns>A response.</returns>
+        </member>
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AuthController.GetUserToken(SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest)">
+            <summary>
+            Gets the user token (as LoginUserResponse).
+            </summary>
+            <returns>User token.</returns>
+        </member>
         <member name="M:SimpleBank.AcctManage.API.Controllers.v1.TransfersController.MakeTransfer(SimpleBank.AcctManage.API.DTModels.v1.Requests.TransferRequest)">
             <summary>
             Make a transfer between two accounts.
@@ -40,6 +69,13 @@
             User related API actions.
             </summary>
         </member>
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.#ctor(SimpleBank.AcctManage.Core.Application.Contracts.Providers.IAuthenthicationProvider,SimpleBank.AcctManage.Core.Application.Contracts.Business.IUserBusiness,SimpleBank.AcctManage.API.Profile.IEntityMapper)">
+            <summary>  Users controller. </summary>
+            <param name="authenthicationProvider">Infrastructure related to auth.</param>
+            <param name="userBusiness">User related application.</param>
+            <param name="entityMapper">Profiler.</param>
+            <exception cref="T:System.ArgumentNullException">If <see cref="T:SimpleBank.AcctManage.Core.Application.Contracts.Providers.IAuthenthicationProvider"/>, <see cref="T:SimpleBank.AcctManage.Core.Application.Contracts.Business.IUserBusiness"/> or <see cref="T:SimpleBank.AcctManage.API.Profile.IEntityMapper"/> are null.</exception>
+        </member>
         <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.Create(SimpleBank.AcctManage.API.DTModels.v1.Requests.CreateUserRequest)">
             <summary>
             Create a new user.
@@ -47,37 +83,11 @@
             <param name="createUserRequest">All new user details.</param>
             <returns>The newly created user.</returns>
         </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.Login(SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest)">
-            <summary>
-            Login to be granted access to the API.
-            </summary>
-            <param name="loginUserRequest">User's param to Login</param>
-            <returns>A Token</returns>
-        </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.RenewToken(SimpleBank.AcctManage.API.DTModels.v1.Requests.RenewRequest)">
-            <summary>
-            Renews the refresh token.
-            </summary>
-            <returns>Refreshed token.</returns>
-        </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.Logout(SimpleBank.AcctManage.API.DTModels.v1.Requests.LogoutUserRequest)">
-            <summary>
-            Logout.
-            </summary>
-            <param name="logoutUserRequest">Request to logout.</param>
-            <returns>A response.</returns>
-        </member>
         <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.GetUserInfo">
             <summary>
             Gets the user info (as CreateUserResponse).
             </summary>
             <returns>User info.</returns>
-        </member>
-        <member name="M:SimpleBank.AcctManage.API.Controllers.v1.UsersController.GetUserToken(SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest)">
-            <summary>
-            Gets the user token (as LoginUserResponse).
-            </summary>
-            <returns>User token.</returns>
         </member>
         <member name="T:SimpleBank.AcctManage.API.Controllers.v2.UsersController">
             <summary> v2 placeholder </summary>

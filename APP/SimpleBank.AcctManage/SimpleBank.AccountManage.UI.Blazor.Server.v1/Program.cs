@@ -11,6 +11,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddLocalization();
 builder.Services.AddControllers();
 
+builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IAccountService, AccountService>();
 builder.Services.AddTransient<ITransferService, TransferService>();

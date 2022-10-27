@@ -1,7 +1,7 @@
 ﻿@using Microsoft.Extensions.Localization
 @using SimpleBank.AccountManage.UI.Blazor.Server.v1.Contracts
 @inject IStringLocalizer<UsersPage> Loc
-@inject IUserService userService
+@inject IAuthService authService
 
 <div class="container-md rounded monoBox dropshadow mx-auto">
 
@@ -26,7 +26,7 @@
     private async Task CallAPIToLogout()
     {
         errorOnLogout = false;
-        if (await userService.Logout())
+        if (await authService.Logout())
         {
             await OnUserLogginOut.InvokeAsync(true);
         }

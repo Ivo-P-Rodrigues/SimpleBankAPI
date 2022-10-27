@@ -27,14 +27,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v1.Services
             return null;
         }
 
-        public async Task<bool> Login(LoginUserRequest loginUserRequest) =>
-            await RegisterLogin(loginUserRequest);
-        public async Task<bool> Logout() =>
-            await RegisterLogoutAsync();
-
-
-
-
+ 
         public async Task<CreateUserResponse?> GetUser()
         {
             var httpRsp = await GetAsync(_requestUri + "profile", true);

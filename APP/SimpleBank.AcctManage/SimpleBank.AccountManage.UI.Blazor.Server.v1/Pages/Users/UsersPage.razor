@@ -69,13 +69,3 @@ else
 
 }
 
-
-@*    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            userLogged = await userService.CheckLocallyIfUserIsLoggedAsync();
-            if (userLogged)  { createUserResponse = await userService.GetUser(); }
-            StateHasChanged();
-        }
-    }*@

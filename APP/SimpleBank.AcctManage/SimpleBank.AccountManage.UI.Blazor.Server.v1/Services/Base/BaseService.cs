@@ -50,8 +50,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v1.Services.Base
         public async Task<bool> RegisterLogin(LoginUserRequest loginUserRequest)
         {
             if (await CheckLocallyIfUserIsLoggedAsync()) { return true; }
-            var bla = Configuration["SbApiEndPointsAddresses:Users"] + "login";
-            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Users"] + "login", loginUserRequest);
+            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Auth"] + "login", loginUserRequest);
             if (httpRsp == null) { return false; }
 
             if (httpRsp.IsSuccessStatusCode)
@@ -83,7 +82,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v1.Services.Base
             var logoutUserRequest = new LogoutUserRequest() { UserTokenId = Guid.Parse(storageTokenId) };
             await _userStorage.DeleteUserInfo();
 
-            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Users"] + "logout", logoutUserRequest);
+            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Auth"] + "logout", logoutUserRequest);
             if (httpRsp.IsSuccessStatusCode)
             {
                 await _userStorage.DeleteUserInfo();
@@ -167,7 +166,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v1.Services.Base
             if (refreshToken == null) { return false; }
 
             var renewRequest = new RenewRequest() { RefreshToken = refreshToken };
-            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Users"] + "renew", renewRequest);
+            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Auth"] + "renew", renewRequest);
 
             if (httpRsp.IsSuccessStatusCode)
             {
@@ -179,7 +178,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v1.Services.Base
         }
         private async Task<bool> ReGetTokenFromApiAsync(LoginUserRequest loginUserRequest)
         {   //does not refresh the token
-            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Users"] + "GetTokenAgain", loginUserRequest);
+            var httpRsp = await _httpClient.PostAsJsonAsync(Configuration["SbApiEndPointsAddresses:Auth"] + "GetTokenAgain", loginUserRequest);
 
             if (httpRsp.IsSuccessStatusCode)
             {

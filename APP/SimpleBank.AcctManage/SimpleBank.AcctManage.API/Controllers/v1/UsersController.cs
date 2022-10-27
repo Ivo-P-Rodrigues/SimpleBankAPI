@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using SimpleBank.AcctManage.API.Profile;
-using SimpleBank.AcctManage.Core.Application.Business;
 using SimpleBank.AcctManage.Core.Domain;
 using SimpleBank.AcctManage.Core.Application.Contracts.Business;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers;
@@ -23,6 +22,11 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         private readonly IUserBusiness _userBusiness;
         private readonly IEntityMapper _entityMapper;
 
+        /// <summary>  Users controller. </summary>
+        /// <param name="authenthicationProvider">Infrastructure related to auth.</param>
+        /// <param name="userBusiness">User related application.</param>
+        /// <param name="entityMapper">Profiler.</param>
+        /// <exception cref="ArgumentNullException">If <see cref="IAuthenthicationProvider"/>, <see cref="IUserBusiness"/> or <see cref="IEntityMapper"/> are null.</exception>
         public UsersController(
             IAuthenthicationProvider authenthicationProvider,
             IUserBusiness userBusiness,
@@ -64,94 +68,6 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
 
 
         /// <summary>
-        /// Login to be granted access to the API.
-        /// </summary>
-        /// <param name="loginUserRequest">User's param to Login</param>
-        /// <returns>A Token</returns>
-        [AllowAnonymous]
-        [HttpPost("Login")]
-        [MapToApiVersion("1.0")]
-        [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<LoginUserResponse>> Login(LoginUserRequest loginUserRequest)
-        {
-            if (!_userBusiness.VerifyUserCredentials(loginUserRequest.Password, loginUserRequest.Username, out Guid userId))
-            { return Unauthorized("User credentials are incorrect."); }
-
-            var (userToken, possibleError) = await _authenthicationProvider.ProcessLoginAsync(userId);
-
-            if (userToken == null)
-            {
-                return possibleError == null ?
-                    StatusCode(StatusCodes.Status500InternalServerError, "Error on login, please contact our customer support.") :
-                    StatusCode(StatusCodes.Status400BadRequest, possibleError);
-            }
-
-            var loginResponse = _entityMapper.MapUserTokenToLoginResponse(userToken);
-            return Ok(loginResponse);
-        }
-
-
-        /// <summary>
-        /// Renews the refresh token.
-        /// </summary>
-        /// <returns>Refreshed token.</returns>
-        [AllowAnonymous]
-        [HttpPost("Renew", Name = "Renew")]
-        [MapToApiVersion("1.0")]
-        [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<LoginUserResponse>> RenewToken(RenewRequest renewRequest)
-        {
-            var (userToken, possibleError) = await _authenthicationProvider.ProcessRenewToken(renewRequest.RefreshToken);
-
-            if (userToken == null)
-            {
-                return possibleError == null ?
-                    StatusCode(StatusCodes.Status500InternalServerError, "Error on renew, please contact our customer support.") :
-                    StatusCode(StatusCodes.Status400BadRequest, possibleError);
-            }
-
-            var loginResponse = _entityMapper.MapUserTokenToLoginResponse(userToken);
-            return Ok(loginResponse);
-        }
-
-
-        /// <summary>
-        /// Logout.
-        /// </summary>
-        /// <param name="logoutUserRequest">Request to logout.</param>
-        /// <returns>A response.</returns>
-        [HttpPost("Logout")]
-        [MapToApiVersion("1.0")]
-        [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Logout(LogoutUserRequest logoutUserRequest)
-        {
-            var result = await _authenthicationProvider.ProcessLogout(logoutUserRequest.UserTokenId);
-
-            switch (result)
-            {
-                case null:
-                    return StatusCode(StatusCodes.Status500InternalServerError, "Error on logout, please contact our customer support.");
-                case false:
-                    return StatusCode(StatusCodes.Status400BadRequest, "Logout unavailable.");
-                default:
-                    return Ok("User logged out.");
-
-            }
-
-        }
-
-
-
-        /// <summary>
         /// Gets the user info (as CreateUserResponse).
         /// </summary>
         /// <returns>User info.</returns>
@@ -171,28 +87,6 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
             return Ok(userResponse);
         }
 
-        /// <summary>
-        /// Gets the user token (as LoginUserResponse).
-        /// </summary>
-        /// <returns>User token.</returns>
-        [AllowAnonymous]
-        [HttpPost("GetTokenAgain")]
-        [MapToApiVersion("1.0")]
-        [ProducesResponseType(typeof(CreateUserResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<LoginUserResponse>> GetUserToken(LoginUserRequest loginUserRequest)
-        {
-            if (!_userBusiness.VerifyUserCredentials(loginUserRequest.Password, loginUserRequest.Username, out Guid userId))
-            { return Unauthorized("User credentials are incorrect."); }
-
-            var userToken = await _authenthicationProvider.GetUserTokenAsync(userId);
-            if (userToken == null) { return BadRequest("Error on getting token."); }
-
-            var loginResponse = _entityMapper.MapUserTokenToLoginResponse(userToken);
-
-            return Ok(loginResponse);
-        }
 
     }
 }

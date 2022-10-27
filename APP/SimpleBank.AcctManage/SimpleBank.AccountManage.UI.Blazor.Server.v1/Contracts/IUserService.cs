@@ -6,8 +6,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v1.Contracts
     public interface IUserService
     {
         Task<CreateUserResponse?> Create(CreateUserRequest createUserRequest);
-        Task<bool> Login(LoginUserRequest loginUserRequest);
-        Task<bool> Logout();
+
         Task<CreateUserResponse?> GetUser();
 
         Task<bool> CheckLocallyIfUserIsLoggedAsync();

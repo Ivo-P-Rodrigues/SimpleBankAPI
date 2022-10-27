@@ -2,7 +2,7 @@
 @using SimpleBank.AccountManage.UI.Blazor.Server.v1.Data.Requests
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<UsersPage> Loc
-@inject IUserService userService
+@inject IAuthService authService
 
 <div class="container-md rounded dualBox dropshadow">
 
@@ -47,7 +47,7 @@
 
     private async Task CallAPIToLogin()
     {
-        var userLogged = await userService.Login(loginUserRequest);
+        var userLogged = await authService.Login(loginUserRequest);
         if (!userLogged) { errorOnLogin = true; }
         else { await OnUserLogginIn.InvokeAsync(true); }
     }
