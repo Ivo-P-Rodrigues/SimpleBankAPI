@@ -9,119 +9,6 @@
 			"name": "Users",
 			"item": [
 				{
-					"name": "Login",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"username\": \"Dummytester\",\r\n  \"password\": \"123456789\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://localhost:7074/api/users/login",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "7074",
-							"path": [
-								"api",
-								"users",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Logout",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"userTokenId\": \"0153bf74-4b73-486d-b08b-b6867f777d41\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://localhost:7074/api/users/logout",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "7074",
-							"path": [
-								"api",
-								"users",
-								"logout"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Refresh",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2NjM5NDI2MjgsImV4cCI6MTY2Mzk0Mjc0OCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzAyNSIsImF1ZCI6InNpbXBsZWJhbmthcGkifQ.Ut5WsIzs6N6CA_SHk3J-iNU_xuiM-IR6f8ZksdN-va4\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://localhost:7074/api/Users/Renew",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "7074",
-							"path": [
-								"api",
-								"Users",
-								"Renew"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Create",
 					"request": {
 						"auth": {
@@ -131,7 +18,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"wsMakerSynergy@gmail.com\",\r\n  \"fullname\": \"Dummy Tester Name\",\r\n  \"password\": \"123456789\",\r\n  \"username\": \"Dummytester\"\r\n}",
+							"raw": "{\r\n  \"email\": \"dasdasdsad6@gmail.com\",\r\n  \"fullname\": \"Dummy Tester Namedsa\",\r\n  \"password\": \"123456789\",\r\n  \"username\": \"Dummytesterdsa2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -139,7 +26,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:7074/api/users/",
+							"raw": "https://localhost:7074/api/v1/users/",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -147,8 +34,43 @@
 							"port": "7074",
 							"path": [
 								"api",
+								"v1",
 								"users",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/v1/users/profile",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
 							]
 						}
 					},
@@ -187,7 +109,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:7074/api/accounts",
+							"raw": "https://localhost:7074/api/v1/accounts",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -195,6 +117,7 @@
 							"port": "7074",
 							"path": [
 								"api",
+								"v1",
 								"accounts"
 							]
 						}
@@ -217,7 +140,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:7074/api/Accounts/d485cb35-ff5f-4993-b95f-17cc9d8084e3",
+							"raw": "https://localhost:7074/api/v1/Accounts/81173f53-72c7-4dc7-90eb-864b0a6c206e",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -225,8 +148,9 @@
 							"port": "7074",
 							"path": [
 								"api",
+								"v1",
 								"Accounts",
-								"d485cb35-ff5f-4993-b95f-17cc9d8084e3"
+								"81173f53-72c7-4dc7-90eb-864b0a6c206e"
 							]
 						}
 					},
@@ -257,7 +181,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:7074/api/Accounts/",
+							"raw": "https://localhost:7074/api/v1/Accounts/",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -265,6 +189,7 @@
 							"port": "7074",
 							"path": [
 								"api",
+								"v1",
 								"Accounts",
 								""
 							]
@@ -302,7 +227,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:7074/api/transfers",
+							"raw": "https://localhost:7074/api/v1/transfers",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -310,7 +235,163 @@
 							"port": "7074",
 							"path": [
 								"api",
+								"v1",
 								"transfers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Dummytester\",\r\n  \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/v1/auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTokenAgain",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Dummytester\",\r\n  \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/v1/auth/gettokenagain",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"gettokenagain"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userTokenId\": \"58719308-b9bd-4ed8-bc63-e8cede2887a6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/v1/auth/logout",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMzE3YTJjZS02OGQ2LTQ5ODAtOThlYS1kOTQ4M2UxNDJjYzEiLCJuYmYiOjE2NjY4Nzc1NDcsImV4cCI6MTY2Njg4NDc0NywiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzAyNSIsImF1ZCI6InNpbXBsZWJhbmthcGkifQ.4XG4IquYWesZapiqf26vmvblXijaaI2FIRvsi0dtdBA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/v1/auth/Renew",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"Renew"
 							]
 						}
 					},
@@ -342,7 +423,7 @@
 	"variable": [
 		{
 			"key": "token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMzY2ZGRiZC1mNjJiLTQzNmYtYTUzNi04YzYwNzNiMmQ0OTQiLCJuYmYiOjE2NjYwMjg5NzgsImV4cCI6MTY2NjAyOTAzOCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzAyNSIsImF1ZCI6InNpbXBsZWJhbmthcGkifQ.M0br06ADcJ4cOdAP6YGfXjZ65hR2fFTuWOYEtfYQblI"
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMzE3YTJjZS02OGQ2LTQ5ODAtOThlYS1kOTQ4M2UxNDJjYzEiLCJuYmYiOjE2NjY4NzgxNTUsImV4cCI6MTY2Njg3ODIxNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzAyNSIsImF1ZCI6InNpbXBsZWJhbmthcGkifQ.slnhNGcxHl-xcLzhAkpBZYx07XVR_ut7hccVmzqN5ps"
 		}
 	]
 }
