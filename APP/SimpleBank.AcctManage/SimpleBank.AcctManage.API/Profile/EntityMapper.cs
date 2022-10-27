@@ -48,7 +48,7 @@ namespace SimpleBank.AcctManage.API.Profile
                 Balance = accountRequest.Amount,
                 Currency = accountRequest.Currency,
                 UserId = userId,
-                CreatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
             };
 
 
@@ -59,7 +59,7 @@ namespace SimpleBank.AcctManage.API.Profile
                 Amount = transferRequest.Amount,
                 FromAccountId = transferRequest.FromAccountId,
                 ToAccountId = transferRequest.ToAccountId,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
         public TransferResponse MapTransferToResponse(Transfer transfer) =>
             new TransferResponse()
@@ -79,8 +79,8 @@ namespace SimpleBank.AcctManage.API.Profile
                 Password = passwordHashed,
                 Salt = salt,
                 Fullname = createUserRequest.Fullname,
-                PasswordChangedAt = DateTime.Now,
-                CreatedAt = DateTime.Now,
+                PasswordChangedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.UtcNow,
             };
         public CreateUserResponse MapUserToResponse(User user) =>
             new CreateUserResponse()

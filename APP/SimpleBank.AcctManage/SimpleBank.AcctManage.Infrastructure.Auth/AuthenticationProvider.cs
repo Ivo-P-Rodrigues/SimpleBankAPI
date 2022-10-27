@@ -72,8 +72,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Auth
             var userToken = _unitOfWork.UserTokens.FirstOrDefault(x => x.Id == userTokenId);
             if (userToken == null || !userToken.Refresh) { return false; }
 
-            if (userToken.Active) { userToken.AccessTokenExpiresAt = DateTime.Now; }
-            userToken.RefreshTokenExpiresAt = DateTime.Now;
+            if (userToken.Active) { userToken.AccessTokenExpiresAt = DateTime.UtcNow; }
+            userToken.RefreshTokenExpiresAt = DateTime.UtcNow;
 
             userToken = await _unitOfWork.UserTokens.DirectUpdateAsync(userToken);
             if (userToken == null) { return null; }
@@ -93,9 +93,9 @@ namespace SimpleBank.AcctManage.Infrastructure.Auth
             var userToken = new UserToken(
                 userId,
                 accessToken: GenerateAccessToken(claimsForToken),
-                accessTokenExpiresAt: DateTime.Now.AddMinutes(int.Parse(_configuration["Authentication:AccessDuration"])),
+                accessTokenExpiresAt: DateTime.UtcNow.AddMinutes(int.Parse(_configuration["Authentication:AccessDuration"])),
                 refreshToken: GenerateRefreshToken(claimsForToken),
-                refreshTokenExpiresAt: DateTime.Now.AddMinutes(int.Parse(_configuration["Authentication:RefreshDuration"])));
+                refreshTokenExpiresAt: DateTime.UtcNow.AddMinutes(int.Parse(_configuration["Authentication:RefreshDuration"])));
 
             return userToken;
         }
@@ -114,8 +114,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Auth
                 _configuration["Authentication:Issuer"],
                 _configuration["Authentication:Audience"],
                 claimsForToken,
-                DateTime.Now,
-                DateTime.Now.AddMinutes(duration),
+                DateTime.UtcNow,
+                DateTime.UtcNow.AddMinutes(duration),
                 signingCredentials);
 
             var tokenToReturn = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);

@@ -12,7 +12,7 @@
         }
 
         //public Guid Id { get; set; }
-        //public DateTime CreatedAt { get; set; } = DateTime.Now;
+        //public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 		
         public string FromUser { get; set; }
         public string ToUser { get; set; }

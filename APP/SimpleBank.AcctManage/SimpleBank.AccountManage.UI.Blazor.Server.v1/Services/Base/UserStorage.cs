@@ -26,7 +26,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v1.Services.Base
             var style = DateTimeStyles.AssumeLocal;
 
             if (!DateTime.TryParse(storageAccTokenDate, format, style, out var accTokenDate)) { return (false, false); }
-            return (true, accTokenDate > DateTime.Now);
+            return (true, accTokenDate > DateTime.UtcNow);
         }
         public async Task<(bool, bool)> CheckRefreshValidity()
         {
@@ -37,7 +37,7 @@ namespace SimpleBank.AccountManage.UI.Blazor.Server.v1.Services.Base
             var style = DateTimeStyles.AssumeLocal;
 
             if (!DateTime.TryParse(storageRfhTokenDate, format, style, out var rfhTokenDate)) { return (false, false); }
-            return (true, rfhTokenDate > DateTime.Now);
+            return (true, rfhTokenDate > DateTime.UtcNow);
         }
         public async Task<string?> GetAccessToken() =>
             await _sbLocalStorage.GetAsync("AccessToken") ?? null;

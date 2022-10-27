@@ -19,9 +19,9 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
                 .HasColumnName("from_account_id");
 
             builder.Property(e => e.CreatedAt)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("created_at")
-                .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                .HasDefaultValueSql("clock_timestamp()");
 
             builder.Property(e => e.ToAccountId)
                 .HasColumnName("to_account_id");

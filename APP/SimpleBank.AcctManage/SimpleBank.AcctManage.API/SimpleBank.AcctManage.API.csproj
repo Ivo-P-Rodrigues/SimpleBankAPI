@@ -26,4 +26,8 @@
     <ProjectReference Include="..\SimpleBank.AcctManage.Infrastructure.Providers\SimpleBank.AcctManage.Infrastructure.Providers.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="_Logs\" />
+  </ItemGroup>
+
 </Project>

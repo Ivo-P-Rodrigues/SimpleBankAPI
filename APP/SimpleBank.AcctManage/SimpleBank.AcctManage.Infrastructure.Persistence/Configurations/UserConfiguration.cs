@@ -19,9 +19,9 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
                 .HasDefaultValueSql("uuid_generate_v4()");
 
             builder.Property(e => e.CreatedAt)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("created_at")
-                .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                .HasDefaultValueSql("clock_timestamp()");
 
             builder.Property(e => e.Email)
                 .HasMaxLength(320)
@@ -31,9 +31,9 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Configurations
                 .HasColumnName("fullname");
 
             builder.Property(e => e.PasswordChangedAt)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("password_changed_at")
-                .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                .HasDefaultValueSql("clock_timestamp()");
 
             builder.Property(e => e.Salt)
                 .HasColumnName("salt");
