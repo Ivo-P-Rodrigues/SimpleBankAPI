@@ -31,7 +31,7 @@ body {
 .imgLoading {
     margin: auto;
 }
-    .imgLoading > .test > img {
+    .imgLoading > img {
         width: 50vh;
         height: 50vh;
         padding: 2em;

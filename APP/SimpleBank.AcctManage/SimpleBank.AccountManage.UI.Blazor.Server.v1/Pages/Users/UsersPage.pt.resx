@@ -120,6 +120,9 @@
   <data name="AutoFill" xml:space="preserve">
     <value>Auto</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
   <data name="CreatedAt" xml:space="preserve">
     <value>Criado a</value>
   </data>

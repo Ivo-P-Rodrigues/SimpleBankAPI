@@ -20,24 +20,33 @@
 }
 else
 {
-    <table class="table table-bordered table-striped table-responsive-lg">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col"><strong>@Loc["AccountId"]</strong></th>
-                <th scope="col"><strong>@Loc["Balance"]</strong></th>
-                <th scope="col"><strong>@Loc["Currency"]</strong></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        @foreach (var account in accountsList)
-        {
-            <AccountItem Account="@account" OnTransferUpdateBalance="@OnTransferUpdateBalance"
-                DisplayMovims="@displayMovims" OnToggleMovims="@OnToggleMovims"
-                     DisplayTransfer="@displayTransfer" OnToggleTransfer="@OnToggleTransfer" />
-        }
-    </table>
-    <hr /><br /><br />
+    if (accountsList.Count == 0)
+    {
+        <div class="container-md rounded monoBox dropshadow mx-auto">
+            <p><b>@Loc["NoAccounts"]</b></p>
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered table-striped table-responsive-lg">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><strong>@Loc["AccountId"]</strong></th>
+                    <th scope="col"><strong>@Loc["Balance"]</strong></th>
+                    <th scope="col"><strong>@Loc["Currency"]</strong></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            @foreach (var account in accountsList)
+            {
+                <AccountItem Account="@account" OnTransferUpdateBalance="@OnTransferUpdateBalance"
+                    DisplayMovims="@displayMovims" OnToggleMovims="@OnToggleMovims"
+                         DisplayTransfer="@displayTransfer" OnToggleTransfer="@OnToggleTransfer" />
+            }
+        </table>
+        <hr /><br /><br />
+    }
 
     <CreateAccount OnAccountCreation="@OnAccountCreation"></CreateAccount>
     <br /><br />
@@ -61,9 +70,9 @@ else
             if (accountsLoad != null)
             {
                 accountsList = accountsLoad.ToList();
-                renderAwait = false;
-                StateHasChanged();
             }
+            renderAwait = false;
+            StateHasChanged();
         }
     }
 

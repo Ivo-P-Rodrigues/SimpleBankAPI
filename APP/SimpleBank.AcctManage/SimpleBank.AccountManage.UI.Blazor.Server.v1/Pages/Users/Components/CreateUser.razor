@@ -33,7 +33,7 @@
             <ValidationMessage For="@(() => createUserRequest.Password)"></ValidationMessage>
         </div>
 
-        <button type="submit" class="btn btn-dark">Login</button>
+        <button type="submit" class="btn btn-dark">@Loc["Create"]</button>
     </EditForm>
 
     @if (createUserResponse != null)
