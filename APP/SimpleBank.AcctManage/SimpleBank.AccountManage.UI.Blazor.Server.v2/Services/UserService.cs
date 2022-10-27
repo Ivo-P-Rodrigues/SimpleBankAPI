@@ -1,23 +1,28 @@
 ﻿using SimpleBank.AccountManage.UI.Blazor.Server.v2.Data.Requests;
 using SimpleBank.AccountManage.UI.Blazor.Server.v2.Data.Responses;
-using System.Net.Http.Headers;
+using SimpleBank.AccountManage.UI.Blazor.Server.v2.Services.ApiConnect;
 
 namespace SimpleBank.BlazorServerApp.Services
 {
     public class UserService
     {
-        private readonly HttpClient _httpClient;
-        private readonly string _requestUri = "/api/users/";
+        private readonly SbApiConnect _sbApiConnect;
+        private readonly SbLocalStorage _sbLocalStorage;
+        private readonly string _requestUri = "/api/v1/users/";
 
-        public UserService(HttpClient httpClient)
+        public UserService(
+            SbApiConnect sbApiConnect,
+            SbLocalStorage sbLocalStorage)
         {
-            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+            _sbApiConnect = sbApiConnect ?? throw new ArgumentNullException(nameof(sbApiConnect));
+            _sbLocalStorage = sbLocalStorage ?? throw new ArgumentNullException(nameof(sbLocalStorage));
         }
 
 
         public async Task<CreateUserResponse?> Create(CreateUserRequest createUserRequest)
         {
-            var httpRsp = await _httpClient.PostAsJsonAsync(_requestUri, createUserRequest);
+            var httpRsp = await _sbApiConnect.PostAsync(_requestUri, createUserRequest);
+            if (httpRsp == null) { return null; }
 
             if (httpRsp.IsSuccessStatusCode)
             {
@@ -26,53 +31,8 @@ namespace SimpleBank.BlazorServerApp.Services
             return null;
         }
 
-        public async Task<LoginUserResponse?> Login(LoginUserRequest loginUserRequest)
-        {
-            var httpRsp = await _httpClient.PostAsJsonAsync(_requestUri + "login", loginUserRequest);
-
-            if (httpRsp.IsSuccessStatusCode)
-            {
-                return await httpRsp.Content.ReadFromJsonAsync(typeof(LoginUserResponse)) as LoginUserResponse;
-            }
-            return null;
-        }
-
-
-        public async Task<LoginUserResponse?> RenewToken(RenewRequest renewRequest)
-        {
-            var httpRsp = await _httpClient.PostAsJsonAsync(_requestUri + "renew", renewRequest);
-
-            if (httpRsp.IsSuccessStatusCode)
-            {
-                return await httpRsp.Content.ReadFromJsonAsync(typeof(LoginUserResponse)) as LoginUserResponse;
-            }
-            return null;
-        }
-
-
-        public async Task<string?> Logout(LogoutUserRequest logoutUserRequest, string accessToken)
-        {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
-            var httpRsp = await _httpClient.PostAsJsonAsync(_requestUri + "logout", logoutUserRequest);
-            if (httpRsp.IsSuccessStatusCode)
-            {
-                return await httpRsp.Content.ReadAsStringAsync();
-            }
-            return null;
-        }
 
 
 
     }
 }
-
-
-//httpRsp.RequestMessage
-//httpRsp.Content.Headers
-
-//var custome‌​rJsonString = await httpRsp.Content.ReadAsStringAsync()
-//JsonConvert.DeserializeObject<Customer>(custome‌​rJsonString)
-
-//_httpClient.PostAsync()
-//_httpClient.GetAsync()

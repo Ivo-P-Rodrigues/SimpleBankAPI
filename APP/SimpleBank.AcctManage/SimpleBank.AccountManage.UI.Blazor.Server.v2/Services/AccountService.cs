@@ -1,25 +1,31 @@
 ﻿using SimpleBank.AccountManage.UI.Blazor.Server.v2.Data.Requests;
 using SimpleBank.AccountManage.UI.Blazor.Server.v2.Data.Responses;
-using System.Net.Http.Headers;
+using SimpleBank.AccountManage.UI.Blazor.Server.v2.Services.ApiConnect;
 
 namespace SimpleBank.BlazorServerApp.Services
 {
     public class AccountService
     {
-        private readonly HttpClient _httpClient;
-        private readonly string _requestUri = "/api/accounts/";
+        private readonly SbApiConnect _sbApiConnect;
+        private readonly SbLocalStorage _sbLocalStorage;
+        private readonly string _requestUri = "/api/v1/accounts/";
 
-        public AccountService(HttpClient httpClient)
+        public AccountService(
+            SbApiConnect sbApiConnect,
+            SbLocalStorage sbLocalStorage)
         {
-            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+            _sbApiConnect = sbApiConnect ?? throw new ArgumentNullException(nameof(sbApiConnect));
+            _sbLocalStorage = sbLocalStorage ?? throw new ArgumentNullException(nameof(sbLocalStorage));
         }
 
-
-        public async Task<IEnumerable<AccountResponse>?> GetAllAccounts(string accessToken)
+        public async Task<IEnumerable<AccountResponse>?> GetAllAccounts()
         {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var accessToken = await _sbLocalStorage.GetAsync("AccessToken");
+            if (accessToken == null) { return null; }
 
-            var httpRsp = await _httpClient.PostAsJsonAsync(_requestUri, "");
+            var httpRsp = await _sbApiConnect.GetAsync(_requestUri, accessToken);
+            if (httpRsp == null) { return null; }
+
             if (httpRsp.IsSuccessStatusCode)
             {
                 return await httpRsp.Content.ReadFromJsonAsync(typeof(IEnumerable<AccountResponse>)) as IEnumerable<AccountResponse>;
@@ -27,11 +33,14 @@ namespace SimpleBank.BlazorServerApp.Services
             return null;
         }
 
-        public async Task<AccountMovims?> GetAccount(Guid accountId, string accessToken)
+        public async Task<AccountMovims?> GetAccount(Guid accountId)
         {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var accessToken = await _sbLocalStorage.GetAsync("AccessToken");
+            if (accessToken == null) { return null; }
 
-            var httpRsp = await _httpClient.PostAsync(_requestUri + accountId.ToString(), null);
+            var httpRsp = await _sbApiConnect.GetAsync(_requestUri + accountId.ToString(), accessToken);
+            if (httpRsp == null) { return null; }
+
             if (httpRsp.IsSuccessStatusCode)
             {
                 return await httpRsp.Content.ReadFromJsonAsync(typeof(AccountMovims)) as AccountMovims;
@@ -39,18 +48,20 @@ namespace SimpleBank.BlazorServerApp.Services
             return null;
         }
 
-        public async Task<AccountResponse?> CreateAccount(CreateAccountRequest accountRequest, string accessToken)
+        public async Task<AccountResponse?> CreateAccount(CreateAccountRequest accountRequest)
         {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var accessToken = await _sbLocalStorage.GetAsync("AccessToken");
+            if (accessToken == null) { return null; }
 
-            var httpRsp = await _httpClient.PostAsJsonAsync(_requestUri, accountRequest);
+            var httpRsp = await _sbApiConnect.PostAsync(_requestUri, accountRequest, accessToken);
+            if (httpRsp == null) { return null; }
+
             if (httpRsp.IsSuccessStatusCode)
             {
                 return await httpRsp.Content.ReadFromJsonAsync(typeof(AccountResponse)) as AccountResponse;
             }
             return null;
         }
-
 
 
     }
