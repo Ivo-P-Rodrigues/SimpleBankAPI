@@ -1,0 +1,159 @@
+﻿
+@using Microsoft.Extensions.Localization
+@using SimpleBank.AcctManage.UI.Blazor.Server.v1.Contracts
+@using SimpleBank.AcctManage.UI.Blazor.Server.v1.Data.Requests
+@using SimpleBank.AcctManage.UI.Blazor.Server.v1.Data.Responses
+
+@inject IStringLocalizer<AccountsPage> Loc
+@inject IAccountService accountService
+@inject ITransferService transferService
+
+@*ACCOUNT*@
+<tr>
+    <td>@Account.AccountId</td>
+    <td>@Account.Balance</td>
+    <td>@Account.Currency</td>
+    <td> <button type="button" data-toggle="button" aria-pressed="false" autocomplete="off" class="btn btn-dark btn-sm float-right" @onclick="() => MovimDetails(Account.AccountId)"> @Loc["Movims"] </button> </td>
+    <td> <button type="button" data-toggle="button" aria-pressed="false" autocomplete="off" class="btn btn-secondary btn-sm" @onclick="() => TransferDetails()"> @Loc["Transfer"] </button> </td>
+</tr>
+
+@*ACCOUNT DETAILS*@
+@if (DisplayMovims)
+{
+    if (hasMovims)
+    {
+        <tr class="bg_gray1">
+            <th scope="col"><b>@Loc["Movims"]:</b></th>
+            <th scope="col"><b>@Loc["CreatedAt"]:</b></th>
+            <th scope="col"><b>@Loc["Amount"]:</b></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+
+        @foreach (var movim in movimsList)
+        {
+            <MovimItem Movim="@movim"  />
+        }
+    }
+    else
+    {
+        <tr class="bg_gray1">
+            <td><b>No movims to show.</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    }
+}
+
+
+@*TRANSFER DETAILS*@
+@if (DisplayTransfer)
+{
+    <tr class="bg_gray1">
+        <td><b>Account Id to transfer to:</b></td>
+        <td><input @bind="toAccountId" /></td>
+        <td><input @bind="amount" /></td>
+        <td> <button class="btn-sm btn-outline-dark float-right" @onclick="() => MakeTransfer(Account.AccountId)"> Send </button> </td>
+        <td><p style="color:@color">@msg</p></td>
+    </tr>
+}
+
+
+@code {
+
+    [Parameter]
+    public AccountResponse Account { get; set; }
+    [Parameter]
+    public EventCallback<TransferResponse> OnTransferUpdateBalance { get; set; }
+
+    [Parameter]
+    public bool DisplayMovims { get; set; }
+    [Parameter]
+    public EventCallback<bool> OnToggleMovims { get; set; }
+
+    [Parameter]
+    public bool DisplayTransfer { get; set; }
+    [Parameter]
+    public EventCallback<bool> OnToggleTransfer { get; set; }
+
+
+    private List<Movim> movimsList = new();
+    private bool hasMovims = false;
+
+    private Guid toAccountId = Guid.Empty;
+    private decimal amount = 0;
+    private string? msg = "";
+    private string? color = "";
+
+
+    private async Task MovimDetails(Guid accountId)
+    {
+        await OnToggleTransfer.InvokeAsync(false);
+        if (DisplayMovims) { DisplayMovims = false; return; }
+
+        var accountsLoad = await accountService.GetAccount(accountId);
+
+        if (accountsLoad != null && accountsLoad.Movims != null && accountsLoad?.Movims.Count != 0)
+        {
+            movimsList = accountsLoad!.Movims.ToList();
+            hasMovims = true;
+        }
+        await OnToggleMovims.InvokeAsync(false);
+
+        DisplayMovims = DisplayMovims ? false : true;
+    }
+
+    private async Task TransferDetails()
+    {
+        await OnToggleMovims.InvokeAsync(false);
+        if (DisplayTransfer) { DisplayTransfer = false; return; }
+
+        hasMovims = false;
+        msg = "";
+
+        var bla = await transferService.CheckLocallyIfUserIsLoggedAsync(); //TODO: remove this!! only used to trigger the re-rendering of the page... doesn't work without this
+
+        await OnToggleTransfer.InvokeAsync(false);
+        DisplayTransfer = DisplayTransfer ? false : true;
+    }
+
+    private async Task MakeTransfer(Guid accountId)
+    {
+        if (amount > 0 && toAccountId != Guid.Empty)
+        {
+            TransferRequest transferRequest = new()
+                {
+                    FromAccountId = Account.AccountId,
+                    ToAccountId = toAccountId,
+                    Amount = amount
+                };
+
+            var response = await transferService.MakeTransfer(transferRequest);
+
+            if (response != null)
+            {
+                msg = "Success!";
+                color = "green";
+                toAccountId = Guid.Empty;
+                amount = 0;
+                await OnTransferUpdateBalance.InvokeAsync(response);
+            }
+            else
+            {
+                msg = "Invalid";
+                color = "red";
+            }
+        }
+        else
+        {
+            msg = "Incorrect.";
+            color = "red";
+        }
+
+    }
+
+
+
+}

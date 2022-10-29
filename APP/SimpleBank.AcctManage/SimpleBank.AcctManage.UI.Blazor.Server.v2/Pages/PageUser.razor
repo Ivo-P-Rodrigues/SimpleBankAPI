@@ -1,0 +1,76 @@
+﻿@page "/pageusers"
+@using SimpleBank.AcctManage.UI.Blazor.Server.v2.Services
+@using SimpleBank.AcctManage.UI.Blazor.Server.v2.Services.ApiConnect.Requests
+@using SimpleBank.AcctManage.UI.Blazor.Server.v2.Services.ApiConnect.Responses
+@inject AuthService authService
+@inject NavigationManager nav
+
+<h3>UserPage</h3>
+
+<div class="container-md rounded">
+
+    <h4>Login</h4>
+
+    <EditForm Model="@loginUserRequest" OnSubmit="CallAPIToLogin">
+        <DataAnnotationsValidator />
+
+        <div class="form-group">
+            <InputText class="form-control" id="inputUsername1" placeholder="Username" @bind-Value="loginUserRequest.Username" />
+            <ValidationMessage For="@(() => loginUserRequest.Username)"></ValidationMessage>
+        </div>
+
+        <div class="form-group">
+            <InputText type="password" class="form-control" id="inputPassword1" placeholder="Password" @bind-Value="loginUserRequest.Password" />
+            <ValidationMessage For="@(() => loginUserRequest.Password)"></ValidationMessage>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Login</button>
+        <button class="btn-sm btn-outline-dark float-right" @onclick="@AutoFill">AutoFill</button>
+    </EditForm>
+    <br /> <br /> <br /> <br />
+
+
+    <h4>Logout</h4>
+    <div class="container-md rounded mx-auto">
+        <button class="btn-sm btn-outline-dark w-100 mx-auto" @onclick="CallAPIToLogout">Logout</button>
+    </div>
+    <br /> <br /> <br /> <br />
+
+    <h4>Refresh</h4>
+    <div class="container-md rounded mx-auto">
+        <button class="btn-sm btn-outline-dark w-100 mx-auto" @onclick="CallAPIToRefresh">Refresh</button>
+    </div>
+    <br /> <br /> <br /> <br />
+</div>
+
+
+@code {
+    //LOGIN
+    private LoginUserRequest loginUserRequest = new();
+    private void AutoFill() => loginUserRequest = new() { Username = "Dummytester2", Password = "123456789" };
+
+    private async Task CallAPIToLogin()
+    {
+        var userIn = await authService.Login(loginUserRequest);
+        var test = 0;
+        if (userIn) { nav.NavigateTo("/", true); }
+    }
+
+
+    //LOGOUT
+    private async Task CallAPIToLogout()
+    {
+        var userOut = await authService.Logout();
+        var test = 0;
+        if (userOut) { nav.NavigateTo("/", true); }
+    }
+
+
+    //TEST
+    private async Task CallAPIToRefresh()
+    {
+        var userRefreshed = await authService.Refresh();
+        var test = 0;
+        if (userRefreshed) { nav.NavigateTo("/", true); }
+    }
+}
