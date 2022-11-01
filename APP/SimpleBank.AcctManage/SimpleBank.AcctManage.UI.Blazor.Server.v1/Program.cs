@@ -17,11 +17,11 @@ builder.Services.AddTransient<IAccountService, AccountService>();
 builder.Services.AddTransient<ITransferService, TransferService>();
 builder.Services.AddTransient<ISbLocalStorage, SbLocalStorage>();
 builder.Services.AddTransient<IUserStorage, UserStorage>();
+builder.Services.AddScoped<ProtectedLocalStorage>();
 
 var baseAddress = new Uri(builder.Configuration.GetValue<string>("SbApiEndPointsAddresses:BaseUrl"));
 builder.Services.AddTransient(sp => new HttpClient { BaseAddress = baseAddress });
 //builder.Services.AddHttpClient();
-builder.Services.AddScoped<ProtectedLocalStorage>();
 
 var app = builder.Build();
 

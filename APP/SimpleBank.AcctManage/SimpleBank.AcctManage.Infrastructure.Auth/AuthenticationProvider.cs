@@ -31,15 +31,15 @@ namespace SimpleBank.AcctManage.Infrastructure.Auth
         {
             var userToken = await _userTokenBusiness.GetUserTokenAsync(u => u.UserId == userId);
 
-            if (userToken is not null) 
+            if (userToken is not null) //if not new user
             {
-                if (userToken!.Active) { return (null, "Already logged in."); }
-                else if (userToken.Refresh) { return (null, "Please refresh your connection instead."); }
+                //if (userToken!.Active) { return (null, "Already logged in."); }  //don't allow if already logged in
+                //else if (userToken.Refresh) { return (null, "Please refresh your connection instead."); } //don't allow if refresh is still possible
 
                 userToken = GenerateUserToken(userToken);
                 userToken = await _userTokenBusiness.DirectUpdateAsync(userToken);
             }
-            else
+            else //if never logged user
             {
                 userToken = GenerateUserToken(userId);
                 userToken = await _userTokenBusiness.DirectAddAsync(userToken);
@@ -78,6 +78,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Auth
             var claimsForToken = new[]
                 {
                     //new Claim(ClaimTypes.NameIdentifier, newSessionId.ToString()), 
+                    new Claim(ClaimTypes.PrimarySid, userId.ToString()), 
+                    new Claim("sub", userId.ToString()),
                     new Claim("userId", userId.ToString())
                 };
 
@@ -94,6 +96,8 @@ namespace SimpleBank.AcctManage.Infrastructure.Auth
         {
             var claimsForToken = new[]
                 {
+                    new Claim(ClaimTypes.PrimarySid, userToken.UserId.ToString()),
+                    new Claim("sub", userToken.UserId.ToString()),
                     new Claim("userId", userToken.UserId.ToString())
                 };
 
