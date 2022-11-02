@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleBank.AcctManage.Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleBank.AcctManage.UI.Blazor.Server.v1", "SimpleBank.AcctManage.UI.Blazor.Server.v1\SimpleBank.AcctManage.UI.Blazor.Server.v1.csproj", "{91A98B13-DC0E-4B7B-ADAF-9B288BAEB1DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBank.AcctManage.UI.Blazor.Server", "SimpleBank.AcctManage.UI.Blazor.Server\SimpleBank.AcctManage.UI.Blazor.Server.csproj", "{7E39C57D-F73B-40BE-B452-784C009627E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleBank.AcctManage.UI.Blazor.Server", "SimpleBank.AcctManage.UI.Blazor.Server\SimpleBank.AcctManage.UI.Blazor.Server.csproj", "{7E39C57D-F73B-40BE-B452-784C009627E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

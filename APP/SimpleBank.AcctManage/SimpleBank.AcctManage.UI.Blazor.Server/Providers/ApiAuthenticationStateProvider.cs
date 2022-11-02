@@ -23,7 +23,7 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Providers
         {
             try
             {
-                var savedToken = await _localStorage.GetAsync<string>("authToken");
+                var savedToken = await _localStorage.GetAsync<string>("accessToken");
 
                 if (string.IsNullOrWhiteSpace(savedToken.Value))
                 {
@@ -33,7 +33,9 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Providers
                 var tokenContent = _tokenHandler.ReadJwtToken(savedToken.Value);
                 if (tokenContent.ValidTo < DateTime.Now)
                 {
-                    await _localStorage.DeleteAsync("authToken");
+                    await _localStorage.DeleteAsync("tokenId");
+                    await _localStorage.DeleteAsync("accessToken");
+                    await _localStorage.DeleteAsync("refreshToken");
                     return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
                 }
 
@@ -49,7 +51,7 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Providers
 
         public async Task LoggedIn()
         {
-            var savedToken = await _localStorage.GetAsync<string>("authToken");
+            var savedToken = await _localStorage.GetAsync<string>("accessToken");
             var tokenContent = _tokenHandler.ReadJwtToken(savedToken.Value);
 
             var claims = ParseClaims(tokenContent);

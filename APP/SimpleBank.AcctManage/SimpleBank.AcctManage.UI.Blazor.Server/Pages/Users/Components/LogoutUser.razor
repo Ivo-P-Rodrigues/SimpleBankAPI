@@ -1,0 +1,38 @@
+﻿@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+@inject AuthService authService
+
+<div class="container-md rounded monoBox dropshadow mx-auto">
+
+    <button class="btn-sm btn-outline-dark w-100 mx-auto" @onclick="CallAPIToLogout">Logout</button>
+
+    @if (errorOnLogout)
+    {
+        <hr /><br />
+        <p style="color:red">LogoutError</p>
+    }
+
+</div>
+
+@code {
+
+    [Parameter]
+    public EventCallback<bool> OnUserLogginOut { get; set; }
+
+    private bool errorOnLogout;
+    
+
+    private async Task CallAPIToLogout()
+    {
+        errorOnLogout = false;
+        if (await authService.Logout())
+        {
+            await OnUserLogginOut.InvokeAsync(true);
+        }
+        else
+        {
+            errorOnLogout = true;
+        }
+    }
+
+
+}
