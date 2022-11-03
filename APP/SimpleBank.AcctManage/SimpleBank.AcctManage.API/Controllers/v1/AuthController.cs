@@ -19,7 +19,6 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         private readonly IUserBusiness _userBusiness;
         private readonly IEntityMapper _entityMapper;
 
-
         public AuthController(
             IAuthenthicationProvider authenthicationProvider,
             IUserBusiness userBusiness,
@@ -31,9 +30,7 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         }
 
 
-        /// <summary>
-        /// Login to be granted access to the API.
-        /// </summary>
+        /// <summary>Login to be granted access to the API.</summary>
         /// <param name="loginUserRequest">User's param to Login</param>
         /// <returns>A Token</returns>
         [AllowAnonymous]
@@ -62,9 +59,7 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         }
 
 
-        /// <summary>
-        /// Renews the refresh token.
-        /// </summary>
+        /// <summary>Renews the refresh token.</summary>
         /// <returns>Refreshed token.</returns>
         [AllowAnonymous]
         [HttpPost("Renew", Name = "Renew")]
@@ -89,9 +84,7 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         }
 
 
-        /// <summary>
-        /// Logout.
-        /// </summary>
+        /// <summary>Logout. </summary>
         /// <param name="logoutUserRequest">Request to logout.</param>
         /// <returns>A response.</returns>
         [HttpPost("Logout")]
@@ -118,9 +111,7 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         }
 
 
-        /// <summary>
-        /// Gets the user token (as LoginUserResponse).
-        /// </summary>
+        /// <summary>Gets the user token (as LoginUserResponse). </summary>
         /// <returns>User token.</returns>
         [AllowAnonymous]
         [HttpPost("GetTokenAgain")]

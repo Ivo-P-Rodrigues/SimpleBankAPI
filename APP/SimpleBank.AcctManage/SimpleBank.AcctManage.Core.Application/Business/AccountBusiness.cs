@@ -16,11 +16,8 @@ namespace SimpleBank.AcctManage.Core.Application.Business
 
 
         //get accounts of user
-        public IEnumerable<Account> GetAllUserAccounts(Guid userId)
-        {
-            var userAccounts = _unitOfWork.Accounts.GetAllWhere(account => account.UserId == userId);
-            return userAccounts;
-        }
+        public IEnumerable<Account> GetAllUserAccounts(Guid userId) => 
+            _unitOfWork.Accounts.GetAllWhere(account => account.UserId == userId);
 
 
         //get account of user with movims

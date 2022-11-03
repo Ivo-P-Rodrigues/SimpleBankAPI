@@ -44,7 +44,10 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         public async Task<ActionResult<IEnumerable<AccountResponse>>> GetAllAccounts()
         {
             await Task.Delay(1); //cheating to make the method async... why? 
-            var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
+
+            if(!Guid.TryParse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value, out Guid userId))
+            { return BadRequest("Access token invalid.");}
+
             var accounts = _accountBusiness.GetAllUserAccounts(userId);
             if (accounts == null || accounts.Count() == 0) { return NotFound(); }
 

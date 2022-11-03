@@ -32,29 +32,21 @@
             <summary> Auth related API actions. </summary>
         </member>
         <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AuthController.Login(SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest)">
-            <summary>
-            Login to be granted access to the API.
-            </summary>
+            <summary>Login to be granted access to the API.</summary>
             <param name="loginUserRequest">User's param to Login</param>
             <returns>A Token</returns>
         </member>
         <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AuthController.RenewToken(SimpleBank.AcctManage.API.DTModels.v1.Requests.RenewRequest)">
-            <summary>
-            Renews the refresh token.
-            </summary>
+            <summary>Renews the refresh token.</summary>
             <returns>Refreshed token.</returns>
         </member>
         <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AuthController.Logout(SimpleBank.AcctManage.API.DTModels.v1.Requests.LogoutUserRequest)">
-            <summary>
-            Logout.
-            </summary>
+            <summary>Logout. </summary>
             <param name="logoutUserRequest">Request to logout.</param>
             <returns>A response.</returns>
         </member>
         <member name="M:SimpleBank.AcctManage.API.Controllers.v1.AuthController.GetUserToken(SimpleBank.AcctManage.API.DTModels.v1.Requests.LoginUserRequest)">
-            <summary>
-            Gets the user token (as LoginUserResponse).
-            </summary>
+            <summary>Gets the user token (as LoginUserResponse). </summary>
             <returns>User token.</returns>
         </member>
         <member name="M:SimpleBank.AcctManage.API.Controllers.v1.TransfersController.MakeTransfer(SimpleBank.AcctManage.API.DTModels.v1.Requests.TransferRequest)">

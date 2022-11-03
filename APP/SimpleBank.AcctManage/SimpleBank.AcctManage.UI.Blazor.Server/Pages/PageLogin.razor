@@ -2,8 +2,9 @@
 @using SimpleBank.AcctManage.UI.Blazor.Server.Services
 @using SimpleBank.AcctManage.UI.Blazor.Server.Services.Requests
 @inject AuthService authService
+@inject NavigationManager navManager
 
-<div class="container-md rounded monoBox dropshadow">
+<div class="container-md mx-auto rounded monoBox dropshadow">
 
     <h4>Login</h4>
 
@@ -27,30 +28,28 @@
         <button class="btn-sm btn-outline-dark float-right" @onclick="@AutoFill">AutoFill</button>
     </EditForm>
 
-    @if (errorOnLogin == true)
-    { <hr /> <br />  <p style="color:red">LoginError </p> }
-    @if (errorOnLogin == false)
-    {
-        <hr /> <br />  <p style="color:red">LoginSuccessfull </p>
-    }
+    @if (loginAttempt == false)
+    { <hr /> <br />  <p style="color:red">Login Error </p> }
+    @if (loginAttempt == true)
+    { <hr /> <br />  <p style="color:green">Login Successfull </p> }
 
     
 </div>
 
 
 @code {
-    private bool? errorOnLogin;
+    [Inject] protected NavigationManager NavigationManager { get; set; }
+
+    private bool? loginAttempt;
     private LoginUserRequest loginUserRequest = new();
+    private void AutoFill() => loginUserRequest = new LoginUserRequest() { Username = "Dummytester2", Password = "123456789" };
 
     private async Task CallAPIToLogin()
     {
-        errorOnLogin = await authService.Login(loginUserRequest);
+        loginAttempt = await authService.Login(loginUserRequest);
+        if (loginAttempt == true) { NavigationManager.NavigateTo("/"); }
     }
 
-    private void AutoFill()
-    {
-        loginUserRequest.Username = "Dummytester2";
-        loginUserRequest.Password = "123456789";
-    }
+   
 
 }

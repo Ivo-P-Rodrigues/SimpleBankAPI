@@ -7,23 +7,34 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Providers
 {
     public class ApiAuthenticationStateProvider : AuthenticationStateProvider
     {
-
         private readonly ProtectedLocalStorage _localStorage;
         private readonly JwtSecurityTokenHandler _tokenHandler;
+        private readonly IConfiguration _configuration;
+
+        private readonly string _tokenIdKey;
+        private readonly string _accessTokenKey;
+        private readonly string _refreshTokenKey;
 
         public ApiAuthenticationStateProvider(
             ProtectedLocalStorage localStorage,
-            JwtSecurityTokenHandler tokenHandler)
+            JwtSecurityTokenHandler tokenHandler,
+            IConfiguration configuration)
         {
             _localStorage = localStorage ?? throw new ArgumentNullException(nameof(localStorage));
             _tokenHandler = tokenHandler ?? throw new ArgumentNullException(nameof(tokenHandler));
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+
+            _tokenIdKey = _configuration["StorageCustomKeys:tokenId"] ?? throw new ArgumentNullException("Invalid storage key: tokenId");
+            _accessTokenKey = _configuration["StorageCustomKeys:accessToken"] ?? throw new ArgumentNullException("Invalid storage key: accessToken");
+            _refreshTokenKey = _configuration["StorageCustomKeys:refreshToken"] ?? throw new ArgumentNullException("Invalid storage key: refreshToken");
         }
+
 
         public async override Task<AuthenticationState> GetAuthenticationStateAsync()
         {
             try
             {
-                var savedToken = await _localStorage.GetAsync<string>("accessToken");
+                var savedToken = await _localStorage.GetAsync<string>(_accessTokenKey);
 
                 if (string.IsNullOrWhiteSpace(savedToken.Value))
                 {
@@ -33,9 +44,9 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Providers
                 var tokenContent = _tokenHandler.ReadJwtToken(savedToken.Value);
                 if (tokenContent.ValidTo < DateTime.Now)
                 {
-                    await _localStorage.DeleteAsync("tokenId");
-                    await _localStorage.DeleteAsync("accessToken");
-                    await _localStorage.DeleteAsync("refreshToken");
+                    await _localStorage.DeleteAsync(_tokenIdKey);
+                    await _localStorage.DeleteAsync(_accessTokenKey);
+                    await _localStorage.DeleteAsync(_refreshTokenKey);
                     return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
                 }
 
@@ -51,7 +62,7 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Providers
 
         public async Task LoggedIn()
         {
-            var savedToken = await _localStorage.GetAsync<string>("accessToken");
+            var savedToken = await _localStorage.GetAsync<string>(_accessTokenKey);
             var tokenContent = _tokenHandler.ReadJwtToken(savedToken.Value);
 
             var claims = ParseClaims(tokenContent);

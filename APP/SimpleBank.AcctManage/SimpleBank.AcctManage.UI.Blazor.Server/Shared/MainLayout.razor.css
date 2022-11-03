@@ -1,12 +1,19 @@
-
-main {
-    background-color: #dfdfdf;
-    
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.page {
+    background-color: #dfdfdf;
+}
 
-
-article {
+main {
     margin-top: 1em;
     min-height: 82vh;
 }

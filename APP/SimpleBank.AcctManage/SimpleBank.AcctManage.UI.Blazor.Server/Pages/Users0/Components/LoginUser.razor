@@ -42,6 +42,8 @@
 
     private bool errorOnLogin = false;
     private LoginUserRequest loginUserRequest = new();
+    
+    private void AutoFill() => loginUserRequest = new LoginUserRequest() { Username = "Dummytester2", Password = "123456789" };
 
     private async Task CallAPIToLogin()
     {
@@ -50,10 +52,6 @@
         else { await OnUserLogginIn.InvokeAsync(true); }
     }
 
-    private void AutoFill()
-    {
-        loginUserRequest.Username = "Dummytester2";
-        loginUserRequest.Password = "123456789";
-    }
+
 
 }

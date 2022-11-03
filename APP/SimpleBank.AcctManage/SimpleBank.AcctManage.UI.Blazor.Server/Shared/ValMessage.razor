@@ -1,0 +1,17 @@
+﻿<br />
+<h5 style="color:@color">  @message  </h5>
+<br />
+
+
+
+@code {
+    [Parameter] public bool? Val { get; set; } = null;
+
+    private string message => Val == false || Val != null ? "Error." : "Success!";
+
+    private string color => Val == false || Val != null ? "red" : "green";
+
+ 
+
+
+}

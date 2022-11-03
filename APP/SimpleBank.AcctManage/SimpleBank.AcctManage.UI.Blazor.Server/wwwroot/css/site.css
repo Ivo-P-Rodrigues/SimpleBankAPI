@@ -2,23 +2,6 @@
 @import url("site-struct.css");
 
 
-/* BASE 
-   see /Shared/MainLayout.razor.css to see the page struct */ 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    position: relative;
-    font-weight: normal;
-    text-rendering: optimizeLegibility;
-    
-}
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-
 /* COLORS */
 
 .bg_gray1 { background-color: #cccccc; }
@@ -28,16 +11,6 @@ body {
 
 
 /* CONTAINERS */
-.imgLoading {
-    margin: auto;
-}
-    .imgLoading > img {
-        width: 50vh;
-        height: 50vh;
-        padding: 2em;
-        display: block;
-        margin: auto;
-    }
 
 
 .dualBox {
