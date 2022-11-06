@@ -1,17 +1,52 @@
-﻿using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+﻿using SimpleBank.AcctManage.UI.Blazor.Server.Data;
+using SimpleBank.AcctManage.UI.Blazor.Server.Services.Mapper;
 using SimpleBank.AcctManage.UI.Blazor.Server.Services.Requests;
-using SimpleBank.AcctManage.UI.Blazor.Server.Services.Responses;
-using System.Net.Http.Headers;
 
 namespace SimpleBank.AcctManage.UI.Blazor.Server.Services
 {
     public class TransferService
     {
+
+        private readonly SimpleBankClient _client;
+        private readonly EntityMapper _mapper;
+
+        private readonly string _requestUri = "/api/v2/transfers/";
+
+        public TransferService(
+            SimpleBankClient client,
+            EntityMapper mapper)
+        {
+            _client = client ?? throw new ArgumentNullException(nameof(client));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }
+
+
+        public async Task<bool> Transfer(TransferCreate transferCreate)
+        {
+            var requestTransfer = _mapper.Map(transferCreate);
+            return await _client.PostAsync(_requestUri, requestTransfer, true);
+        }
+
+
+
+
+
+
+
+    }
+}
+
+
+
+
+
+
+
+
+/*
         private readonly IHttpClientFactory _client;
         private readonly ProtectedLocalStorage _localStorage;
         private readonly ILogger<TransferService> _logger;
-        private readonly string _requestUri = "/api/v1/transfers/";
-
 
         public TransferService(
             IHttpClientFactory client,
@@ -23,17 +58,17 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Services
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-
-        public async Task<TransferResponse?> MakeTransfer(TransferRequest transferRequest)
+        public async Task<bool> MakeTransfer(RequestTransferCreate requestTransfer)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, _requestUri);
+            request.Content = JsonContent.Create(requestTransfer);
             var client = _client.CreateClient("SbApi");
 
             var accessToken = (await _localStorage.GetAsync<string>("accessToken")).Value;
             if (string.IsNullOrWhiteSpace(accessToken))
             {
-                _logger.LogCritical("GetAllAccounts failed. Access token not found.");
-                return null;
+                _logger.LogCritical("MakeTransfer failed. Access token not found.");
+                return false;
             }
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
 
@@ -41,14 +76,8 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Services
             if (response == null || !response.IsSuccessStatusCode)
             {
                 _logger.LogWarning($"Transfer not executed. Status code returned: {response?.StatusCode}");
-                return null;
             }
 
-            return await response.Content.ReadFromJsonAsync<TransferResponse>();
+            return response!.IsSuccessStatusCode;
         }
-
-
-
-
-    }
-}
+*/

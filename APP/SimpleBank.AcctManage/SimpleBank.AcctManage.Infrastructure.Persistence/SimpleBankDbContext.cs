@@ -8,6 +8,7 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence
         public SimpleBankDbContext(DbContextOptions options) : base(options) { }
 
         public virtual DbSet<Account> Accounts { get; set; } = null!;
+        public virtual DbSet<AccountDoc> AccountDocs { get; set; } = null!;
         public virtual DbSet<Movement> Movements { get; set; } = null!;
         public virtual DbSet<Transfer> Transfers { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;

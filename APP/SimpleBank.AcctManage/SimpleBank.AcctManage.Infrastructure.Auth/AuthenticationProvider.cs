@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using SimpleBank.AcctManage.Core.Application.Contracts.Business;
-using SimpleBank.AcctManage.Core.Application.Contracts.Persistence;
+using SimpleBank.AcctManage.Core.Application.Contracts.Business.v2;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers;
 using SimpleBank.AcctManage.Core.Domain;
 using System.IdentityModel.Tokens.Jwt;

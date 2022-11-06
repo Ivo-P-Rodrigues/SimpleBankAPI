@@ -1,0 +1,70 @@
+﻿@page "/profile"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Providers
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services.Responses
+@using System.Security.Claims
+@using SimpleBank.AcctManage.UI.Blazor.Server.Data
+
+@inject UserService userService
+
+@if (renderAwait)
+{
+    <Loading></Loading>
+}
+else
+{
+    <div class="container-md mx-auto rounded monoBox dropshadow">
+
+        <h3>Profile</h3>
+
+        <table class="table table-bordered table-hover table-responsive-lg">
+            <tr>
+                <th scope="row" class="thead-dark">User Id:</th>
+                <td>@user?.UserId</td>
+            </tr>
+            <tr>
+                <th scope="row" class="thead-dark">Username:</th>
+                <td>@user?.Username</td>
+            </tr>
+            <tr>
+                <th scope="row" class="thead-dark">Email:</th>
+                <td>@user?.Email</td>
+            </tr>
+            <tr>
+                <th scope="row" class="thead-dark">Created at:</th>
+                <td>@user?.CreatedAt</td>
+            </tr>
+        </table>
+
+    </div>
+    <br /> <br /> <br />
+
+    <CmptLogout ></CmptLogout>
+
+}
+
+@code {
+    private bool renderAwait = true;
+    private User user = new();
+
+    [Inject] public ApiAuthenticationStateProvider AuthProvider { get; set; }
+    [Inject] public IConfiguration Configuration { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        if (authState.User.Claims?.Count() > 0)
+        {
+            user.UserId = authState.User.Claims.FirstOrDefault(c => c.Type == Configuration["ClaimsCustomKeys:userId"]).Value;
+            user.Username = authState.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name).Value;
+            user.Email = authState.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email).Value;
+            user.CreatedAt = authState.User.Claims.FirstOrDefault(c => c.Type == Configuration["ClaimsCustomKeys:createdAt"]).Value;
+        }
+        renderAwait = false;
+    }
+
+
+
+
+
+}

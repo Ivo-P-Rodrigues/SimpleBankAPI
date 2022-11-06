@@ -1,0 +1,20 @@
+﻿@using SimpleBank.AcctManage.UI.Blazor.Server.Data
+@inject NavigationManager _navManager
+
+<tr>
+    <td>@Account.AccountId</td>
+    <td>@Account.Balance</td>
+    <td>@Account.Currency</td>
+    <td><button class="btn btn-dark btn-sm float-right" @onclick="GoToDetails">Details</button> </td>
+    <td> </td>
+</tr>
+
+@code {
+    [Parameter] public Account Account { get; set; }
+
+    private void GoToDetails() =>
+        _navManager.NavigateTo($"/accounts/{Account.AccountId}");
+   
+
+
+}

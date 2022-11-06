@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="Pages\Error.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -39,6 +35,10 @@
     <Content Update="Shared\NavMenu.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Contracts\" />
   </ItemGroup>
 
 </Project>

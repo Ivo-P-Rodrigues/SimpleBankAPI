@@ -14,7 +14,8 @@ builder.Host.RegisterSerilog();
 builder.Services.AddSingleton(Log.Logger);
 
 //API
-builder.Services.ConfigureBusinessServices();
+builder.Services.ConfigureBusinessServicesV1();
+builder.Services.ConfigureBusinessServicesV2();
 builder.Services.ConfigureProvidersServices();
 builder.Services.ConfigureBearerAuthService(builder.Configuration);
 builder.Services.ConfigureApiVersioningService();

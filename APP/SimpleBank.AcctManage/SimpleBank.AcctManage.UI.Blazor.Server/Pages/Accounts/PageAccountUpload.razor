@@ -1,0 +1,39 @@
+﻿@page "/accounts/{AccountId:guid}/upload"
+@using Microsoft.Net.Http.Headers
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+@inject AccountDocService docService
+@inject NavigationManager navManager
+
+<h3>Upload Doc</h3>
+<hr /> <br />
+
+<div class="container-sm mx-auto rounded monoBox dropshadow">
+
+    <InputFile OnChange="@LoadFile" />
+    <br />
+
+    @if (uploadAttempt == false)
+    { <hr /> <br />  <p style="color:red">Upload error. Only pdf or png, no bigger than 1Mb. </p> }
+    @if (uploadAttempt == true)
+    { <hr /> <br />  <p style="color:green">Upload successfull </p> }
+    <br /><br />
+
+    <button class="btn btn-outline-dark" @onclick="GoBack">Back</button>
+    <br /><br />
+
+</div>
+<br /><br />
+
+@code {
+    [Parameter] public Guid AccountId { get; set; }
+    private bool? uploadAttempt;
+
+    private async Task LoadFile(InputFileChangeEventArgs e)
+    {
+        //https://learn.microsoft.com/en-us/aspnet/core/blazor/file-uploads?view=aspnetcore-6.0
+        uploadAttempt = await docService.Upload(AccountId, e.File);
+    }
+
+    private void GoBack() =>
+        navManager.NavigateTo($"/accounts/{AccountId}");
+}

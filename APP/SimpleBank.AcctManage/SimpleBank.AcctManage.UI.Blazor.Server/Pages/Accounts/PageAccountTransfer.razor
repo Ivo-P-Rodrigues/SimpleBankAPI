@@ -1,0 +1,80 @@
+﻿@page "/accounts/{AccountId:guid}/transfer"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Data
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+@inject AccountService accountService
+@inject TransferService transferService
+@inject NavigationManager navManager
+
+<h3>Transfer</h3>
+<hr /><br />
+
+@if (renderAwait)
+{
+    <Loading></Loading>
+}
+else
+{
+    <div class="container-sm mx-auto rounded monoBox dropshadow">
+        <EditForm Model="@transferCreate" OnSubmit="Transfer">
+            <DataAnnotationsValidator />
+
+            <div class="form-group">
+                <label for="inputBalance1">Initial Balance:</label>
+                <InputNumber class="form-control" id="inputBalance1" @bind-Value="transferCreate.Amount" />
+                <ValidationMessage For="@(() => transferCreate.Amount)"></ValidationMessage>
+            </div>
+            <div class="form-group">
+                <label for="inputToAccountId1">Transfer to:</label>
+                <input class="form-control" id="inputToAccountId1" @bind="transferCreate.ToAccountId" />
+                <ValidationMessage For="@(() => transferCreate.ToAccountId)"></ValidationMessage>
+            </div>
+
+            <br />
+            <button type="submit" class="btn btn-dark">Transfer</button>
+
+        </EditForm>
+
+        @if (transferAttempt == false)
+        { <hr /> <br />  <p style="color:red">Invalid transfer. </p> }
+        @if (transferAttempt == true)
+        { <hr /> <br />  <p style="color:green">Transfer Successfull </p> }
+        <br />
+
+        <button class="btn btn-outline-dark" @onclick="GoBack">Back</button>
+        
+    </div>
+    <br /><br />
+
+
+}
+
+@code {
+    [Parameter] public Guid AccountId { get; set; }
+
+    private bool renderAwait = true;
+    private bool? transferAttempt;
+
+    private Account? account;
+    private TransferCreate transferCreate = new();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var accountLoad = await accountService.Get(AccountId);
+        if (accountLoad == null) { navManager.NavigateTo("/accounts", true); }
+        account = accountLoad;
+        transferCreate.FromAccountId = account!.AccountId; @*do I need the account??...*@
+        renderAwait = false;
+    }
+
+    private async Task Transfer()
+    {
+        if(transferCreate.ToAccountId == Guid.Empty || transferCreate.Amount <= 0)
+        { transferAttempt = false; }
+        else
+        { transferAttempt = await transferService.Transfer(transferCreate); }
+    }
+    
+    private void GoBack() =>
+        navManager.NavigateTo($"/accounts/{account!.AccountId}");
+}

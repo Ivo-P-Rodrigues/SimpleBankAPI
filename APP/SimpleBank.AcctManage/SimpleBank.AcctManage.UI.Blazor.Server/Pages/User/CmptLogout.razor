@@ -1,0 +1,36 @@
+﻿@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services.HttpClients
+@inject AuthClient authClient
+
+<div class="container-md mx-auto rounded monoBox dropshadow">
+
+    <button class="btn-sm btn-outline-dark w-100 mx-auto" @onclick="CallAPIToLogout">Logout</button>
+
+    @if (errorOnLogout)
+    {
+        <hr /> <br />
+        <p style="color:red">LogoutError</p>
+    }
+
+</div>
+
+@code {
+    [Inject] protected NavigationManager NavigationManager { get; set; }
+
+    private bool errorOnLogout;
+
+    private async Task CallAPIToLogout()
+    {
+        errorOnLogout = false;
+        if (await authClient.Logout())
+        {
+             NavigationManager.NavigateTo("/"); 
+        }
+        else
+        {
+            errorOnLogout = true;
+        }
+    }
+
+
+}

@@ -3,7 +3,7 @@
 #https://onexlab-io.medium.com/docker-compose-postgres-multiple-database-bbc0816db603
 
 version: '3.7'
-name: 'SimpleBank-v4'
+name: 'SimpleBank'
 networks:
   internal:
     driver: bridge
@@ -11,7 +11,7 @@ services:
 
   postgres:
     image: postgres:11.1
-    container_name: postgres-test
+    container_name: postgres
 #    restart: always
     environment: 
       DATABASE_HOST: 127.0.0.1
@@ -25,7 +25,7 @@ services:
     
   zookeeper:
     image: confluentinc/cp-zookeeper:7.0.1
-    container_name: zookeeper-test
+    container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -36,7 +36,7 @@ services:
 
   broker:
     image: confluentinc/cp-kafka:7.0.1
-    container_name: broker-test
+    container_name: broker
     ports:
       - "9092:9092"
     depends_on:
@@ -54,7 +54,7 @@ services:
       -  internal
 
 #  simplebank:
-#    container_name: simplebankapi-test
+#    container_name: SbApi
 #    build:
 #      context: .
 #      dockerfile: ./SimpleBank.AcctManage.API/Dockerfile2

@@ -1,0 +1,58 @@
+﻿@page "/accounts/{AccountId:guid}/doc/{AccountDocId:guid}"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Data
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+@inject AccountDocService docService
+@inject NavigationManager navManager
+
+<h3>Doc details</h3>
+<hr /> <br />
+
+@if (renderAwait)
+{
+    <Loading></Loading>
+}
+else
+{
+    <table class="table table-bordered table-striped table-responsive-lg">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"><strong>Id</strong></th>
+                <th scope="col"><strong>Type</strong></th>
+                <th scope="col"><strong>Name</strong></th>
+                <th scope="col"><strong>Date created</strong></th>
+            </tr>
+        </thead>
+        <tr>
+            <td>@doc?.AccountDocId</td>
+            <td>@doc?.DocType</td>
+            <td>@doc?.Name</td>
+            <td>@doc?.CreatedAt</td>
+        </tr>
+    </table>
+    <hr /> <br />
+
+    <div class="container mx-auto monobox rounded dropshadow">
+        <embed class ="container mx-auto p-2" src="@imgUrl" alt="No document to display."/>
+    </div>
+}
+<br /> <br /> 
+<button class="btn btn-dark" @onclick="GoBack">Back</button>
+<br /><br /><br />
+
+@code {
+    [Parameter] public Guid AccountId { get; set; }
+    [Parameter] public Guid AccountDocId { get; set; }
+
+    private bool renderAwait = true;
+    private AccountDoc? doc;
+    private string? imgUrl;
+
+    protected override async Task OnInitializedAsync()
+    {
+        doc = await docService.Get(AccountId, AccountDocId);
+        imgUrl = await docService.Download(AccountDocId, AccountDocId, doc.DocType);
+        renderAwait = false;
+    }
+
+    private void GoBack() => navManager.NavigateTo($"/accounts/{AccountId}");
+}

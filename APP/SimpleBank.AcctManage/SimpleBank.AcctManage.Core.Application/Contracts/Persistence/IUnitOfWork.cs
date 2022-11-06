@@ -3,6 +3,7 @@
     public interface IUnitOfWork
     {
         IAccountRepository Accounts { get; }
+        IAccountDocRepository AccountDocs { get; }
         IMovementRepository Movements { get; }
         ITransferRepository Transfers { get; }
         IUserRepository Users { get; }

@@ -6,64 +6,58 @@
 
 .bg_gray1 { background-color: #cccccc; }
 .bg_gray2 { background-color: #ececec; }
-.dualBox { background-color: #ffffff; }
 .monoBox { background-color: #ffffff; }
+.longBox { background-color: #1c1c1c; color: white; }
 
 
 /* CONTAINERS */
 
 
-.dualBox {
-    width: 90vw;
-    padding: 2em;
-}
+
 .monoBox {
     width: 90vw;
     padding: 2em;
 }
-.sm-media_margin-top {
-    margin-top: 3em;
+
+.longBox {
+    width: 90vw;
 }
 
 @media (min-width: 600px) {
-    .dualBox {
-        width: 40vw;
-        padding: 2em;
-    }
     .monoBox {
         width: 70vw;
         padding: 2em;
     }
-    .sm-media_margin-top {
-        margin-top: 0em;
+    .longBox {
+        width: 70vw;
     }
 }
 
 @media (min-width: 800px) {
-    .dualBox {
-        width: 30vw;
-        padding: 2em;
-    }
+
     .monoBox {
         width: 50vw;
         padding: 2em;
     }
-    .sm-media_margin-top {
-        margin-top: 0em;
+    .longBox {
+        width: 50vw;
     }
 }
 
 
 
 /* MISC */
-
 .dropshadow { box-shadow: 20px 20px 30px #442211; }
+
+summary {
+    list-style: none;
+}
 
 
 
 /* LEFTOVERS FROM BLAZOR SERVER APP TEMPLATE */
 .valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
+outline: 1px solid #26b050;
 }
 .invalid {
     outline: 1px solid red;
