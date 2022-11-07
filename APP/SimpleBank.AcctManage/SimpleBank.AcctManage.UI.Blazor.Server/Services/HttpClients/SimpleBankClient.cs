@@ -126,13 +126,13 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Services
                 try
                 {
                     fileStreamContent = new StreamContent(file.OpenReadStream(maxAllowedSize: 1048576));
-                    fileStreamContent.Headers.ContentType = new MediaTypeHeaderValue("image/png");
+                    fileStreamContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
                 }
                 catch (Exception ex)
                 {
                     return false;
                 }
-                multipartFormContent.Add(fileStreamContent, name: "file", fileName: file.Name); //unsafe name
+                multipartFormContent.Add(fileStreamContent, name: "file", fileName: file.Name); //TODO: Naming system
 
                 var client = _client.CreateClient("SbApi");
                 if (!await SetAuthHeaderAsync(client, auth)) { return false; }

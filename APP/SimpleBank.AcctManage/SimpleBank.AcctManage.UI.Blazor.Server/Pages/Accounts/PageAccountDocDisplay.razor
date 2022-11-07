@@ -33,9 +33,17 @@ else
     <hr /> <br />
 
     <div class="container mx-auto monobox rounded dropshadow">
-        <embed class ="container mx-auto p-2" src="@imgUrl" alt="No document to display."/>
+        @if(doc?.DocType == "image/png")
+        {
+            <img class="docPng" src="@imgUrl" alt="No image to display." />
+        }
+        else if (doc?.DocType == "application/pdf")
+        {
+            <embed class="docPdf" type="application/pdf" src="@imgUrl" />
+        }
     </div>
 }
+
 <br /> <br /> 
 <button class="btn btn-dark" @onclick="GoBack">Back</button>
 <br /><br /><br />
