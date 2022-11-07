@@ -112,8 +112,8 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
             if (file.Length >= maxFileSizeBytes)
             { return BadRequest("File is too big. Max allowed: 1Mb."); }
 
-            var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
-            if (!await _accountBusiness.CheckIfUserOwnsAccountAsync(accountId, userId))
+            if (!Guid.TryParse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value, out Guid userId) ||
+            !await _accountBusiness.CheckIfUserOwnsAccountAsync(accountId, userId))
             { return BadRequest("Invalid account id."); }
 
             var saved = await _accountDocBusiness.SaveAccountDocumentAsync(accountId, file.Name, file.ContentType, file.OpenReadStream());

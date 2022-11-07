@@ -7,6 +7,8 @@ using SimpleBank.AcctManage.API.DTModels.v2.Responses;
 using SimpleBank.AcctManage.API.Mapping.v2;
 using SimpleBank.AcctManage.Core.Application.Business;
 using SimpleBank.AcctManage.Core.Application.Contracts.Business.v2;
+using SimpleBank.AcctManage.Core.Application.Models;
+using System.Text.Json;
 
 namespace SimpleBank.AcctManage.API.Controllers.v2
 {
@@ -30,7 +32,6 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
             _movementBusiness = movementBusiness ?? throw new ArgumentNullException(nameof(movementBusiness));
             _entityMapper = entityMapper ?? throw new ArgumentNullException(nameof(entityMapper));
         }
-
 
 
         /// <summary> Get all Movements of account. </summary>
@@ -58,6 +59,38 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
 
             var movementsResponse = _entityMapper.Map(movements);
             return Ok(movementsResponse);
+        }
+
+
+        /// <summary> Get part of the Movements of the account. </summary>
+        /// <param name="accountId">Account Id belonging to user.</param>
+        /// <param name="searchQuery"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <returns>Part of the Movements of the account.</returns>
+        /// <response code="200">Ok - Returns requested Movements.</response>
+        [HttpGet("GetPartial")]
+        [Produces("application/json")]
+        [MapToApiVersion("2.0")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [ProducesResponseType(typeof(IEnumerable<ResponseMovement>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        //[ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<IEnumerable<ResponseMovement>>> GetPartial(Guid accountId, string? searchQuery, int pageNumber = 1, int pageSize = 10)
+        {
+            if (!Guid.TryParse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value, out Guid userId) ||
+                !await _accountBusiness.CheckIfUserOwnsAccountAsync(accountId, userId))
+            { return Unauthorized("Invalid access."); }
+
+            var (movementsTask, paginationMetadata) = await _movementBusiness.GetPartAsync(searchQuery, pageNumber, pageSize);
+            
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
+
+
+            //var movementsResponse = _entityMapper.Map(movements);
+            return Ok("");
         }
 
 

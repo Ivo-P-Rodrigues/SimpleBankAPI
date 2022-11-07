@@ -161,6 +161,12 @@
             <returns>All Movements of account.</returns>
             <response code="200">Ok - Returns requested Movements.</response>
         </member>
+        <member name="M:SimpleBank.AcctManage.API.Controllers.v2.MovementsController.GetPartial(System.Guid,System.String,System.Int32,System.Int32)">
+            <summary> Get part of the Movements of the account. </summary>
+            <param name="accountId">Account Id belonging to user.</param>
+            <returns>Part of the Movements of the account.</returns>
+            <response code="200">Ok - Returns requested Movements.</response>
+        </member>
         <member name="M:SimpleBank.AcctManage.API.Controllers.v2.TransfersController.MakeTransfer(SimpleBank.AcctManage.API.DTModels.v2.Requests.RequestTransferCreate)">
             <summary> Make a transfer between two accounts. </summary>
             <param name="transferRequest">Transfer Request obj.</param>
