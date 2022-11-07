@@ -6,6 +6,7 @@ namespace SimpleBank.AcctManage.Core.Application.Contracts.Business.v2
     {
         AccountDoc? Get(Guid docId);
         IEnumerable<AccountDoc> GetAll(Guid accountId);
-        Task<bool> SaveAccountDocumentAsync(AccountDoc accountDoc);
+        Task<bool> SaveAccountDocumentAsync(Guid accountId, string unsafename, string contentType, Stream docStream);
+
     }
 }

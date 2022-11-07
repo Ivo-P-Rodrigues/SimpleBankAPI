@@ -30,11 +30,12 @@
     private bool? uploadAttempt;
 
     private string[] acceptedFileTypes = new string[2] { "application/pdf", "image/png" };
+    private int maxFileSizeKb = 1024; 
 
     private async Task LoadFile(InputFileChangeEventArgs e)
     {
         if (!acceptedFileTypes.Contains(e.File.ContentType) ||
-        e.File.Size / 1024 > 1024)
+        e.File.Size / 1024 >= maxFileSizeKb)
         { uploadAttempt = false; return; }
 
         uploadAttempt = await docService.Upload(AccountId, e.File);

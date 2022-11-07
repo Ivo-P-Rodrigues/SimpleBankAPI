@@ -20,6 +20,9 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
         private readonly IAccountDocBusiness _accountDocBusiness;
         private readonly IEntityMapper _entityMapper;
 
+        private string[] acceptedFileTypes = new string[2] { "application/pdf", "image/png" };
+        private int maxFileSizeBytes = 1048576; //1Mb
+
         /// <summary> Movements related API actions. </summary>
         public AccountDocsController(
             IAccountBusiness accountBusiness,
@@ -103,41 +106,22 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
         public async Task<ActionResult> Upload(Guid accountId, [FromForm] IFormFile file)
         {
             //validations
-            if (file.ContentType != "image/png" && file.ContentType != "application/pdf")
+            if (!acceptedFileTypes.Contains(file.ContentType))
             { return BadRequest("Incorrect file type. Only PNG or PDF allowed."); }
 
-            if (file.Length / 1024 >= 1024)
+            if (file.Length >= maxFileSizeBytes)
             { return BadRequest("File is too big. Max allowed: 1Mb."); }
 
             var userId = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value!);
             if (!await _accountBusiness.CheckIfUserOwnsAccountAsync(accountId, userId))
             { return BadRequest("Invalid account id."); }
 
-            //map file to doc obj
-            byte[] fileValue;
-            using (Stream fileStream = file.OpenReadStream())
-            {
-                using (BinaryReader br = new BinaryReader(fileStream))
-                {
-                    fileValue = br.ReadBytes((Int32)fileStream.Length);
-                }
-            }
-
-            AccountDoc accountDoc = new AccountDoc()
-            {
-                AccountId = accountId,
-                Name = file.FileName,
-                Content = fileValue,
-                DocType = file.ContentType,
-            };
-
-            //save and return
-            var saved = await _accountDocBusiness.SaveAccountDocumentAsync(accountDoc);
+            var saved = await _accountDocBusiness.SaveAccountDocumentAsync(accountId, file.Name, file.ContentType, file.OpenReadStream());
             if (!saved) { return BadRequest(); }
 
             return Ok("File successfully uploaded.");
         }
-
+        
 
         /// <summary>Download a Doc in jpg or pdf format from the respective account.</summary>
         /// <param name="docId">Id of the doc to download.</param>
@@ -156,7 +140,6 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
             if (!Guid.TryParse(User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value, out Guid userId) || 
                 !await _accountBusiness.CheckIfUserOwnsAccountAsync(doc.AccountId, userId))
             { return BadRequest("Invalid document id."); }
-
              
             return new FileContentResult(doc.Content, doc.DocType)
             {

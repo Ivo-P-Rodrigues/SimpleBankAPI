@@ -3,7 +3,6 @@ using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Clients;
 using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Mapper;
 using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Services;
 using SimpleBank.AcctManage.UI.Blazor.Server.Data;
-using SimpleBank.AcctManage.UI.Blazor.Server.Services.Mapper;
 using SimpleBank.AcctManage.UI.Blazor.Server.Services.Requests;
 using SimpleBank.AcctManage.UI.Blazor.Server.Services.Responses;
 
