@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.Net.Http.Headers;
+using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Clients;
+using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Mapper;
+using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Services;
 using SimpleBank.AcctManage.UI.Blazor.Server.Providers;
 using SimpleBank.AcctManage.UI.Blazor.Server.Services;
 using SimpleBank.AcctManage.UI.Blazor.Server.Services.HttpClients;
@@ -22,7 +25,7 @@ builder.Services.AddHttpClient("SbApi", httpClient =>
     httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
 });
 
-builder.Services.AddHttpClient<AuthClient>(authClient =>
+builder.Services.AddHttpClient<IAuthClient, AuthClient>(authClient =>
 {
     authClient.BaseAddress = new Uri(builder.Configuration.GetValue<string>("SbApi:AuthUrl"));
     authClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
@@ -33,15 +36,15 @@ builder.Services.AddScoped<AuthenticationStateProvider>(sp =>
     sp.GetRequiredService<ApiAuthenticationStateProvider>());
 builder.Services.AddScoped<JwtSecurityTokenHandler>();
 
-builder.Services.AddScoped<SimpleBankClient>();
 builder.Services.AddScoped<ProtectedLocalStorage>();
-builder.Services.AddTransient<EntityMapper>();
+builder.Services.AddScoped<ISimpleBankClient, SimpleBankClient>();
+builder.Services.AddTransient<IEntityMapper, EntityMapper>();
 
-builder.Services.AddTransient<UserService>();
-builder.Services.AddTransient<AccountService>();
-builder.Services.AddTransient<AccountDocService>();
-builder.Services.AddTransient<TransferService>();
-builder.Services.AddTransient<MovementService>();
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IAccountService, AccountService>();
+builder.Services.AddTransient<IAccountDocService, AccountDocService>();
+builder.Services.AddTransient<ITransferService, TransferService>();
+builder.Services.AddTransient<IMovementService, MovementService>();
 
 var app = builder.Build();
 

@@ -12,8 +12,7 @@
 @code {
     [Parameter] public Account Account { get; set; }
 
-    private void GoToDetails() =>
-        _navManager.NavigateTo($"/accounts/{Account.AccountId}");
+    private void GoToDetails() => _navManager.NavigateTo($"/accounts/{Account.AccountId}");
    
 
 

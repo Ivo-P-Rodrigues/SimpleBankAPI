@@ -1,8 +1,9 @@
 ﻿@page "/accounts/{AccountId:guid}/transfer"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Services
 @using SimpleBank.AcctManage.UI.Blazor.Server.Data
 @using SimpleBank.AcctManage.UI.Blazor.Server.Services
-@inject AccountService accountService
-@inject TransferService transferService
+@inject IAccountService accountService
+@inject ITransferService transferService
 @inject NavigationManager navManager
 
 <h3>Transfer</h3>
@@ -71,10 +72,11 @@ else
     {
         if(transferCreate.ToAccountId == Guid.Empty || transferCreate.Amount <= 0)
         { transferAttempt = false; }
-        else
-        { transferAttempt = await transferService.Transfer(transferCreate); }
+        else { transferAttempt = await transferService.Transfer(transferCreate); }
     }
     
-    private void GoBack() =>
-        navManager.NavigateTo($"/accounts/{account!.AccountId}");
+    private void GoBack() => navManager.NavigateTo($"/accounts/{account!.AccountId}");
+
+
+
 }

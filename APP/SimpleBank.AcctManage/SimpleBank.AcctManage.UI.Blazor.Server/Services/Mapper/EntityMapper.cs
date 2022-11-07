@@ -1,10 +1,11 @@
-﻿using SimpleBank.AcctManage.UI.Blazor.Server.Data;
+﻿using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Mapper;
+using SimpleBank.AcctManage.UI.Blazor.Server.Data;
 using SimpleBank.AcctManage.UI.Blazor.Server.Services.Requests;
 using SimpleBank.AcctManage.UI.Blazor.Server.Services.Responses;
 
 namespace SimpleBank.AcctManage.UI.Blazor.Server.Services.Mapper
 {
-    public class EntityMapper 
+    public class EntityMapper : IEntityMapper
     {
 
         //AUTH - Domain to Request
@@ -48,7 +49,7 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Services.Mapper
             };
         public IEnumerable<Account> Map(IEnumerable<ResponseAccount> responseAccounts)
         {
-            foreach(ResponseAccount responseAccount in responseAccounts)
+            foreach (ResponseAccount responseAccount in responseAccounts)
             {
                 yield return Map(responseAccount);
             }

@@ -1,11 +1,12 @@
 ﻿@page "/profile"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Services
 @using SimpleBank.AcctManage.UI.Blazor.Server.Providers
 @using SimpleBank.AcctManage.UI.Blazor.Server.Services
 @using SimpleBank.AcctManage.UI.Blazor.Server.Services.Responses
 @using System.Security.Claims
 @using SimpleBank.AcctManage.UI.Blazor.Server.Data
 
-@inject UserService userService
+@inject IUserService userService
 
 @if (renderAwait)
 {

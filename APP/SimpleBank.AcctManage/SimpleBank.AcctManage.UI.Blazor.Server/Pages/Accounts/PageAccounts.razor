@@ -1,7 +1,8 @@
 ﻿@page "/accounts"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Services
 @using SimpleBank.AcctManage.UI.Blazor.Server.Data
 @using SimpleBank.AcctManage.UI.Blazor.Server.Services
-@inject AccountService accountService
+@inject IAccountService accountService
 @inject NavigationManager navManager
 
 <PageTitle>Accounts</PageTitle>

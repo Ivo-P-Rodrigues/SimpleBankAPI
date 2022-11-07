@@ -1,9 +1,10 @@
 ﻿@page "/login"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Clients
 @using SimpleBank.AcctManage.UI.Blazor.Server.Data
 @using SimpleBank.AcctManage.UI.Blazor.Server.Services
 @using SimpleBank.AcctManage.UI.Blazor.Server.Services.HttpClients
 @using SimpleBank.AcctManage.UI.Blazor.Server.Services.Requests;
-@inject AuthClient authClient
+@inject IAuthClient authClient
 @inject NavigationManager navManager
 
 <div class="container-md mx-auto rounded monoBox dropshadow">

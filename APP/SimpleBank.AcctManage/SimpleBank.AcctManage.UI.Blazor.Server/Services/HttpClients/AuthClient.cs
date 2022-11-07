@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Clients;
+using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Mapper;
 using SimpleBank.AcctManage.UI.Blazor.Server.Data;
 using SimpleBank.AcctManage.UI.Blazor.Server.Providers;
-using SimpleBank.AcctManage.UI.Blazor.Server.Services.Mapper;
 using SimpleBank.AcctManage.UI.Blazor.Server.Services.Requests;
 using SimpleBank.AcctManage.UI.Blazor.Server.Services.Responses;
 using System.Net.Http.Headers;
 
 namespace SimpleBank.AcctManage.UI.Blazor.Server.Services.HttpClients
 {
-    public class AuthClient
+    public class AuthClient : IAuthClient
     {
         private readonly HttpClient _client;
         private readonly ProtectedLocalStorage _localStorage;
         private readonly AuthenticationStateProvider _authenticationStateProvider;
-        private readonly EntityMapper _mapper;
+        private readonly IEntityMapper _mapper;
         private readonly IConfiguration _configuration;
         private readonly ILogger<AuthClient> _logger;
 
@@ -26,7 +27,7 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Services.HttpClients
             HttpClient client,
             ProtectedLocalStorage localStorage,
             AuthenticationStateProvider authenticationStateProvider,
-            EntityMapper mapper,
+            IEntityMapper mapper,
             IConfiguration configuration,
             ILogger<AuthClient> logger)
         {

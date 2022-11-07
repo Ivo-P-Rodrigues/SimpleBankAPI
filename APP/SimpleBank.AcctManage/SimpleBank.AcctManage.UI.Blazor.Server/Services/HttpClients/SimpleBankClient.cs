@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
-using System.Collections.Generic;
-using System.Net.Http;
+using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Clients;
 using System.Net.Http.Headers;
-using System.Security.Cryptography;
 
 namespace SimpleBank.AcctManage.UI.Blazor.Server.Services
 {
-    public class SimpleBankClient
+    public class SimpleBankClient : ISimpleBankClient
     {
         private readonly IHttpClientFactory _client;
         private readonly ProtectedLocalStorage _localStorage;
@@ -40,7 +38,7 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Services
                 _logger.LogWarning($"Get failed. Status code returned: {response?.StatusCode}");
                 return default(TResponse);
             }
-            else if(response.StatusCode == System.Net.HttpStatusCode.NoContent) //success but nothing returned
+            else if (response.StatusCode == System.Net.HttpStatusCode.NoContent) //success but nothing returned
             {
                 _logger.LogInformation($"Get returned NoContent.");
                 return default(TResponse);
@@ -130,7 +128,7 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Services
                     fileStreamContent = new StreamContent(file.OpenReadStream(maxAllowedSize: 1048576));
                     fileStreamContent.Headers.ContentType = new MediaTypeHeaderValue("image/png");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     return false;
                 }
@@ -146,7 +144,7 @@ namespace SimpleBank.AcctManage.UI.Blazor.Server.Services
                 }
                 return response!.IsSuccessStatusCode;
             }
-            
+
         }
 
 
