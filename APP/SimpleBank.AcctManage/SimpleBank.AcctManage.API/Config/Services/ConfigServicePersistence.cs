@@ -19,6 +19,7 @@ namespace SimpleBank.AcctManage.API.Config.Services
             services.AddScoped<ITransferRepository, TransferRepository>();
             services.AddScoped<IMovementRepository, MovementRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IAccountDocRepository, AccountDocRepository>();
             services.AddScoped<IUserTokenRepository, UserTokenRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();

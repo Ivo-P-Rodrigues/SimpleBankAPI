@@ -1,0 +1,58 @@
+﻿@using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Services
+@using SimpleBank.AcctManage.UI.Blazor.Server.Data
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+
+@inject IAccountService accountService
+
+
+<details>
+
+    <summary class="longBox mx-auto rounded dropshadow p-2">
+        <h5>New Account</h5>
+    </summary>
+    <hr />
+
+    <div class="container-sm mx-auto rounded monoBox dropshadow">
+        <EditForm Model="@accountCreate" OnSubmit="CreateAccount">
+            <DataAnnotationsValidator />
+
+            <div class="form-group">
+                <label for="inputBalance1">Initial Balance:</label>
+                <InputNumber class="form-control" id="inputBalance1" @bind-Value="accountCreate.Balance" />
+                <ValidationMessage For="@(() => accountCreate.Balance)"></ValidationMessage>
+            </div>
+            <div class="form-group">
+                <label for="inputCurrency1">Currency:</label>
+                <select name="Currency" id="inputCurrency1" @bind="accountCreate.Currency">
+                    <option value="EUR">Euro</option>
+                    <option value="USD">US Dollar</option>
+                    <option value="GBP">Great British Pound</option>
+                    <option value="JPY">Japanese Yen</option>
+                </select>
+                <span>@accountCreate.Currency</span>
+            </div>
+            
+            <br />
+            <button type="submit" class="btn btn-dark">Create</button>
+
+        </EditForm>
+    </div>
+
+</details>
+
+
+
+@code {
+    [Parameter] public EventCallback<Account> OnAccountCreation { get; set; }
+
+    private AccountCreate accountCreate = new() { Currency = "EUR" };
+
+    private async Task CreateAccount()
+    {
+        var newAccount = await accountService.Create(accountCreate);
+        if (newAccount != null)
+        {
+            await OnAccountCreation.InvokeAsync(newAccount);
+        }
+    }
+}

@@ -1,0 +1,72 @@
+﻿@page "/register"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Services
+@using SimpleBank.AcctManage.UI.Blazor.Server.Data
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services.Requests
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services.Responses
+
+@inject IUserService userService
+
+<div class="container-md mx-auto rounded monoBox dropshadow">
+
+    <h4>New User</h4>
+
+    <EditForm Model="@userCreate" OnSubmit="CallAPIToCreateUser">
+        <DataAnnotationsValidator />
+
+        <div class="form-group">
+            @*<label for="inputFullname1">@Loc["Fullname"]</label>*@
+            <InputText class="form-control" id="inputFullname1" placeholder="Fullname" @bind-Value="userCreate.Fullname" />
+            <ValidationMessage For="@(() => userCreate.Fullname)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            @*<label for="inputEmail1">@Loc["Email"]</label>*@
+            <InputText type="email" class="form-control" id="inputEmail1" placeholder="Email" @bind-Value="userCreate.Email" />
+            <ValidationMessage For="@(() => userCreate.Email)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            @*<label for="inputUsername1">@Loc["Username"]</label>*@
+            <InputText class="form-control" id="inputUsername1" placeholder="Username" @bind-Value="userCreate.Username" />
+            <ValidationMessage For="@(() => userCreate.Username)"></ValidationMessage>
+            @*aria-describedby="usernameHelp"  <small id="usernameHelp" class="form-text text-muted">Insert your username.</small>*@
+        </div>
+        <div class="form-group">
+            @*<label for="inputPassword1">@Loc["Password"]</label>*@
+            <InputText type="password" class="form-control" id="inputPassword1" placeholder="Password" @bind-Value="userCreate.Password" />
+            <ValidationMessage For="@(() => userCreate.Password)"></ValidationMessage>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Create</button>
+    </EditForm>
+
+    @if (error)
+    {
+        <hr /> <br />
+        <p style="color:red">Error on creating a new user.</p>
+    }
+
+</div>
+
+@code {
+    [Inject] protected NavigationManager NavigationManager { get; set; }
+
+    private UserCreate userCreate = new();
+    private bool error = false;
+
+    private async Task CallAPIToCreateUser()
+    {
+        if (await userService.Create(userCreate))
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+        else
+        {
+            error = true;
+        }
+        
+    }
+
+
+
+}
+

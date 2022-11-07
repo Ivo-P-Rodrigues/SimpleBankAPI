@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using SimpleBank.AcctManage.Core.Application.Contracts.Persistence;
+using SimpleBank.AcctManage.Core.Application.Contracts.Business.v2;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers;
 using SimpleBank.AcctManage.Core.Domain;
 using System.IdentityModel.Tokens.Jwt;
@@ -12,99 +12,122 @@ namespace SimpleBank.AcctManage.Infrastructure.Auth
     public class AuthenthicationProvider : IAuthenthicationProvider
     {
         private readonly IConfiguration _configuration;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUserTokenBusiness _userTokenBusiness;
+        private readonly IUserBusiness _userBusiness;
 
         public AuthenthicationProvider(
             IConfiguration configuration,
-            IUnitOfWork unitOfWork)
+            IUserBusiness userBusiness,
+            IUserTokenBusiness userTokenBusiness)
         {
-            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration)); ;
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork)); ;
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration)); 
+            _userTokenBusiness = userTokenBusiness ?? throw new ArgumentNullException(nameof(userTokenBusiness));
+            _userBusiness = userBusiness ?? throw new ArgumentNullException(nameof(userBusiness));
         }
 
 
         public async Task<UserToken?> GetUserTokenAsync(Guid userId)
-            => await _unitOfWork.UserTokens.GetUserTokenAsync(userId);
+            => await _userTokenBusiness.GetUserTokenAsync(u => u.UserId == userId);
 
         public async Task<(UserToken?, string?)> ProcessLoginAsync(Guid userId)
         {
-            var userToken = _unitOfWork.UserTokens.FirstOrDefault(x => x.UserId == userId);
+            var userToken = await _userTokenBusiness.GetUserTokenAsync(u => u.UserId == userId);
+            var (user, claimsForToken) = await GetUserWithClaims(userId);
+            if(user == null) { return (null, null); }
 
-            if (userToken != null) //if not first time user
+            if (userToken is not null) //if not new user
             {
-                if (userToken.Active) { return (null, "Already logged in."); }
-                else if (userToken.Refresh) { return (null, "Please refresh your connection instead."); }
+                //if (userToken!.Active) { return (null, "Already logged in."); }  //don't allow if already logged in
+                //else if (userToken.Refresh) { return (null, "Please refresh your connection instead."); } //don't allow if refresh is still possible
+
+                userToken = ReGenerateUserToken(userToken, claimsForToken!);
+                userToken = await _userTokenBusiness.DirectUpdateAsync(userToken);
             }
-
-            var newUserToken = CreateUserToken(userId);
-
-            if (userToken == null)  //if new user, add token
+            else //if never logged user
             {
-                newUserToken = await _unitOfWork.UserTokens.DirectAddAsync(newUserToken);
+                userToken = GenerateUserToken(user, claimsForToken!);
+                userToken = await _userTokenBusiness.DirectAddAsync(userToken);
             }
-            else  //not new user, update token
-            { 
-                _unitOfWork.UserTokens.UntrackEntity(userToken);
-                newUserToken.Id = userToken.Id;
-                newUserToken = await _unitOfWork.UserTokens.DirectUpdateAsync(newUserToken);
-            }
-            if (newUserToken == null) { return (null, null); }
-
-            return (newUserToken, null);
+            return userToken == null ? (null, null) : (userToken, null);
         }
 
         public async Task<(UserToken?, string?)> ProcessRenewToken(string refreshToken)
         {
-            var userToken = _unitOfWork.UserTokens.FirstOrDefault(x => x.RefreshToken == refreshToken); //must be bad for performance, this could be improved...
+            var userToken = await _userTokenBusiness.GetUserTokenAsync(u => u.RefreshToken == refreshToken); 
 
-            if (userToken == null || !userToken.Refresh) { return (null, "Please login instead."); } //never logged in OR refresh no longer possible
+            if (userToken == null || !userToken.Refresh) { return (null, "Please login instead."); } 
             if (userToken.Active) { return (null, "No need to refresh."); }
 
-            var newUserToken = CreateUserToken(userToken.UserId);
-            newUserToken = await _unitOfWork.UserTokens.DirectUpdateAsync(newUserToken);
-            if (newUserToken == null) { return (null, null); }
+            var (user, claimsForToken) = await GetUserWithClaims(userToken.UserId);
+            if (user == null) { return (null, null); }
 
-            return (newUserToken, null);
+            userToken = ReGenerateUserToken(userToken, claimsForToken!);
+            userToken = await _userTokenBusiness.DirectUpdateAsync(userToken);
+
+            return userToken == null ? (null, null) : (userToken, null);
         }
-
+         
         public async Task<bool?> ProcessLogout(Guid userTokenId)
         {
-            var userToken = _unitOfWork.UserTokens.FirstOrDefault(x => x.Id == userTokenId);
+            var userToken = await _userTokenBusiness.GetUserTokenAsync(x => x.Id == userTokenId);
             if (userToken == null || !userToken.Refresh) { return false; }
 
             if (userToken.Active) { userToken.AccessTokenExpiresAt = DateTime.UtcNow; }
             userToken.RefreshTokenExpiresAt = DateTime.UtcNow;
 
-            userToken = await _unitOfWork.UserTokens.DirectUpdateAsync(userToken);
-            if (userToken == null) { return null; }
-
-            return true;
+            userToken = await _userTokenBusiness.DirectUpdateAsync(userToken);
+            return userToken == null ? null : true;
         }
 
 
-        private UserToken CreateUserToken(Guid userId)
+
+        #region Inner workings
+        private async Task<(User?, IEnumerable<Claim>?)> GetUserWithClaims(Guid userId)
         {
+            var user = await _userBusiness.GetUserAsync(userId);
+            if (user is null) { return (null, null); }
+
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Add("sub", ClaimTypes.NameIdentifier);  //for custom claimtype setting
+
             var claimsForToken = new[]
                 {
-                    //new Claim(ClaimTypes.NameIdentifier, newSessionId.ToString()), 
-                    new Claim("userId", userId.ToString())
+                    new Claim("sub", user.Username), //sets the  «authState».User.Identity.Name   (by Type: AuthenticationState.ClaimsPrincipal.IIdentity.string ) 
+                    new Claim("userId", user.Id.ToString()),
+                    new Claim(ClaimTypes.Name, user.Username),
+                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim("createdAt", user.CreatedAt.ToString()),
                 };
 
+            return (user, claimsForToken);
+        }
+
+        private UserToken ReGenerateUserToken(UserToken userToken, IEnumerable<Claim> claimsForToken)
+        {
+            userToken.AccessToken = CreateAccessToken(claimsForToken);
+            userToken.AccessTokenExpiresAt = DateTime.UtcNow.AddMinutes(int.Parse(_configuration["Authentication:AccessDuration"]));
+            userToken.RefreshToken = CreateRefreshToken();
+            userToken.RefreshTokenExpiresAt = DateTime.UtcNow.AddMinutes(int.Parse(_configuration["Authentication:RefreshDuration"]));
+
+            return userToken;
+        }
+        private UserToken GenerateUserToken(User user, IEnumerable<Claim> claimsForToken)
+        {
             var userToken = new UserToken(
-                userId,
-                accessToken: GenerateAccessToken(claimsForToken),
+                user.Id,
+                accessToken: CreateAccessToken(claimsForToken),
                 accessTokenExpiresAt: DateTime.UtcNow.AddMinutes(int.Parse(_configuration["Authentication:AccessDuration"])),
-                refreshToken: GenerateRefreshToken(claimsForToken),
+                refreshToken: CreateRefreshToken(),
                 refreshTokenExpiresAt: DateTime.UtcNow.AddMinutes(int.Parse(_configuration["Authentication:RefreshDuration"])));
 
             return userToken;
         }
 
-        private string GenerateAccessToken(IEnumerable<Claim> claimsForToken) =>
-            GenerateJWTToken(claimsForToken, int.Parse(_configuration["Authentication:AccessDuration"]));
-        private string GenerateRefreshToken(IEnumerable<Claim> claimsForToken) =>
-            GenerateJWTToken(claimsForToken, int.Parse(_configuration["Authentication:RefreshDuration"]));
-        private string GenerateJWTToken(IEnumerable<Claim> claimsForToken, int duration)
+        private string CreateAccessToken(IEnumerable<Claim> claimsForToken) =>
+            CreateJWTToken(claimsForToken, int.Parse(_configuration["Authentication:AccessDuration"]));
+        private string CreateRefreshToken() =>
+            CreateJWTToken(null, int.Parse(_configuration["Authentication:RefreshDuration"]));
+        private string CreateJWTToken(IEnumerable<Claim>? claimsForToken, int duration)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["Authentication:SecretKey"]));
 
@@ -122,6 +145,9 @@ namespace SimpleBank.AcctManage.Infrastructure.Auth
 
             return tokenToReturn;
         }
+        #endregion
+
+
 
     }
 }

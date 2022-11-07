@@ -7,6 +7,7 @@ namespace SimpleBank.AcctManage.Core.Domain
         public Account()
         {
             Movements = new HashSet<Movement>();
+            Docs = new HashSet<AccountDoc>();
         }
 
         public Guid UserId { get; set; }
@@ -15,6 +16,7 @@ namespace SimpleBank.AcctManage.Core.Domain
 
         public virtual User User { get; set; }
         public virtual ICollection<Movement> Movements { get; set; }
+        public virtual ICollection<AccountDoc> Docs { get; set; }
 
     }
 }

@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using SimpleBank.AcctManage.API.Profile;
-using SimpleBank.AcctManage.Core.Application.Contracts.Business;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers;
 using SimpleBank.AcctManage.API.DTModels.v1.Requests;
 using SimpleBank.AcctManage.API.DTModels.v1.Responses;
+using SimpleBank.AcctManage.API.Mapping.v1;
+using SimpleBank.AcctManage.Core.Application.Contracts.Business.v1;
 
 namespace SimpleBank.AcctManage.API.Controllers.v1
 {
     /// <summary> Auth related API actions. </summary>
-    [ApiController, ApiVersion("1.0", Deprecated = false)]
+    [ApiController, ApiVersion("1.0", Deprecated = true)]
     [Route("api/v{version:apiVersion}/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class AuthController : ControllerBase
@@ -18,7 +18,6 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         private readonly IAuthenthicationProvider _authenthicationProvider;
         private readonly IUserBusiness _userBusiness;
         private readonly IEntityMapper _entityMapper;
-
 
         public AuthController(
             IAuthenthicationProvider authenthicationProvider,
@@ -31,13 +30,12 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         }
 
 
-        /// <summary>
-        /// Login to be granted access to the API.
-        /// </summary>
+        /// <summary>Login to be granted access to the API.</summary>
         /// <param name="loginUserRequest">User's param to Login</param>
         /// <returns>A Token</returns>
         [AllowAnonymous]
         [HttpPost("Login")]
+        [Produces("application/json")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -57,17 +55,16 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
                     StatusCode(StatusCodes.Status400BadRequest, possibleError);
             }
 
-            var loginResponse = _entityMapper.MapUserTokenToLoginResponse(userToken);
+            var loginResponse = _entityMapper.MapToLoginResponse(userToken);
             return Ok(loginResponse);
         }
 
 
-        /// <summary>
-        /// Renews the refresh token.
-        /// </summary>
+        /// <summary>Renews the refresh token.</summary>
         /// <returns>Refreshed token.</returns>
         [AllowAnonymous]
         [HttpPost("Renew", Name = "Renew")]
+        [Produces("application/json")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -84,14 +81,12 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
                     StatusCode(StatusCodes.Status400BadRequest, possibleError);
             }
 
-            var loginResponse = _entityMapper.MapUserTokenToLoginResponse(userToken);
+            var loginResponse = _entityMapper.MapToLoginResponse(userToken);
             return Ok(loginResponse);
         }
 
 
-        /// <summary>
-        /// Logout.
-        /// </summary>
+        /// <summary>Logout. </summary>
         /// <param name="logoutUserRequest">Request to logout.</param>
         /// <returns>A response.</returns>
         [HttpPost("Logout")]
@@ -112,18 +107,15 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
                     return StatusCode(StatusCodes.Status400BadRequest, "Logout unavailable.");
                 default:
                     return Ok("User logged out.");
-
             }
-
         }
 
 
-        /// <summary>
-        /// Gets the user token (as LoginUserResponse).
-        /// </summary>
+        /// <summary>Gets the user token (as LoginUserResponse). </summary>
         /// <returns>User token.</returns>
         [AllowAnonymous]
         [HttpPost("GetTokenAgain")]
+        [Produces("application/json")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(CreateUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -136,7 +128,7 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
             var userToken = await _authenthicationProvider.GetUserTokenAsync(userId);
             if (userToken == null) { return BadRequest("Error on getting token."); }
 
-            var loginResponse = _entityMapper.MapUserTokenToLoginResponse(userToken);
+            var loginResponse = _entityMapper.MapToLoginResponse(userToken);
 
             return Ok(loginResponse);
         }

@@ -1,0 +1,9 @@
+﻿summary {
+    text-align:center;
+}
+    summary:hover {
+        background-color: #752902;
+    }
+    summary:focus {
+        background-color: #530700;
+    }

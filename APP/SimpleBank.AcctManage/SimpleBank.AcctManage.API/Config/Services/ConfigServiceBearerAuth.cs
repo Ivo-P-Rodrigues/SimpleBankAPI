@@ -1,4 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using SimpleBank.AcctManage.Core.Application.Contracts.Providers;
+using SimpleBank.AcctManage.Infrastructure.Auth;
 
 namespace SimpleBank.AcctManage.API.Config.Services
 {
@@ -24,6 +26,8 @@ namespace SimpleBank.AcctManage.API.Config.Services
                             System.Text.Encoding.ASCII.GetBytes(configuration["Authentication:SecretKey"]))
                     };
                 });
+
+            services.AddTransient<IAuthenthicationProvider, AuthenthicationProvider>();
         }
 
     }

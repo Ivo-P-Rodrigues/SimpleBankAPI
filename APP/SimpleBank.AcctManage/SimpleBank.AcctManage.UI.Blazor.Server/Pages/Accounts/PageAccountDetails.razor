@@ -1,0 +1,143 @@
+﻿@page "/accounts/{AccountId:guid}"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Services
+@using SimpleBank.AcctManage.UI.Blazor.Server.Data
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+@inject IAccountService accountService
+@inject IMovementService movementService
+@inject IAccountDocService docService
+@inject NavigationManager navManager
+
+<h3>Account Details</h3>
+<hr /> 
+
+@if (renderAwait)
+{
+    <Loading></Loading>
+}
+else
+{
+    @*ACCOUNT*@
+    <table class="table table-bordered table-striped table-responsive-lg">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"><strong>AccountId</strong></th>
+                <th scope="col"><strong>Balance</strong></th>
+                <th scope="col"><strong>Currency</strong></th>
+            </tr>
+        </thead>
+        <tr>
+            <td>@account?.AccountId</td>
+            <td>@account?.Balance</td>
+            <td>@account?.Currency</td>
+        </tr>
+    </table>
+
+    <div>
+        <button class="btn btn-dark" @onclick="ToTransfer">Transfer</button>
+        <button class="btn btn-dark" @onclick="ToUploadDoc">Upload Doc</button>
+        <button class="btn btn-outline-dark" @onclick="GoBack">Back</button>
+    </div>
+    <hr /> <br />
+
+
+    @*MOVEMENTS*@
+    <details>
+        <summary>
+            <h5 style="text-align:center"><b>Movements</b></h5>
+            <hr /> <br />
+        </summary>
+        @if (movements != null && movements.Count != 0)
+        {
+            <table class="table table-bordered table-striped table-responsive-lg">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><strong>Amount</strong></th>
+                        <th scope="col"><strong>CreatedAt</strong></th>
+                    </tr>
+                </thead>
+                @foreach (var mov in movements)
+                {
+                    <tr>
+                        <td>@mov?.Amount</td>
+                        <td>@mov?.CreatedAt</td>
+                    </tr>
+                }
+            </table>
+            
+        }
+        else
+        {
+            <p>No movements to show.</p>
+        }
+    </details>
+    <hr /> <br />
+
+
+    @*DOCS*@
+    <details>
+        <summary>
+            <h5 style="text-align:center"><b>Docs</b></h5>
+            <hr /> <br />
+        </summary>
+        @if (docs != null && docs.Count != 0)
+        {
+            <table class="table table-bordered table-striped table-responsive-lg">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><strong>AccountDocId</strong></th>
+                        <th scope="col"><strong>Name</strong></th>
+                        <th scope="col"><strong>DocType</strong></th>
+                        <th scope="col"><strong>CreatedAt</strong></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                @foreach (var doc in docs)
+                {
+                    <tr>
+                        <td>@doc?.AccountDocId</td>
+                        <td>@doc?.Name</td>
+                        <td>@doc?.DocType</td>
+                        <td>@doc?.CreatedAt</td>
+                        <td><button class="btn btn-outline-dark" @onclick="() => DocDetails(doc.AccountDocId)">Details</button></td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>No documents to show.</p>
+        }
+    </details>
+    <hr /> <br />
+
+
+}
+
+<button class="btn btn-dark" @onclick="GoBack">Back</button>
+<br /><br /><br />
+
+@code {
+    [Parameter] public Guid AccountId { get; set; }
+
+    private bool renderAwait = true;
+    public Account? account;
+    public List<Movement>? movements;
+    public List<AccountDoc>? docs;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        //var id = Guid.Parse(navManager.Uri.ToString().Split("/").Last());
+        account = await accountService.Get(AccountId);
+        movements = (await movementService.GetAll(AccountId))?.ToList() ?? new List<Movement>();
+        docs = (await docService.GetAll(AccountId))?.ToList() ?? new List<AccountDoc>();
+
+        renderAwait = false;
+    }
+
+    private void GoBack() =>      navManager.NavigateTo($"/accounts");
+    private void ToTransfer() =>  navManager.NavigateTo($"/accounts/{account!.AccountId}/transfer");
+    private void ToUploadDoc() => navManager.NavigateTo($"/accounts/{account!.AccountId}/upload");
+    private void DocDetails(Guid accountDocId) => navManager.NavigateTo($"/accounts/{account!.AccountId}/doc/{accountDocId}");
+
+}

@@ -1,0 +1,44 @@
+﻿@using SimpleBank.AcctManage.UI.Blazor.Server.Providers
+
+
+<nav class="navbar mr-auto navbar-dark bg-dark">  @*container-fluid*@
+
+    <NavLink class="navbar-brand" title="Home" href="" Match="NavLinkMatch.All"> SimpleBank </NavLink>
+
+    <button class="navbar-toggler" title="Navigation menu" @onclick="ToggleNavMenu">  <span class="navbar-toggler-icon"></span>  </button>
+
+    <div class="@NavMenuCssClass">
+        <div class="navbar-nav">
+            <AuthorizeView>
+
+                <NotAuthorized>
+                    <div class="nav-item mx-2">
+                        <NavLink class="nav-link" href="login"> Login </NavLink>
+                    </div>
+                    <div class="nav-item mx-2">
+                        <NavLink class="nav-link" href="register"> Register </NavLink>
+                    </div>
+                </NotAuthorized>
+
+                <Authorized>
+                   <div class="nav-item  mx-2"> @*text-nowrap*@
+                        <NavLink class="nav-link" href="profile"> @context.User.Identity!.Name </NavLink>
+                    </div>
+                    <div class="nav-item mx-2">
+                        <NavLink class="nav-link" href="accounts"> Accounts </NavLink>
+                    </div>
+                </Authorized>
+
+            </AuthorizeView>
+        </div>
+    </div>
+
+</nav>
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private void ToggleNavMenu() => collapseNavMenu = !collapseNavMenu;
+}

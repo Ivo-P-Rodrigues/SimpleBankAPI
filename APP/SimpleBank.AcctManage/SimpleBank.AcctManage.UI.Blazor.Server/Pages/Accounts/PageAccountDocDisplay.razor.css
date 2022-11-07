@@ -1,0 +1,13 @@
+﻿.docPng {
+    display: block;
+    padding: 1em;
+    width: 50%;
+    margin: auto;
+}
+
+.docPdf {
+    display: block;
+    padding: 1em;
+    width: 100%;
+    height: 30em;
+}

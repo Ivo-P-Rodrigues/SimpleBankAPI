@@ -1,0 +1,67 @@
+﻿@page "/accounts"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Services
+@using SimpleBank.AcctManage.UI.Blazor.Server.Data
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+@inject IAccountService accountService
+@inject NavigationManager navManager
+
+<PageTitle>Accounts</PageTitle>
+
+<h3>Accounts</h3>
+<hr /> <br />
+
+<CmptAccountCreate OnAccountCreation="@OnAccountCreation"></CmptAccountCreate>
+<hr /> <br />
+
+@if (renderAwait)
+{
+    <Loading></Loading>
+}
+else
+{
+    if (accountsList?.Count == 0)
+    {
+        <div class="container-md rounded monoBox dropshadow mx-auto">
+            <p><b>NoAccounts</b></p>
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered table-striped table-responsive-lg mx-auto">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><strong>AccountId</strong></th>
+                    <th scope="col"><strong>Balance</strong></th>
+                    <th scope="col"><strong>Currency</strong></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            @foreach (var account in accountsList)
+            {
+               <ItemAccount Account="@account"></ItemAccount>
+            }
+        </table>
+        <hr /> <br /> <br />
+    }
+}
+<br /><br />
+
+@code {
+    private bool renderAwait = true;
+    private List<Account>? accountsList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var accountsLoad = await accountService.GetAll();
+        accountsList = accountsLoad == null ? new() : accountsLoad.ToList();
+        renderAwait = false;
+    }
+
+
+    private void OnAccountCreation(Account newAccount)=>
+        accountsList.Add(newAccount);
+    
+
+
+}

@@ -1,19 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using SimpleBank.AcctManage.API.Profile;
 using SimpleBank.AcctManage.Core.Domain;
-using SimpleBank.AcctManage.Core.Application.Contracts.Business;
 using SimpleBank.AcctManage.Core.Application.Contracts.Providers;
 using SimpleBank.AcctManage.API.DTModels.v1.Requests;
 using SimpleBank.AcctManage.API.DTModels.v1.Responses;
+using SimpleBank.AcctManage.API.Mapping.v1;
+using SimpleBank.AcctManage.Core.Application.Contracts.Business.v1;
 
 namespace SimpleBank.AcctManage.API.Controllers.v1
 {
-    /// <summary>
-    /// User related API actions.
-    /// </summary>
-    [ApiController, ApiVersion("1.0", Deprecated = false)]
+    /// <summary> User related API actions. </summary>
+    [ApiController, ApiVersion("1.0", Deprecated = true)]
     [Route("api/v{version:apiVersion}/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class UsersController : ControllerBase
@@ -38,9 +36,7 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         }
 
 
-        /// <summary>
-        /// Create a new user.
-        /// </summary>
+        /// <summary>Create a new user.</summary>
         /// <param name="createUserRequest">All new user details.</param>
         /// <returns>The newly created user.</returns>
         [AllowAnonymous]
@@ -67,11 +63,10 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
         }
 
 
-        /// <summary>
-        /// Gets the user info (as CreateUserResponse).
-        /// </summary>
+        /// <summary>Gets the user info (as CreateUserResponse).</summary>
         /// <returns>User info.</returns>
         [HttpGet("Profile")]
+        [Produces("application/json")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(CreateUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -90,3 +85,33 @@ namespace SimpleBank.AcctManage.API.Controllers.v1
 
     }
 }
+
+
+/*
+         [HttpPost]
+        [AllowAnonymous]
+        [MapToApiVersion("2.0")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<object>> UploadFile([FromForm] IFormFile file)
+        {
+            byte[] fileValue;
+            using (Stream fileStream = file.OpenReadStream())
+            {
+                using (BinaryReader br = new BinaryReader(fileStream))
+                {
+                    fileValue = br.ReadBytes((Int32)fileStream.Length);
+                }
+
+                return Ok(new {
+                    FilePath = Path.GetTempFileName(),
+                    FilePath2 = Path.GetFileName(file.FileName),
+                    FileType = file.ContentType, 
+                    ContentDisposition = file.ContentDisposition,
+                    sizeBy = (double) file.Length,
+                    sizeKb = (double) file.Length / 1024,
+                    sizeMb = (double) (file.Length / 1024) / 1024,
+                    sizeGb = (double) ((file.Length / 1024) / 1024) / 1024,
+                    FileValue = fileValue });
+            }
+        }
+ */

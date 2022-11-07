@@ -1,0 +1,35 @@
+
+.navbrand {
+    width: 50px;
+}
+
+.navbar-nav {
+    display: block;
+}
+
+.nav-item {
+    width: 100vw;
+}
+
+@media (min-width: 700px) {
+
+    .navbar-toggler {
+        display: none;
+    }
+
+    .collapse {
+        display: block;
+    }
+
+    .nav-item {
+        padding: 0em 1em;
+        width: auto;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+ 

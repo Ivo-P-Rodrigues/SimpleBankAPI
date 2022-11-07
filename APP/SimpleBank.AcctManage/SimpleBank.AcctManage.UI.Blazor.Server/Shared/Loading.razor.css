@@ -1,0 +1,11 @@
+﻿.imgLoading {
+    margin: auto;
+}
+
+    .imgLoading > img {
+        width: 50vh;
+        height: 50vh;
+        padding: 2em;
+        display: block;
+        margin: auto;
+    }

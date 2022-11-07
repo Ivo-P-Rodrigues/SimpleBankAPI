@@ -1,0 +1,54 @@
+﻿@page "/login"
+@using SimpleBank.AcctManage.UI.Blazor.Server.Contracts.Clients
+@using SimpleBank.AcctManage.UI.Blazor.Server.Data
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services.HttpClients
+@using SimpleBank.AcctManage.UI.Blazor.Server.Services.Requests;
+@inject IAuthClient authClient
+@inject NavigationManager navManager
+
+<div class="container-md mx-auto rounded monoBox dropshadow">
+
+    <h4>Login</h4>
+
+    <EditForm Model="@userLogin" OnSubmit="Login">
+        <DataAnnotationsValidator />
+
+        <div class="form-group">
+            <InputText class="form-control" id="inputUsername1" placeholder="Username" @bind-Value="userLogin.Username" />
+            <ValidationMessage For="@(() => userLogin.Username)"></ValidationMessage>
+        </div>
+
+        <div class="form-group">
+            <InputText type="password" class="form-control" id="inputPassword1" placeholder="Password" @bind-Value="userLogin.Password" />
+            <ValidationMessage For="@(() => userLogin.Password)"></ValidationMessage>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Login</button>
+        <button class="btn-sm btn-outline-dark float-right" @onclick="@AutoFill">AutoFill</button>
+    </EditForm>
+
+    @if (loginAttempt == false)
+    { <hr /> <br />  <p style="color:red">Login error. Please re-insert your credencials. </p> }
+    @if (loginAttempt == true)
+    { <hr /> <br />  <p style="color:green">Login Successfull </p> }
+
+    
+</div>
+<br /> <br />
+
+@code {
+    [Inject] protected NavigationManager NavigationManager { get; set; }
+
+    private bool? loginAttempt;
+    private UserLogin userLogin = new();
+
+    private void AutoFill() => userLogin = new UserLogin() { Username = "Dummytester2", Password = "123456789" };
+
+    private async Task Login()
+    {
+        loginAttempt = await authClient.Login(userLogin);
+        if (loginAttempt == true) { NavigationManager.NavigateTo("/"); }
+    }
+
+}

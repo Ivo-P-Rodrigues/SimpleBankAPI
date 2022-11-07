@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using Serilog.Events;
 
 namespace SimpleBank.AcctManage.API.Config.Hosts
 {
@@ -10,6 +11,7 @@ namespace SimpleBank.AcctManage.API.Config.Hosts
              .MinimumLevel.Debug()
              .WriteTo.Console()
              .WriteTo.File("_Logs/SimpleBankAPI_Log.txt", rollingInterval: RollingInterval.Day)
+             .Filter.ByExcluding((le) => le.Level == LogEventLevel.Information)
              .CreateLogger();
 
             host.UseSerilog();
@@ -18,6 +20,13 @@ namespace SimpleBank.AcctManage.API.Config.Hosts
             
     }
 }
+
+//.Filter.ByIncludingOnly(isNotInfoLevel)
+//private static bool isNotInfoLevel(LogEvent le)
+//{
+//    return le.Level != LogEventLevel.Information;
+//}
+
 
 //builder.Logging.ClearProviders();
 //builder.Logging.AddConsole();
