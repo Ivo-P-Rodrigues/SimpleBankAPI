@@ -21,6 +21,7 @@ namespace SimpleBank.AcctManage.Infrastructure.Persistence.Repositories.Common
         }
 
 
+
         //direct crud - immediately sets the crud action against the DB (not just the tracking) 
         public async Task<TEntity?> DirectAddAsync(TEntity entity)
         {

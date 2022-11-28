@@ -164,6 +164,9 @@
         <member name="M:SimpleBank.AcctManage.API.Controllers.v2.MovementsController.GetPartial(System.Guid,System.String,System.Int32,System.Int32)">
             <summary> Get part of the Movements of the account. </summary>
             <param name="accountId">Account Id belonging to user.</param>
+            <param name="searchQuery"></param>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
             <returns>Part of the Movements of the account.</returns>
             <response code="200">Ok - Returns requested Movements.</response>
         </member>
