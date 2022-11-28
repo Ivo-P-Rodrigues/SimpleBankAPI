@@ -100,10 +100,11 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
         /// <returns>Doc in jpg or pdf.</returns>
         [HttpPost("Upload")]
         [MapToApiVersion("2.0")]
+        //[RequestSizeLimit(2 * 1024)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Upload(Guid accountId, [FromForm] IFormFile file)
+        public async Task<ActionResult> Upload(Guid accountId, IFormFile file)
         {
             //validations
             if (!acceptedFileTypes.Contains(file.ContentType))
