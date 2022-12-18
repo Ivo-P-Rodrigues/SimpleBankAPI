@@ -58,18 +58,6 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
 
 
 
-        [HttpGet]
-        [MapToApiVersion("2.0")]
-        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Test()
-        {
-
-            return Ok();
-        }
-
-
 
 
 
