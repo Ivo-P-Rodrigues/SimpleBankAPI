@@ -63,7 +63,6 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
 
 
 
-
     }
 }
 
