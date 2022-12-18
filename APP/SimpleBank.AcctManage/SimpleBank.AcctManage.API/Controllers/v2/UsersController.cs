@@ -57,7 +57,7 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
 
 
 
-        [AllowAnonymous]
+
         [HttpPost]
         [MapToApiVersion("2.0")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
