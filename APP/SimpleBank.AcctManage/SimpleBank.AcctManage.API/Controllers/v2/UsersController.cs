@@ -58,24 +58,15 @@ namespace SimpleBank.AcctManage.API.Controllers.v2
 
 
 
-        [HttpPost]
+        [HttpGet]
         [MapToApiVersion("2.0")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Test(RequestUserCreate createUserRequest)
+        public async Task<ActionResult> Test()
         {
-            User user = new()
-            {
-                Username = createUserRequest.Username,
-                Email = createUserRequest.Email,
-                Fullname = createUserRequest.Fullname
-            };
 
-            var newUser = await _userBusiness.CreateUserAsync(user, createUserRequest.Password);
-            if (newUser == null) { return BadRequest("Error on creating. Username or email already in use."); }
-
-            return Ok("User successfully created.");
+            return Ok();
         }
 
 
